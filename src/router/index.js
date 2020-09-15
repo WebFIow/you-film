@@ -31,6 +31,12 @@ const routes = [
     name: 'Films',
     meta: { layout: 'main' },
     component: () => import('../views/Films')
+  },
+  {
+    path: '/add-film',
+    name: 'AddFilm',
+    meta: { layout: 'main' },
+    component: () => import('../views/AddFilm')
   }
 ]
 
