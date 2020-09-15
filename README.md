@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-1. https://github.com/WebFIow/you-film.git
+1. git clone https://github.com/WebFIow/you-film.git
 2. cd you-film
 3. npm install
 4. create .env file with secret info
