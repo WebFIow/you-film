@@ -3,7 +3,13 @@
         <form @submit.prevent="postFilm">
             <input 
                 type="text"
+                placeholder="json"
                 v-model="text"
+            >
+            <input 
+                type="text"
+                placeholder="назва українською"
+                v-model="ua"
             >
             <button 
               type="submit"
@@ -17,11 +23,12 @@
 <script>
 export default {
     data: () => ({
-        text: ''
+        text: '',
+        ua: ''
     }),
     methods: {
         postFilm() {
-            this.$store.dispatch('createFilm', this.text)
+            this.$store.dispatch('createFilm', {json: this.text, ua: this.ua})
         }
     }
 }

@@ -11,7 +11,7 @@ export default new Vuex.Store({
   },
   actions: {
     //temporary action
-    async createFilm({commit}, json) {
+    async createFilm({}, {json, ua}) {
       try {
         const data =  JSON.parse(json)
         delete data.Ratings
@@ -22,6 +22,7 @@ export default new Vuex.Store({
         delete data.Rated
         delete data.Metascore
         delete data.imdbVotes
+        data.TitleUA = ua
         console.log(data)
         return await firebase.database().ref(`/films/`).push(data)
       } catch (e) {
