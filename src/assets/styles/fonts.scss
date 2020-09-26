@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Regular'), local('Playfairdisplay-Regular'), url('../fonts/playfair/Playfairdisplayregular.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplayregular.woff') format('woff'), url('../fonts/playfair/Playfairdisplayregular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display SemiBold'), local('Playfairdisplay-SemiBold'), url('../fonts/playfair/Playfairdisplaysemibold.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplaysemibold.woff') format('woff'), url('../fonts/playfair/Playfairdisplaysemibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Italic'), local('Playfairdisplay-Italic'), url('../fonts/playfair/Playfairdisplayitalic.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplayitalic.woff') format('woff'), url('../fonts/playfair/Playfairdisplayitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Medium Italic'), local('Playfairdisplay-MediumItalic'), url('../fonts/playfair/Playfairdisplaymediumitalic.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplaymediumitalic.woff') format('woff'), url('../fonts/playfair/Playfairdisplaymediumitalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display ExtraBold Italic'), local('Playfairdisplay-ExtraBoldItalic'), url('../fonts/playfair/Playfairdisplayextrabolditalic.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplayextrabolditalic.woff') format('woff'), url('../fonts/playfair/Playfairdisplayextrabolditalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display ExtraBold'), local('Playfairdisplay-ExtraBold'), url('../fonts/playfair/Playfairdisplayextrabold.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplayextrabold.woff') format('woff'), url('../fonts/playfair/Playfairdisplayextrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Black'), local('Playfairdisplay-Black'), url('../fonts/playfair/Playfairdisplayblack.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplayblack.woff') format('woff'), url('../fonts/playfair/Playfairdisplayblack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Medium'), local('Playfairdisplay-Medium'), url('../fonts/playfair/Playfairdisplaymedium.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplaymedium.woff') format('woff'), url('../fonts/playfair/Playfairdisplaymedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Bold Italic'), local('Playfairdisplay-BoldItalic'), url('../fonts/playfair/Playfairdisplaybolditalic.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplaybolditalic.woff') format('woff'), url('../fonts/playfair/Playfairdisplaybolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display SemiBold Italic'), local('Playfairdisplay-SemiBoldItalic'), url('../fonts/playfair/Playfairdisplaysemibolditalic.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplaysemibolditalic.woff') format('woff'), url('../fonts/playfair/Playfairdisplaysemibolditalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Bold'), local('Playfairdisplay-Bold'), url('../fonts/playfair/Playfairdisplaybold.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplaybold.woff') format('woff'), url('../fonts/playfair/Playfairdisplaybold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: local('Playfair Display Black Italic'), local('Playfairdisplay-BlackItalic'), url('../fonts/playfair/Playfairdisplayblackitalic.woff2') format('woff2'), url('../fonts/playfair/Playfairdisplayblackitalic.woff') format('woff'), url('../fonts/playfair/Playfairdisplayblackitalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans Thin'), local('JosefinSans-Thin'), url('../fonts/josefinsans/josefinsansthin.woff2') format('woff2'), url('../fonts/josefinsans/josefinsansthin.woff') format('woff'), url('../fonts/josefinsans/josefinsansthin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans Thin Italic'), local('JosefinSans-ThinItalic'), url('../fonts/josefinsans/josefinsansthinitalic.woff2') format('woff2'), url('../fonts/josefinsans/josefinsansthinitalic.woff') format('woff'), url('../fonts/josefinsans/josefinsansthinitalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans Light'), local('JosefinSans-Light'), url('../fonts/josefinsans/josefinsanslight.woff2') format('woff2'), url('../fonts/josefinsans/josefinsanslight.woff') format('woff'), url('../fonts/josefinsans/josefinsanslight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans Light Italic'), local('JosefinSans-LightItalic'), url('../fonts/josefinsans/josefinsanslightitalic.woff2') format('woff2'), url('../fonts/josefinsans/josefinsanslightitalic.woff') format('woff'), url('../fonts/josefinsans/josefinsanslightitalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans'), local('JosefinSans'), url('../fonts/josefinsans/josefinsans.woff2') format('woff2'), url('../fonts/josefinsans/josefinsans.woff') format('woff'), url('../fonts/josefinsans/josefinsans.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans Italic'), local('JosefinSans-Italic'), url('../fonts/josefinsans/josefinsansitalic.woff2') format('woff2'), url('../fonts/josefinsans/josefinsansitalic.woff') format('woff'), url('../fonts/josefinsans/josefinsansitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans SemiBold'), local('JosefinSans-SemiBold'), url('../fonts/josefinsans/josefinsanssemibold.woff2') format('woff2'), url('../fonts/josefinsans/josefinsanssemibold.woff') format('woff'), url('../fonts/josefinsans/josefinsanssemibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans SemiBold Italic'), local('JosefinSans-SemiBoldItalic'), url('../fonts/josefinsans/josefinsanssemibolditalic.woff2') format('woff2'), url('../fonts/josefinsans/josefinsanssemibolditalic.woff') format('woff'), url('../fonts/josefinsans/josefinsanssemibolditalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url('../fonts/josefinsans/josefinsansbold.woff2') format('woff2'), url('../fonts/josefinsans/josefinsansbold.woff') format('woff'), url('../fonts/josefinsans/josefinsansbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+    src: local('Josefin Sans Bold Italic'), local('JosefinSans-BoldItalic'), url('../fonts/josefinsans/josefinsansbolditalic.woff2') format('woff2'), url('../fonts/josefinsans/josefinsansbolditalic.woff') format('woff'), url('../fonts/josefinsans/josefinsansbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
