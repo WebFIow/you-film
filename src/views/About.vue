@@ -2,7 +2,7 @@
   <div id="about">
     <div class="container container-fluid">
       <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6 col-md-6">
           <h1 class="hText">Про нас</h1>
           <p class="pText"><span class="gold">YouFilm</span> — пошукова платформа фільмів,
           яка має всі можливі фільтри, щоб знайти
@@ -12,8 +12,8 @@
           нашого сайту можна швидко й легко знайти
             потрібний користувачу фільм.</p>
         </div>
-        <div class="col-6">
-<!--          <img class="img-fluid" src="../you-film/" alt="about">-->
+        <div class="col-lg-6 col-md-6 text-center">
+          <img class="img-fluid imgAbout" src="../../public/img/about.jpg" alt="about">
         </div>
       </div>
     </div>

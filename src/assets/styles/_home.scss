@@ -48,3 +48,43 @@ p.pText{
 .gold {
     color: $gold;
 }
+
+// Media Queries //
+@media (max-width:768px) {
+    #about {
+        padding:80px 0px;
+    }
+    p.pText {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    #about .gold {
+        font-size: 30px;
+        line-height: 32px;
+    }
+    .hText {
+        font-size: 36px;
+        line-height: 38px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .imgAbout {
+        height: 300px!important;
+    }
+    p.pText {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+    #about .gold {
+        font-size: 26px;
+        line-height: 28px;
+    }
+    .hText {
+        font-size: 30px;
+        line-height: 35px;
+        margin-bottom: 20px;
+    }
+}
