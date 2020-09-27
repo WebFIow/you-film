@@ -1,10 +1,10 @@
-.test-wr {
-    &-for-scss {
-        height: 100px;
-        width: 100px;
-        background-color: red;
-    }
-}
+//.test-wr {
+//    &-for-scss {
+//        height: 100px;
+//        width: 100px;
+//        background-color: red;
+//    }
+//}
 $gold: #C1AB65;
 
 * {
@@ -70,13 +70,18 @@ p.pText{
 }
 
 @media (max-width: 425px) {
-    .imgAbout {
-        height: 300px!important;
+    #about {
+        padding:20px 0px;
+    }
+    .mobNotVisible {
+        visibility: hidden;
+        height: 0px!important;
     }
     p.pText {
         font-size: 16px;
         line-height: 24px;
         margin-bottom: 20px;
+        text-align: center;
     }
     #about .gold {
         font-size: 26px;

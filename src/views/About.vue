@@ -12,7 +12,7 @@
           нашого сайту можна швидко й легко знайти
             потрібний користувачу фільм.</p>
         </div>
-        <div class="col-lg-6 col-md-6 text-center">
+        <div class="col-lg-6 col-md-6 text-center mobNotVisible">
           <img class="img-fluid imgAbout" src="../../public/img/about.jpg" alt="about">
         </div>
       </div>
