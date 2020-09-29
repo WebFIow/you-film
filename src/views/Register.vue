@@ -29,7 +29,11 @@
     <!--                <label for="exampleInputPassword1">Password</label>-->
                     <input type="password" class="form-control" id="password" placeholder="Пароль">
                   </div>
-                  <button type="submit" class="btn btn-primary">Зареєструватися</button>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="checkRules">
+                        <label class="form-check-label" for="checkRules">Згоден(-на) з <a class="aLink" href="#">правилами</a></label>
+                    </div>
+                  <button type="submit" class="btn btn-gold">Зареєструватися</button>
                 </form>
               </div>
             </div>
