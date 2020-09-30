@@ -47,7 +47,7 @@ p.pText{
 
 // Media Queries //
 @media (max-width:768px) {
-    #about {
+    #about, #register {
         padding:80px 0px;
     }
     p.pText {
@@ -66,7 +66,7 @@ p.pText{
 }
 
 @media (max-width: 425px) {
-    #about {
+    #about, #register {
         padding:20px 0px;
     }
     .mobNotVisible {
@@ -211,4 +211,67 @@ button.btn-gold {
     color: white;
     padding: 10px 60px;
     border-radius: 20px;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width:991px) {
+    .imgAbout {
+        max-width: 90%!important;
+    }
+
+    h4.hSubText {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 30px;
+    }
+    form.regForm {
+        input, label.form-check-label {
+            font-size: 18px;
+        }
+    }
+    .hText {
+        font-size: 36px;
+        line-height: 38px;
+        margin-bottom: 50px;
+    }
+    button.btn-gold {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .rText {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .rect {
+        padding: 20px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .imgAbout, .rect {
+        display: none;
+    }
+}
+
+@media (max-width: 475px) {
+    h4.hSubText {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+    form.regForm {
+        input, label.form-check-label {
+            font-size: 16px;
+        }
+    }
+    button.btn-gold {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .blockCenter {
+        position: relative;
+    }
 }

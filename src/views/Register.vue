@@ -2,12 +2,12 @@
   <div id="register">
     <div class="container container-fluid">
       <div class="row">
-        <div class="col-lg-6 col-md-6 text-left">
+        <div class="col-lg-6 col-md-6 text-left ">
           <img class="img-fluid imgAbout" src="../../public/img/reg.jpg" alt="about">
             <div class="rect">
                 <p class="rText">Made in Ukraine.</p>
                 <p class="rText">Жодної реклами.</p>
-                <p class="rText">Безкоштовно.</p>
+                <p class="rText mb-0">Безкоштовно.</p>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
