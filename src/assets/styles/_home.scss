@@ -45,15 +45,17 @@ $gold: #C1AB65;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    width: 90%;
+    width: 70%;
     background-color: transparent;
+    position: relative;
 }
 .search input{
+    width: 100%;
     background-color: #FDFDFD;
     padding: 12px 20px;
     border: none;
     font-size: 24px;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Josefin Sans",sans-serif;
     font-style: normal;
     color: #161616;
     margin: 0;
@@ -69,6 +71,8 @@ $gold: #C1AB65;
     width: 65px;
     height: 60px;
     background-color: #FDFDFD;
+    position: absolute;
+    right: 0;
 }
 .search button:focus{
     outline: none;
@@ -76,9 +80,10 @@ $gold: #C1AB65;
 .button-mob{
     display: none;
 }
-@media (max-width: 375px) {
+@media (max-width: 414px) {
     .title-wrap h2{
         font-size: 24px;
+        width: 65%;
     }
     .title-wrap p{
         font-size: 18px;
@@ -99,15 +104,14 @@ $gold: #C1AB65;
         outline: none;
     }
     .button-mob:hover{
-        transform: translate3d(0,5px,0);
+        transform: translate3d(0,-5px,0);
         transition: transform 0.3s;
     }
     .button-mob a{
         color: #ffffff;
         font-size: 12px;
-        font-family: "Poppins";
+        font-family: "Poppins", sans-serif;
         font-style: normal;
-        text-transform: uppercase;
     }
     .button-mob a:hover{
         color: #ffffff;
@@ -242,7 +246,10 @@ p.pText{
     text-decoration: none;
     color: $gold;
 }
-@media (max-width: 375px) {
+@media (max-width: 414px) {
+    #categories{
+        padding: 50px 0 0 0;
+    }
     #categories .container{
         display: none;
     }
@@ -262,7 +269,7 @@ p.pText{
         text-align: center;
         text-transform: uppercase;
         background-color: transparent;
-        padding: 20px 0 0 0;
+        padding: 35px 0 0 0;
     }
     .categories-mob--wrap{
         display: flex;
@@ -295,6 +302,7 @@ p.pText{
         color: #ffffff;
     }
 }
+
 // REGISTER //
 #register {
     .hText {
