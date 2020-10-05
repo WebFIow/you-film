@@ -16,7 +16,7 @@
                     <li><a href="#" class="header-nav--item">Фільми</a></li>
                     <li><a href="#" class="header-nav--item">Актори</a></li>
                     <li><a href="#" class="header-nav--item">Режисери</a></li>
-                    <li><a href="#" class="header-nav--item---list">Watch-list</a></li>
+                    <li><a href="#" class="header-nav--item header-nav--item---list">Watch-list</a></li>
                 </nav>
                 <a href="#" class="header-nav--item">Вхід</a>
 

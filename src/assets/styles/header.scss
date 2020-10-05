@@ -106,7 +106,8 @@
   #menu-toggle:checked ~ .menu-box {
     visibility: visible;
     left: 0;
-    top: 7%;
+    //top: 7%;
+    top: 64px;
     width: 100%;
     padding: 20px 0;
     background-color: #000;
@@ -196,18 +197,10 @@
 
 }
 @media (max-width: 320px) {
-  #menu-toggle:checked ~ .menu-box{
-    top: 11%;
-  }
   .menu-item{
     font-size: 16px;
   }
   .menu-item--list{
     font-size: 16px;
-  }
-}
-@media (max-width: 280px) {
-  #menu-toggle:checked ~ .menu-box{
-    top: 9%;
   }
 }

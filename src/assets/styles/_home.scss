@@ -7,8 +7,8 @@ $transparent-grey: rgba(193, 171, 101, 0.2);
     margin: 0;
     box-sizing: border-box;
     background-color: #000000;
-<<<<<<< HEAD
 }
+
 //Title
 #title{
     width: 100%;
@@ -31,18 +31,20 @@ $transparent-grey: rgba(193, 171, 101, 0.2);
     font-family: "Playfair Display";
     font-style: normal;
     font-weight: 400;
-    font-size: 80px;
+    font-size: 70px;
     color: #ffffff;
     background-color: transparent;
     margin: 0 auto;
+    text-transform: uppercase;
 }
 .title-wrap p{
     color: $gold;
-    font-size: 32px;
+    font-size: 26px;
     font-style: normal;
     font-family: "Playfair Display";
     padding: 10px 0;
     background-color: transparent;
+    letter-spacing: 2px;
 }
 .search{
     margin: 0 auto;
@@ -97,7 +99,7 @@ $transparent-grey: rgba(193, 171, 101, 0.2);
     .button-mob{
         display: block;
         margin: 0 auto;
-        background-color: rgba(193, 171, 101, 0.2);
+        background-color: rgba(193, 171, 101, 0.5);
         border: none;
         border-radius: 50px;
         outline: none;
@@ -112,9 +114,11 @@ $transparent-grey: rgba(193, 171, 101, 0.2);
     }
     .button-mob a{
         color: #ffffff;
-        font-size: 12px;
+        font-size: 16px;
         font-family: "Poppins", sans-serif;
         font-style: normal;
+        font-weight: 300;
+        letter-spacing: 1px;
     }
     .button-mob a:hover{
         color: #ffffff;
@@ -285,7 +289,7 @@ p.pText{
         width: 100%;
         font-family: "Playfair Display";
         font-style: normal;
-        font-size: 12px;
+        font-size: 16px;
         text-transform: uppercase;
         text-align: center;
         color: #ffffff;
@@ -314,7 +318,6 @@ p.pText{
     .img-fluid {
         max-width: 80%;
     }
-;
 }
 
 h4.hSubText {
@@ -379,6 +382,4 @@ form.regForm {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-=======
->>>>>>> 69f0a7a0e1b424ecfe204cda0f1c93c69622a089
 }
