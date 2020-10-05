@@ -16,21 +16,21 @@
               <h4 class="hSubText">Залишайся з нами 24/7.<br>Твої YouFilm ♥️</h4>
 
               <div class="formWrap">
-                <form class="regForm">
+                <form class="regForm" @submit.prevent="register">
                   <div class="form-group">
                     <!--                <label for="exampleInputEmail1">Email address</label>-->
-                    <input type="name" class="form-control" id="name" placeholder="Ім’я в YouFilm">
+                    <input type="name" v-model="name" class="form-control" id="name" placeholder="Ім’я в YouFilm">
                   </div>
                   <div class="form-group">
     <!--                <label for="exampleInputEmail1">Email address</label>-->
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <input type="email" v-model="email" class="form-control" id="email" placeholder="Email">
                   </div>
                   <div class="form-group">
     <!--                <label for="exampleInputPassword1">Password</label>-->
-                    <input type="password" class="form-control" id="password" placeholder="Пароль">
+                    <input type="password" v-model="password" class="form-control" id="password" placeholder="Пароль">
                   </div>
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="checkRules">
+                        <input type="checkbox" v-model="agreed" class="form-check-input" id="checkRules">
                         <label class="form-check-label" for="checkRules">Згоден(-на) з <a class="aLink" href="#">правилами</a></label>
                     </div>
                   <button type="submit" class="btn btn-gold">Зареєструватися</button>
@@ -42,3 +42,28 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    name: '',
+    email: '',
+    password: '',
+    agreed: false
+  }),
+  methods: {
+    async register() {
+       const formData = {
+        email: this.email,
+        password: this.password,
+        name: this.name
+      }
+
+      try {
+        await this.$store.dispatch('register', formData)
+        this.$router.push('/')
+      } catch (e) {}
+    }
+  }
+}
+</script>
