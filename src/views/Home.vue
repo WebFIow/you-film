@@ -1,25 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <router-link to="/add-film">Добавить фильм</router-link>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <div class="test-wr-for-scss">1221</div>
+    <Title />
+    <About />
+    <Register />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import About from '@/views/About.vue'
+import About from '@/components/About.vue'
+import Title from '@/components/Title.vue'
+import Register from '@/components/Register.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  },
-  views: {
-    About
+    About, Register, Title
   }
 }
 </script>
