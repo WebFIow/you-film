@@ -8,7 +8,7 @@
                          <input class="search" type="text" placeholder="Пошук" >
                         <button value=""></button>
                      </form>
-                <button class="button-mob"><a href="../you-film/src/views/Register.vue">Зареєструватися</a></button>
+                <button class="button-mob"><a href="#">Зареєструватися</a></button>
             </div>
         </div>
     </div>
