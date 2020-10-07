@@ -28,6 +28,49 @@ export default new Vuex.Store({
       } catch (e) {
         throw e
       }
+    },
+    async createActor({ }, { name, born, died }) {
+      try {
+        const actor = (await firebase.database().ref(`/actors/`).once('value')).val()
+        //return await firebase.database().ref(`/actors/`).push(data)
+      } catch (e) {
+        throw e
+      }
+    },
+    async updateInfo({dispatch, commit}, toUpdate) {
+      try {
+          const uid = await dispatch('getUid')
+          const updateData = {...this.getters.info, ...toUpdate}
+          await firebase.database().ref(`/users/${uid}/info`).update(updateData)
+          commit('setInfo', updateData)
+      } catch (e) {
+          commit('setError', e)
+          throw e
+      }
+  },
+    async fetchFilms() {
+      try {
+        const films = (await firebase.database().ref(`/films`).once('value')).val()
+        return films ? Object.keys(films).map(key => ({ ...films[key], id: key })) : []
+      } catch (e) {
+        commit('setError', e)
+        throw e
+      }
+    },
+    async register({dispatch}, { email, password, name }) {
+      try {
+        await firebase.auth().createUserWithEmailAndPassword(email, password)
+        const uid = await dispatch('getUid')
+        console.log(uid)
+        await firebase.database().ref(`/users/${uid}/info`).set({
+          name,
+          email,
+          playlists: [],
+          likedFilms: []
+        })
+      } catch (e) {
+        throw e
+      }
     }
   },
   modules: {

@@ -10,8 +10,8 @@ import Register from '@/components/Register.vue'
 import Title from '@/components/Title.vue'
 
 export default {
-  components: {
+ components: {
     Register, Title
-  }  
+  }
 }
 </script>
