@@ -45,7 +45,7 @@ form.regForm {
             border-bottom: 2px solid $gold;
         }
     }
-    label.form-check-label {
+    & label.form-check-label {
         font-family: Poppins, sans-serif;
         font-size: 20px;
         font-style: normal;
@@ -54,7 +54,7 @@ form.regForm {
         letter-spacing: 0em;
         color: $grey;
     }
-    .form-check {
+    & .form-check {
         margin-top: 25px;
         margin-bottom: 40px;
     }
@@ -66,10 +66,6 @@ form.regForm {
         color: $gold;
     }
 }
-
-//.aLink:hover {
-//    color: $gold;
-//}
 
 .rect {
     position: absolute;
@@ -125,6 +121,11 @@ button.btn-gold {
     transform: translateX(-50%);
 }
 
+.divMob {
+    display: none;
+    height: 0;
+}
+
 @media (max-width:991px) {
     .imgAbout {
         max-width: 90%!important;
@@ -166,7 +167,8 @@ button.btn-gold {
 
 @media (max-width: 475px) {
     #register {
-        padding: 35% 0px!important;
+        padding-top: 35%!important;
+        padding-bottom: 0%!important;
     }
     h4.hSubText {
         font-size: 18px;
@@ -184,5 +186,42 @@ button.btn-gold {
     }
     .blockCenter {
         position: relative;
+        height: 100%;
+    }
+    .divMob {
+        display: block;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        & img {
+            width: 100%;
+            height: auto;
+        }
+        & .textOnImg {
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 60%;
+            & p {
+                text-align: center;
+                margin-bottom: 0;
+                font-family: Playfair Display;
+                font-style: normal;
+                font-weight: 100;
+                font-size: 16px;
+                letter-spacing: 2px;
+                background-color: transparent;
+                color: white;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .hMobDiv {
+        height: 490px;
     }
 }
