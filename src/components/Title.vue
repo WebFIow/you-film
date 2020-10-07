@@ -8,7 +8,7 @@
                          <input class="search" type="text" placeholder="Пошук" >
                         <button value=""></button>
                      </form>
-                <button class="button-mob"><a href="#">Зареєструватися</a></button>
+                <button class="button-mob"><a href="#register">Зареєструватися</a></button>
             </div>
         </div>
     </div>
@@ -18,4 +18,9 @@
     export default {
         name: 'Title'
     }
+    // $('a[href^="#"]').click(function () {
+    //     var target = $(this).attr('href');
+    //     $('html, body').animate({scrollTop: $(target).offset().top - 90 }, 800);
+    //     return false;
+    // });
 </script>
