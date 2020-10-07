@@ -17,7 +17,12 @@
               send
             </button>
         </form>
-
+        <p 
+            v-for="actor in actors"
+            :key="actor.name"
+        >
+            {{actor.name}}
+        </p>
     </div>
 </template>
 
@@ -28,6 +33,10 @@
 
  .app-content {
      margin-top: 85px;
+ }
+
+ input {
+     color: #fff !important;
  }
 </style>
 
@@ -47,6 +56,7 @@ export default {
     async mounted() {
         this.films = await this.$store.dispatch('fetchFilms')
         const actors = []
+        console.log(this.films.length)
         this.films.forEach(film => {
             const namesArray = film.Actors.split(', ')
             namesArray.forEach(name => {
@@ -61,11 +71,14 @@ export default {
                 }
             })
         })
-        this.actors.forEach(actor => {
-            if(actor.films_id.length > 1) {
-                console.log(actor)
-            }
-        })
+
+       
+
+      
+
+       
+
     }
 }
 </script>
+
