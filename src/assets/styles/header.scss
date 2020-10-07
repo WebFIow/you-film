@@ -17,9 +17,7 @@
 #header svg{
   background-color: #161616;
 }
-.logo-mob{
-  display: none;
-}
+
 .watch-list{
   font-weight: 900!important;
 }
@@ -61,25 +59,73 @@
 #content{
   display: none;
 }
-@media (max-width: 414px) {
+.search-mob--wrap{
+  display: none;
+}
+@media (max-width: 995px) {
   #header .row{
-    padding: 20px;
+    padding: 13px 0;
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
   #header svg{
+    height: 25px;
+  }
+  .header-nav{
     display: none;
   }
-  #header .logo-mob{
-    display: block;
-    position: absolute;
-  }
-  #header nav{
+  .header-nav--item{
     display: none;
   }
 
+  //search//
+  .search-mob--wrap {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 42px;
+    background-color: transparent;
+    right: 75px;
+    top: -8px;
+  }
+  .search-mob--wrap input {
+    height: 42px;
+    width: 0;
+    padding: 0 40px 0 15px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+    background: transparent;
+    transition: .4s cubic-bezier(0, 0.8, 0, 1);
+    position: absolute;
+    top: 7px;
+    right: 0;
+    z-index: 2;
+  }
+  .search-mob--wrap input:focus {
+    width: 300px;
+    z-index: 1;
+    border-bottom: 2px solid #ffffff;
+    color: #ffffff;
+  }
+
+  .search-mob--wrap button {
+    background-color: transparent;
+    background: url(../../../public/img/sea.jpg) center no-repeat;
+    border: none;
+    height: 58px;
+    width: 42px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  .search-mob--wrap button:before {
+    content: "";
+    font-family: "Josefin Sans",sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 0;
+  }
 //  menu
   .hamburger-menu{
     display: block;
@@ -106,8 +152,7 @@
   #menu-toggle:checked ~ .menu-box {
     visibility: visible;
     left: 0;
-    //top: 7%;
-    top: 64px;
+    top: 60px;
     width: 100%;
     padding: 20px 0;
     background-color: #000;
@@ -117,7 +162,7 @@
     align-items: center;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 15px;
     width: 35px;
     height: 25px;
     cursor: pointer;
@@ -195,6 +240,16 @@
     transition: color 0.1s linear;
   }
 
+}
+@media (max-width: 770px) {
+  .search-mob--wrap input:focus{
+    width: 220px;
+  }
+}
+@media (max-width: 414px) {
+  .search-mob--wrap input:focus{
+    width: 150px;
+  }
 }
 @media (max-width: 320px) {
   .menu-item{
