@@ -33,10 +33,14 @@ export default new Vuex.Store({
         throw e
       }
     },
-    async createActor({ }, { name, born, died }) {
+    async createActor({}, { name, born, died, url, films_id }) {
+      const data = {
+        name, url, born, died, films_id
+      }
       try {
-        const actor = (await firebase.database().ref(`/actors/`).once('value')).val()
+        const actor = await firebase.database().ref(`/actors/`).push(data)
         //return await firebase.database().ref(`/actors/`).push(data)
+        console.log('pushed', actor)
       } catch (e) {
         throw e
       }
@@ -56,6 +60,15 @@ export default new Vuex.Store({
       try {
         const films = (await firebase.database().ref(`/films`).once('value')).val()
         return films ? Object.keys(films).map(key => ({ ...films[key], id: key })) : []
+      } catch (e) {
+        commit('setError', e)
+        throw e
+      }
+    },
+    async fetchActors() {
+      try {
+        const actors = (await firebase.database().ref(`/actors`).once('value')).val()
+        return actors ? Object.keys(actors).map(key => ({ ...actors[key], id: key })) : []
       } catch (e) {
         commit('setError', e)
         throw e
