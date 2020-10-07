@@ -29,3 +29,22 @@ new Vue({
 }).$mount('#app')
 
 
+function makeRandomizer(numbers) {
+  const start = numbers[0];
+  const finish = numbers[1];
+  const massNumber = [];
+
+  for (let i = start; i <= finish; i++) {
+    massNumber.push(i)
+  }
+
+  const getRandom = () => {
+    let randomIndex = Math.floor(Math.random() * massNumber.length)
+
+    let randomNumber = massNumber.splice(randomIndex, 1)[0]
+
+    return randomNumber !== undefined ? randomNumber : null
+  }
+
+  return getRandom;
+}

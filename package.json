@@ -9,7 +9,7 @@
   "dependencies": {
     "bootstrap": "^4.5.2",
     "core-js": "^3.6.5",
-    "firebase": "^7.21.1",
+    "firebase": "^7.22.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
@@ -29,5 +29,17 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "## Project setup ``` 1. git clone https://github.com/WebFIow/you-film.git 2. cd you-film 3. npm install 4. create .env file with secret info 5. npm run serve ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebFIow/you-film.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebFIow/you-film/issues"
+  },
+  "homepage": "https://github.com/WebFIow/you-film#readme"
 }

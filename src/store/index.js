@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import firebase from 'firebase/app'
+import firebase, { registerVersion } from 'firebase/app'
 
 Vue.use(Vuex)
 
@@ -10,10 +10,14 @@ export default new Vuex.Store({
   mutations: {
   },
   actions: {
+    getUid() {
+      const user = firebase.auth().currentUser
+      return user ? user.uid : null
+  },
     //temporary action
-    async createFilm({}, {json, ua}) {
+    async createFilm({ }, { json, ua }) {
       try {
-        const data =  JSON.parse(json)
+        const data = JSON.parse(json)
         delete data.Ratings
         delete data.DVD
         delete data.BoxOffice
