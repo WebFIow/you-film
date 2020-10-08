@@ -19,18 +19,45 @@
                 <form class="regForm" @submit.prevent="register">
                   <div class="form-group">
                     <!--                <label for="exampleInputEmail1">Email address</label>-->
-                    <input type="name" v-model="name" class="form-control" id="name" placeholder="Ім’я в YouFilm">
+                    <input 
+                      type="name" 
+                      v-model="name" 
+                      class="form-control" 
+                      id="name" 
+                      placeholder="Ім’я в YouFilm"
+                      :class="{invalid: ($v.name.$dirty && !$v.name.required) || ($v.name.$dirty && !$v.name.minLength)}"
+                    >
                   </div>
                   <div class="form-group">
     <!--                <label for="exampleInputEmail1">Email address</label>-->
-                    <input type="email" v-model="email" class="form-control" id="email" placeholder="Email">
+                    <input 
+                      type="email" 
+                      v-model="email" 
+                      class="form-control" 
+                      id="email" 
+                      placeholder="Email"
+                      :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
+                    >
                   </div>
                   <div class="form-group">
     <!--                <label for="exampleInputPassword1">Password</label>-->
-                    <input type="password" v-model="password" class="form-control" id="password" placeholder="Пароль">
+                    <input 
+                      type="password" 
+                      v-model="password"
+                      class="form-control" 
+                      id="password" 
+                      placeholder="Пароль"
+                      :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
+                    >
                   </div>
                     <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="checkRules">
+                        <input
+                         type="checkbox" 
+                         v-model="agreed" 
+                         class="form-check-input"
+                          id="checkRules"
+                          :class="{invalid: !agreed}"
+                          >
                         <label class="form-check-label" for="checkRules">Погоджуюсь з <a class="aLink" href="#">правилами</a></label>
                     </div>
                   <button type="submit" class="btn btn-gold">Зареєструватися</button>
@@ -56,6 +83,8 @@
 </template>
 
 <script>
+import {email, required, minLength} from 'vuelidate/lib/validators'
+
 export default {
   data: () => ({
     name: '',
@@ -63,8 +92,19 @@ export default {
     password: '',
     agreed: false
   }),
+  validations: {
+    email: {email, required},
+    password: {required, minLength: minLength(8)},
+    name: {required, minLength: minLength(1)},
+    agreed: {required}
+  },
   methods: {
     async register() {
+      if(this.$v.$invalid || !this.agreed) {
+        this.$v.$touch()
+        //alert('Дані введені некоректно')
+        return
+      }
        const formData = {
         email: this.email,
         password: this.password,
@@ -78,3 +118,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  input.invalid {
+    border-bottom: 2px solid red !important;
+  }
+
+  input[type=checkbox].invalid {
+    outline: 1px solid red;
+  }
+</style>

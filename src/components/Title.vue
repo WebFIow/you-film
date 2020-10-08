@@ -8,7 +8,7 @@
                          <input class="search" type="text" placeholder="Пошук" >
                         <button value=""></button>
                      </form>
-                <button class="button-mob"><a href="#register">Зареєструватися</a></button>
+                <button class="button-mob"><a href="#register" @click.prevent="scrollTo('#register')">Зареєструватися</a></button>
             </div>
         </div>
     </div>
@@ -16,7 +16,15 @@
 
 <script>
     export default {
-        name: 'Title'
+        name: 'Title',
+        methods: {
+            scrollTo(selector) {
+                document.querySelector(selector)
+                    .scrollIntoView({
+                        behavior: 'smooth'
+                    })
+            }
+        }
     }
     // $('a[href^="#"]').click(function () {
     //     var target = $(this).attr('href');

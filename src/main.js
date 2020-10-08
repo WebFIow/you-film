@@ -3,10 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import firebase from 'firebase/app'
+import Vuelidate from 'vuelidate'
 import 'firebase/auth'
 import 'firebase/database'
 import '@/assets/styles/main.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
