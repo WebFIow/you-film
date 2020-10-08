@@ -105,13 +105,20 @@ export default {
         //alert('Дані введені некоректно')
         return
       }
+      this.email = ''
+      this.name = ''
+      this.agreed = false
+      this.password = ''
+      alert('Запрос ушел')
        const formData = {
         email: this.email,
         password: this.password,
         name: this.name
       }
+      console.log(formData)
       try {
         await this.$store.dispatch('register', formData)
+        console.log('после стора')
         this.$router.push('/')
       } catch (e) {}
     }

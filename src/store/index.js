@@ -76,7 +76,11 @@ export default new Vuex.Store({
     },
     async register({dispatch}, { email, password, name }) {
       try {
+        console.log('store')
+        console.log(name, email, password)
         await firebase.auth().createUserWithEmailAndPassword(email, password)
+        console.log('after createUser....')
+
         const uid = await dispatch('getUid')
         console.log(uid)
         await firebase.database().ref(`/users/${uid}/info`).set({
@@ -85,6 +89,7 @@ export default new Vuex.Store({
           playlists: [],
           likedFilms: []
         })
+        console.log('created')
       } catch (e) {
         throw e
       }
