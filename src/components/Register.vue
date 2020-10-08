@@ -105,10 +105,7 @@ export default {
         //alert('Дані введені некоректно')
         return
       }
-      this.email = ''
-      this.name = ''
-      this.agreed = false
-      this.password = ''
+      
       alert('Запрос ушел')
        const formData = {
         email: this.email,
@@ -116,6 +113,10 @@ export default {
         name: this.name
       }
       console.log(formData)
+      this.email = ''
+      this.name = ''
+      this.agreed = false
+      this.password = ''
       try {
         await this.$store.dispatch('register', formData)
         console.log('после стора')
