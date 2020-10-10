@@ -45,6 +45,7 @@
 
   & table {
     color: white;
+    width: 80%;
 
     & tbody > tr:last-child {
       border-bottom: 1px solid $grey-box !important;
@@ -128,10 +129,123 @@
 }
 
 .comment {
+  background: rgba(85, 85, 85, 0.1);
+  margin-bottom: 50px;
+
   &.crComment {
     background: rgba(85, 85, 85, 0.1);
     border: 1px solid rgba(198, 165, 100, 0.2);
     box-sizing: border-box;
+    padding: 30px 37px;
+  }
+
+  &.rComment {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+  }
+
+  & p {
+    font-family: Playfair Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: white;
+    margin-top: 10px;
+  }
+}
+
+.cTextWrap {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+
+  & p {
+    text-align: left;
+
+    &:last-child {
+      font-family: Playfair Display;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 30px;
+      letter-spacing: 2px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+
+      & span {
+        margin-left: 25px;
+      }
+    }
+  }
+}
+
+.usWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  font-family: Playfair Display!important;
+  font-style: normal;
+  font-weight: normal;
+  background: rgba(85, 85, 85, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  width: 100%;
+  padding: 15px 20px;
+  letter-spacing: 2px;
+  border: none;
+  resize: none!important;
+
+  &::placeholder {
+    color: $gold-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.btn-comment {
+  background-color: $gold-btn!important;
+  border-radius: 20px!important;
+  padding: 5px 15px;
+  font-family: Playfair Display!important;
+  font-style: normal;
+  font-weight: normal;
+  color: $gold!important;
+  letter-spacing: 2px;
+  font-size: 16px;
+  line-height: 20px;
+  float: right;
+
+  &:hover {
+    background-color: white!important;
+    color: black!important;
+  }
+}
+
+.bGold {
+  background-color: $golder-btn!important;
+  border-radius: 20px!important;
+  padding: 9px 37px!important;
+  font-family: Playfair Display!important;
+  font-style: normal;
+  font-weight: normal;
+  color: white!important;
+  letter-spacing: 2px;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+
+  &:hover {
+    background-color: white!important;
+    color: black!important;
   }
 }
 

@@ -2,7 +2,17 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+#about, #film-view, #categories, #app, #register, #title {
     background-color: #000000;
+}
+
+.btn {
+    &:focus {
+        outline: none!important;
+        box-shadow: none!important;
+    }
 }
 
 // Media Queries //
