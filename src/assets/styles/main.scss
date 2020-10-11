@@ -1,7 +1,20 @@
-@import "home";
-@import "about";
-@import "register";
-@import "footer";
-@import "fonts";
-@import "header";
+// Basics
 @import "var";
+@import "fonts";
+
+// Basic components
+@import "header";
+@import "footer";
+
+// Homepage
+@import "home";
+@import "title";
+@import "about";
+@import "categories";
+@import "register";
+
+// Films
+@import "films";
+@import "film_view";
+
+

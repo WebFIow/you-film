@@ -45,7 +45,7 @@ form.regForm {
             border-bottom: 2px solid $gold;
         }
     }
-    label.form-check-label {
+    & label.form-check-label {
         font-family: Poppins, sans-serif;
         font-size: 20px;
         font-style: normal;
@@ -54,7 +54,7 @@ form.regForm {
         letter-spacing: 0em;
         color: $grey;
     }
-    .form-check {
+    & .form-check {
         margin-top: 25px;
         margin-bottom: 40px;
     }
@@ -66,10 +66,6 @@ form.regForm {
         color: $gold;
     }
 }
-
-//.aLink:hover {
-//    color: $gold;
-//}
 
 .rect {
     position: absolute;
@@ -98,6 +94,7 @@ form.regForm {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 100%;
 }
 
 #checkRules {
@@ -123,6 +120,20 @@ button.btn-gold {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    &:hover, :active {
+        background-color: $gold;
+        color: black;
+    }
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+
+.divMob {
+    display: none;
+    height: 0;
 }
 
 @media (max-width:991px) {
@@ -158,15 +169,21 @@ button.btn-gold {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+    #register {
+        padding: 15% 0px;
+    }
     .imgAbout, .rect {
         display: none;
+    }
+    .hMobDiv {
+        height: 490px;
     }
 }
 
 @media (max-width: 475px) {
     #register {
-        padding: 35% 0px!important;
+        padding:10% 0px;
     }
     h4.hSubText {
         font-size: 18px;
@@ -184,5 +201,39 @@ button.btn-gold {
     }
     .blockCenter {
         position: relative;
+        height: 100%;
+    }
+    .divMob {
+        display: block;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        & img {
+            width: 100%;
+            height: auto;
+        }
+        & .textOnImg {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 60%;
+            & p {
+                text-align: center;
+                margin-bottom: 0;
+                font-family: Playfair Display;
+                font-style: normal;
+                font-weight: 100;
+                font-size: 16px;
+                letter-spacing: 2px;
+                background-color: transparent;
+                color: white;
+                text-transform: uppercase;
+            }
+        }
     }
 }

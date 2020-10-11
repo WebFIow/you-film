@@ -3,10 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import firebase from 'firebase/app'
+import Vuelidate from 'vuelidate'
 import 'firebase/auth'
 import 'firebase/database'
 import '@/assets/styles/main.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
@@ -29,3 +32,22 @@ new Vue({
 }).$mount('#app')
 
 
+function makeRandomizer(numbers) {
+  const start = numbers[0];
+  const finish = numbers[1];
+  const massNumber = [];
+
+  for (let i = start; i <= finish; i++) {
+    massNumber.push(i)
+  }
+
+  const getRandom = () => {
+    let randomIndex = Math.floor(Math.random() * massNumber.length)
+
+    let randomNumber = massNumber.splice(randomIndex, 1)[0]
+
+    return randomNumber !== undefined ? randomNumber : null
+  }
+
+  return getRandom;
+}
