@@ -253,4 +253,75 @@ textarea {
   #film-view {
     padding-top: 68px;
   }
+  .fText p {
+    font-size: 15px;
+  }
+  .fTable table td {
+    font-size: 14px;
+
+    &:last-child {
+      padding-left: 10px;
+    }
+  }
+  .comment p {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+@media (max-width: 768px) {
+  #film-view {
+    padding-top: 68px;
+
+    & > .container > .row {
+      margin-top: 70px;
+    }
+
+    & .hText {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  }
+  .fTable table {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  #film-view .hText {
+    text-align: center;
+  }
+  .imgWrap img {
+      width: 35%;
+  }
+  .fText p {
+    font-size: 14px;
+  }
+  .fTable table td {
+    padding: 12px 0px;
+    font-size: 13px;
+  }
+  .comment {
+    padding: 15px 20px;
+
+    & p {
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 100;
+    }
+  }
+  textarea {
+    font-size: 14px!important;
+    padding: 10px 10px;
+  }
+  .btn {
+    font-size: 13px;
+  }
+  .d-tablet-none {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+
 }

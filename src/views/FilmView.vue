@@ -2,9 +2,19 @@
     <div id="film-view">
         <div class="container container-fluid">
             <div class="row justify-content-between">
-                <div class="col-7">
+                <div class="col-xl-7 col-md-6">
                     <div class="film-description">
                         <h3 class="hText">Wonder Park</h3>
+                        <div class="imgWrap d-md-none d-sm-flex justify-content-center">
+                            <img class="img-fluid" src="../../public/img/films/fim1.jpeg" alt="film_poster">
+                        </div>
+                        <div class="imgStars d-md-none d-sm-block">
+                            <div class="rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            <p>рейтинг: 7/10</p>
+                        </div>
                         <div class="fBox">
                             <p>21 марта, 2019</p>
                             <p>YouFilm: 5,8\10</p>
@@ -52,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-xl-4 col-md-6 d-tablet-none">
                     <div class="imgWrap">
                         <img class="img-fluid" src="../../public/img/films/fim1.jpeg" alt="film_poster">
                     </div>
@@ -70,13 +80,13 @@
                     <h3 class="hText">Відгуки</h3>
                     <div class="comment crComment container">
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-2 col-sm-3">
                                 <div class="usWrap">
                                     <img class="img-fluid" src="../../public/img/icon_user.svg" alt="user icon">
                                     <p>Головна вовчиця</p>
                                 </div>
                             </div>
-                            <div class="col-10">
+                            <div class="col-10 col-sm-9">
                                 <form id="cForm">
                                     <textarea id="cArea" rows="3" placeholder="Залишити відгук"></textarea>
                                 </form>
@@ -90,13 +100,13 @@
                     </div>
                     <div class="comment rComment container">
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-2 col-sm-3">
                                 <div class="usWrap">
                                     <img class="img-fluid" src="../../public/img/icon_user.svg" alt="user icon">
                                     <p>Головна вовчиця</p>
                                 </div>
                             </div>
-                            <div class="col-10">
+                            <div class="col-10 col-sm-9">
                                 <div class="cTextWrap">
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
