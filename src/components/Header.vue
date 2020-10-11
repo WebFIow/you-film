@@ -9,7 +9,12 @@
                 <nav class="header-nav">
                     <li><a href="#" class="header-nav--item">Головна</a></li>
                     <li><a href="#" class="header-nav--item">Про нас</a></li>
-                    <li><a href="#" class="header-nav--item">Фільми</a></li>
+                    <li><a href="#" class="header-nav--item">Фільми</a>
+                        <ul class="sub-menu--animate">
+                            <li><a href="#">Жанри</a></li>
+                            <li><a href="#">Пошук фільмів</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#" class="header-nav--item">Актори</a></li>
                     <li><a href="#" class="header-nav--item">Режисери</a></li>
                     <li><a href="#" class="header-nav--item header-nav--item---list">Watch-list</a></li>
