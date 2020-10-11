@@ -323,5 +323,79 @@ textarea {
 }
 
 @media (max-width: 575px) {
+  .imgWrap img {
+    width: 50%;
+  }
+  #film-view {
+    padding-top: 20px;
+  }
+}
 
+@media (max-width: 425px) {
+  .imgStars {
+    display: none;
+  }
+  .imgWrap img {
+    max-height:370px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 30px;
+  }
+  .px-mob-none {
+    padding: 0px 0px!important;
+  }
+  .hText, .fText, .fTable {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .fBox {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: auto!important;
+  }
+  #film-view > .container > .row {
+    margin-top: 30px;
+  }
+  .usWrap img {
+    display: none;
+  }
+  .comment p {
+    font-size: 16px;
+    color: $gold;
+    text-align: left;
+    line-height: 22px;
+  }
+  .comment {
+    padding: 13px 13px!important;
+  }
+  .imgStarsMob {
+    display: block;
+  }
+  .rating {
+    margin-top: 0;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+  }
+  .btn-comment {
+    margin-top: 1rem;
+  }
+  .rComment p {
+    color: white;
+  }
+  .cTextWrap p:last-child {
+    margin-bottom: 0;
+  }
+  .dtext {
+    font-family: Playfair Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+    text-transform: uppercase;
+    color: $grey;
+    letter-spacing: 2px;
+    width: fit-content;
+    padding-bottom: 10px;
+  }
 }
