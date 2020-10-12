@@ -18,9 +18,14 @@
 #header svg{
   background-color: #161616;
 }
-
-.watch-list{
-  font-weight: 900!important;
+.header-nav{
+  display: flex;
+  justify-content: space-around;
+  background-color: #161616;
+}
+.header-nav li{
+  list-style: none;
+  background-color: #161616;
 }
 .header-nav--item{
   font-family: "Josefin Sans",sans-serif;
@@ -45,15 +50,51 @@
   color: $gold;
   transition: color 0.2s linear;
 }
-.header-nav{
-  display: flex;
-  justify-content: space-around;
-  background-color: #161616;
+.sub-menu--animate{
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s ease-out;
+  width: 150px;
+
+  background-color:#161616;
+  color: #fff;
+  text-align: center;
 }
-.header-nav li{
-  list-style: none;
-  background-color: #161616;
+.sub-menu--animate li{
+  padding: 8px 10px ;
+  text-align: left;
 }
+.sub-menu--animate a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+}
+.sub-menu--animate a:hover{
+  color: $gold;
+  text-decoration: none;
+  transition: color 0.1 linear;
+}
+.header-nav > li:hover .sub-menu--animate{
+  height: auto;
+
+  padding: 10px 0;
+
+  font-size: 18px;
+}
+.header-nav > li:hover .sub-menu--animate >li:hover{
+  color: #111;
+
+  transition: color 0.5s linear;
+}
+.watch-list{
+  font-weight: 900!important;
+}
+//mobile
 .hamburger-menu{
   display: none;
 }
@@ -77,7 +118,6 @@
   .header-nav--item{
     display: none;
   }
-
   //search//
   .search-mob--wrap {
     display: block;
@@ -247,7 +287,7 @@
     width: 220px;
   }
 }
-@media (max-width: 414px) {
+@media (max-width: 425px) {
   .search-mob--wrap input:focus{
     width: 150px;
   }
