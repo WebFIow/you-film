@@ -14,7 +14,7 @@
                             </div>
                             <p>рейтинг: 7/10</p>
                         </div>
-                        <h3 class="hText">Wonder Park</h3>
+                        <h3 class="hText">{{film.TitleUA}}</h3>
                         <div class="fBox">
                             <p>{{film.Released}}</p>
                             <p>YouFilm: {{film.imdbRating}}</p>
