@@ -12,6 +12,27 @@
   display: none;
 }
 
+.pageCube {
+  width: 42px;
+  height: 42px;
+  color: $grey-text;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.ac {
+    background-color: $sticker;
+    color: black;
+  }
+}
+
 .fCardsWrap {
   display: flex;
   flex-direction: column;

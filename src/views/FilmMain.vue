@@ -622,7 +622,13 @@
 
 
                 </div>
-
+                <div class="row mb-3">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="pageCube ac">1</div>
+                        <div class="pageCube">2</div>
+                        <div class="pageCube">3</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
