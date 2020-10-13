@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-xl-3">
                         <h3 class="hText">ФілЬТРИ</h3>
-                        <button class="accordion">ЖАНРИ</button>
+                        <button class="accordion" @click="showAcc">ЖАНРИ</button>
                         <div class="panel">
                             <ul class="accUL">
                                 <li><a href="#">Диагностика ходовой части</a><span class="text-right">от 250 грн.</span></li>
@@ -65,27 +65,27 @@
                             </ul>
                         </div>
 
-                        <button class="accordion">НАГОРОДИ</button>
+                        <button class="accordion" @click="showAcc">НАГОРОДИ</button>
                         <div class="panel">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
 
-                        <button class="accordion">РЕЙТИНГ</button>
+                        <button class="accordion" @click="showAcc">РЕЙТИНГ</button>
                         <div class="panel">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
 
-                        <button class="accordion">КРАЇНА</button>
+                        <button class="accordion" @click="showAcc">КРАЇНА</button>
                         <div class="panel">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
 
-                        <button class="accordion">СТУДІЯ</button>
+                        <button class="accordion" @click="showAcc">СТУДІЯ</button>
                         <div class="panel">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
 
-                        <button class="accordion">РІК</button>
+                        <button class="accordion" @click="showAcc">РІК</button>
                         <div class="panel">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
@@ -126,24 +126,17 @@
 <script>
     export default {
         name: 'FilmMain',
-    }
-</script>
-
-
-<!--Accordion Scripts-->
-<script>
-    let acc = document.getElementsByClassName("accordion");
-
-    for (let i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight){
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + 50 + "px";
+        methods: {
+            showAcc(e) {
+                const el = e.target
+                el.classList.toggle("active")
+                const panel = el.nextElementSibling
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + 50 + "px"
+                }
             }
-        });
+        }
     }
 </script>
-<!--Accordion Scripts-->
