@@ -51,3 +51,25 @@ function makeRandomizer(numbers) {
 
   return getRandom;
 }
+
+
+function countOccurrences(str, substr) {
+  let count = 0;
+  while (str.contains(substr)) {
+    count++;
+    str = str.replace(substr);
+  }
+
+  return count;
+
+  return array.every((el, i, arr) => {
+    let indexMin = arr.indexOf(el - 1);
+    let indexMax = arr.indexOf(el + 1);
+
+    if(indexMax + indexMin !== -2) {
+      return true
+    } else {
+      return false
+    }
+  })
+}
