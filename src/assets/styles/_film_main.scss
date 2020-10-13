@@ -8,6 +8,10 @@
   }
 }
 
+.dTablet {
+  display: none;
+}
+
 .fCardsWrap {
   display: flex;
   flex-direction: column;
@@ -41,6 +45,7 @@
       max-width: 100px;
       color: $sticker-text;
       margin-bottom: 25px;
+      text-align: center;
     }
 
     & p:last-child {
@@ -171,5 +176,198 @@ button.accordion {
         }
       }
     }
+  }
+}
+
+@media (max-width:1024px) {
+  #film-main {
+    & .hText {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  }
+  .fCard {
+    max-height: 240px;
+    margin-bottom: 40px;
+
+    & .fImgCard img {
+      height:240px;
+    }
+
+    & .fTextCard {
+      padding: 25px 25px;
+
+      & h5 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      & .sticker {
+        font-size: 13px;
+        padding: 8px 8px;
+        background-color: $sticker;
+        max-width: 100px;
+        color: $sticker-text;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  button.accordion {
+    font-size: 17px;
+  }
+  .accordion {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 991px) {
+  #film-main {
+    padding-top: 40px;
+    & .hText {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+  }
+  .fCard {
+    max-height: 220px;
+    margin-bottom: 30px;
+
+    & .fImgCard img {
+      height:220px;
+    }
+
+    & .fTextCard {
+      padding: 15px 15px;
+
+      & h5 {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+
+      & .sticker {
+        font-size: 12px;
+        padding: 6px 6px;
+        background-color: $sticker;
+        max-width: 85px;
+        color: $sticker-text;
+        margin-bottom: 15px;
+      }
+
+      & p:last-child {
+        font-size: 14px;
+      }
+    }
+  }
+  button.accordion {
+    font-size: 14px;
+  }
+  .accordion {
+    padding: 8px;
+  }
+  .accUL li {
+    line-height: 20px;
+    font-size: 14px;
+    padding-left: 8px;
+    margin-bottom: 10px;
+  }
+  .mtH {
+    margin-top: 40px;
+  }
+  .fListWrap .fEl .fElText p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dTabletNone {
+    display: none;
+  }
+  .dTablet {
+    display: block;
+  }
+  .mtH {
+    margin-top: 0;
+  }
+  .col-md-8 .hText {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  #film-main {
+    & .hText {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .fListWrap {
+    & .fEl {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 20px!important;
+    }
+  }
+
+  button.accordion {
+    width: 150px;
+    margin: 0 auto;
+  }
+
+  .filtersDiv {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accUL {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .fCardsWrap {
+    align-items: center;
+
+    .fCard {
+      flex-direction: column;
+      max-height: 480px;
+      width: 230px;
+      margin-bottom: 30px!important;
+
+      & .fImgCard img {
+        height: 240px;
+        width: 230px;
+      }
+
+      & .fTextCard {
+        width: 230px;
+        height: 240px;
+
+        & .sticker {
+          margin-bottom: 20px;
+        }
+
+        & p:last-child {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 425px) {
+  .mobLeft {
+    text-align: left;
+  }
+  #film-main {
+    & .hText.mobLeft {
+      text-align: left;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+  }
+  button.accordion {
+    margin: 0;
   }
 }
