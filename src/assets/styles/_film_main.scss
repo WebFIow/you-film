@@ -87,7 +87,7 @@
 }
 
 button.accordion {
-  font-size: 18px;
+  font-size: 19px;
   background: none;
   color: white;
   font-family: Montserrat;
@@ -104,25 +104,34 @@ button.accordion {
 
 .accUL {
   margin-bottom: 0;
-  background: white;
+  background: $gold-card;
   list-style: none;
   z-index: 100;
   width: 100%;
   display: block;
-  padding-left: 0;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
   & li {
-    padding-left: 10px;
-    line-height: 32px;
-    font-size: 20px;
+    font-family: Montserrat;
+    line-height: 24px;
+    font-size: 16px;
     display: flex;
-    justify-content: space-between;
-    & span.text-right {
-      margin-top: auto;
-      margin-bottom: auto;
+    align-items: center;
+    padding-left: 10px;
+    color: white;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+
+    & label {
+      padding-left: 15px;
+      margin-bottom: 0;
     }
-  }
-  & li:last-child {
-    border-bottom: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
