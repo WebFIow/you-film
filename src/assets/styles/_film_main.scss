@@ -31,6 +31,10 @@
     background-color: $sticker;
     color: black;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .fCardsWrap {
