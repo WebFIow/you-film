@@ -69,6 +69,12 @@ const routes = [
     component: () => import('../views/FilmView')
   },
   {
+    path: '/film-main',
+    name: 'FilmMain',
+    meta: { layout: 'main' },
+    component: () => import('../views/FilmMain')
+  },
+  {
     path: '/log-in',
     name: 'LogIn',
     meta: { layout: 'main' },
