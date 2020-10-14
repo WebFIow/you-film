@@ -1,0 +1,394 @@
+#film-main {
+  padding-top: 85px;
+  & .hText {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: left;
+    margin-bottom: 36px;
+  }
+}
+
+.dTablet {
+  display: none;
+}
+
+.pageCube {
+  width: 42px;
+  height: 42px;
+  color: $grey-text;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.ac {
+    background-color: $sticker;
+    color: black;
+  }
+}
+
+.fCardsWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.fCard {
+  display: flex;
+  max-height: 260px;
+  margin-bottom: 40px;
+
+  & .fImgCard img {
+    height:260px;
+    object-fit: cover;
+  }
+
+  & .fTextCard {
+    background-color: $gold-card;
+    padding: 40px 40px;
+    color: white;
+    font-family: Montserrat;
+
+    & h5 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    & .sticker {
+      font-size: 13px;
+      padding: 8px 10px;
+      background-color: $sticker;
+      max-width: 100px;
+      color: $sticker-text;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    & p:last-child {
+      font-size: 16px;
+    }
+  }
+
+  & :hover {
+    cursor: pointer;
+  }
+}
+
+.accordion {
+  color: black;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+
+  &:hover{
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f105';
+    color: white;
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+  }
+
+  & .active:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f107';
+  }
+}
+
+button.accordion {
+  font-size: 19px;
+  background: none;
+  color: white;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  width: 100%;
+}
+
+.accUL {
+  margin-bottom: 0;
+  background: $gold-card;
+  list-style: none;
+  z-index: 100;
+  width: 100%;
+  display: block;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  & li {
+    font-family: Montserrat;
+    line-height: 24px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: white;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+
+    & label {
+      padding-left: 15px;
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.mtH {
+  margin-top: 55px;
+}
+
+.fListWrap {
+  display: flex;
+  flex-direction: column;
+
+  & .fEl {
+    display: flex;
+    max-height: 70px;
+    margin-bottom: 30px;
+
+    & img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    & .fElText {
+      padding-left: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & p {
+        font-family: Montserrat;
+        font-size: 15px;
+        margin-bottom: 0px;
+        color: $grey-text;
+        &:first-child {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:1024px) {
+  #film-main {
+    & .hText {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  }
+  .fCard {
+    max-height: 240px;
+    margin-bottom: 40px;
+
+    & .fImgCard img {
+      height:240px;
+    }
+
+    & .fTextCard {
+      padding: 25px 25px;
+
+      & h5 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      & .sticker {
+        font-size: 13px;
+        padding: 8px 8px;
+        background-color: $sticker;
+        max-width: 100px;
+        color: $sticker-text;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  button.accordion {
+    font-size: 17px;
+  }
+  .accordion {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 991px) {
+  #film-main {
+    padding-top: 40px;
+    & .hText {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+  }
+  .fCard {
+    max-height: 220px;
+    margin-bottom: 30px;
+
+    & .fImgCard img {
+      height:220px;
+    }
+
+    & .fTextCard {
+      padding: 15px 15px;
+
+      & h5 {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+
+      & .sticker {
+        font-size: 12px;
+        padding: 6px 6px;
+        background-color: $sticker;
+        max-width: 85px;
+        color: $sticker-text;
+        margin-bottom: 15px;
+      }
+
+      & p:last-child {
+        font-size: 14px;
+      }
+    }
+  }
+  button.accordion {
+    font-size: 14px;
+  }
+  .accordion {
+    padding: 8px;
+  }
+  .accUL li {
+    line-height: 20px;
+    font-size: 14px;
+    padding-left: 8px;
+    margin-bottom: 10px;
+  }
+  .mtH {
+    margin-top: 40px;
+  }
+  .fListWrap .fEl .fElText p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dTabletNone {
+    display: none;
+  }
+  .dTablet {
+    display: block;
+  }
+  .mtH {
+    margin-top: 0;
+  }
+  .col-md-8 .hText {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  #film-main {
+    & .hText {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .fListWrap {
+    & .fEl {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 20px!important;
+    }
+  }
+
+  button.accordion {
+    width: 150px;
+    margin: 0 auto;
+  }
+
+  .filtersDiv {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accUL {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .fCardsWrap {
+    align-items: center;
+
+    .fCard {
+      flex-direction: column;
+      max-height: 480px;
+      width: 230px;
+      margin-bottom: 30px!important;
+
+      & .fImgCard img {
+        height: 240px;
+        width: 230px;
+      }
+
+      & .fTextCard {
+        width: 230px;
+        height: 240px;
+
+        & .sticker {
+          margin-bottom: 20px;
+        }
+
+        & p:last-child {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 425px) {
+  .mobLeft {
+    text-align: left;
+  }
+  #film-main {
+    & .hText.mobLeft {
+      text-align: left;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+  }
+  button.accordion {
+    margin: 0;
+  }
+}
