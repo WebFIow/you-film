@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10px 20px 10px;
+  padding: 30px 10px;
   background-color: #161616;
 }
 #header svg{
@@ -50,9 +50,8 @@
   color: $gold;
   transition: color 0.2s linear;
 }
-.sub-menu--animate{
+.header-nav--item---animate{
   position: absolute;
-  top: 100%;
   z-index: 1;
   height: 0;
   overflow: hidden;
@@ -63,32 +62,29 @@
   color: #fff;
   text-align: center;
 }
-.sub-menu--animate li{
+.header-nav--item---animate li{
   padding: 8px 10px ;
   text-align: left;
 }
-.sub-menu--animate a{
+.header-nav--item---animate a{
   text-decoration: none;
   color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
   font-family: "Josefin Sans", sans-serif;
 }
-.sub-menu--animate a:hover{
+.header-nav--item---animate a:hover{
   color: $gold;
-  text-decoration: none;
-  transition: color 0.1 linear;
+  text-decoration-line: none;
+  transition: color 0.3;
 }
-.header-nav > li:hover .sub-menu--animate{
+.header-nav > li:hover .header-nav--item---animate{
   height: auto;
-
-  padding: 10px 0;
-
   font-size: 18px;
+  padding: 12px 0;
 }
-.header-nav > li:hover .sub-menu--animate >li:hover{
+.header-nav > li:hover .header-nav--item---animate >li:hover{
   color: #111;
-
   transition: color 0.5s linear;
 }
 .watch-list{

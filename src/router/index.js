@@ -69,10 +69,16 @@ const routes = [
     component: () => import('../views/FilmView')
   },
   {
-    path: '/film-main',
-    name: 'FilmMain',
+    path: '/log-in',
+    name: 'LogIn',
     meta: { layout: 'main' },
-    component: () => import('../views/FilmMain')
+    component: () => import('../views/LogIn')
+  },
+  {
+    path: '/authorization',
+    name: 'Authorization',
+    meta: { layout: 'main' },
+    component: () => import('../views/Authorization')
   }
 ]
 

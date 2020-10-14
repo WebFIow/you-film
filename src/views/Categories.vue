@@ -5,25 +5,27 @@
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat1.png" alt="">
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Комедіі</a>
+                        </div>
                     </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Комедіі</a>
-                    </div>
+
                 </div>
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat2.png" alt="">
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Мелодрами</a>
+                        </div>
                     </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Мелодрами</a>
-                    </div>
+
                 </div>
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat3.png" alt="">
-                    </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Детективи</a>
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Детективи</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,25 +33,25 @@
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat4.png" alt="">
-                    </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Боєвики</a>
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Боєвики</a>
+                        </div>
                     </div>
                 </div>
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat5.png" alt="">
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Фентезі</a>
+                        </div>
                     </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Фентезі</a>
                     </div>
-                </div>
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat6.png" alt="">
-                    </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Драми</a>
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Драми</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,25 +59,25 @@
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat7.png" alt="">
-                    </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Сімейні</a>
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Сімейні</a>
+                        </div>
                     </div>
                 </div>
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat8.png" alt="">
-                    </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Документальні</a>
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Документальні</a>
+                        </div>
                     </div>
                 </div>
                 <div class="cat-wrap--card col-4">
                     <div class="cat-wrap--card---img">
                         <img src="../../public/img/categories/cat9.png" alt="">
-                    </div>
-                    <div class="cat-wrap--cars---text">
-                        <a href="#">Жахи</a>
+                        <div class="cat-wrap--card---text">
+                            <a href="#">Жахи</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,97 @@
+#authorization{
+  width: 100%;
+  height: 100vh;
+  background: url("../../../public/img/title.jpg") center no-repeat;
+  background-size: cover;
+}
+.authorization-wrap{
+  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.authorization-wrap svg{
+  margin: 40px 0;
+}
+.authorization-text--wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authorization-text--wrap input{
+  background-color: #ffffff;
+  border-radius: 0;
+  border: none;
+  color: #707070;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Josefin Sans", sans-serif;
+  width: 300px;
+  margin: 10px 0;
+  padding: 7px 10px 3px;
+}
+.authorization-text--wrap input:focus{
+  outline: none;
+}
+.authorization-text--wrap input:first-child{
+  font-weight: 900;
+}
+.authorization-text--wrap button{
+  background-color: $gold;
+  border-radius: 50px;
+  border: none;
+  color: #111111;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Josefin Sans", sans-serif;
+  width: 300px;
+  padding: 8px 0 6px 0;
+  margin: 40px 0 12px;
+}
+.authorization-text--wrap button:focus{
+  outline: none;
+}
+.authorization-text--wrap button:hover{
+  transform: translate3d(0,-10px,0);
+  transition: transform 0.4s;
+}
+.authorization-text--wrap a{
+  color: $gold;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Josefin Sans",sans-serif;
+}
+.authorization-text--wrap a:hover{
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.2s linear;
+}
+
+//mobile
+@media (max-width: 425px) {
+  .authorization-wrap{
+    background-color: #161616;
+  }
+  .authorization-wrap svg{
+    margin: 0 0 40px 0;
+  }
+  .authorization-text--wrap{
+    padding: 0 10px;
+  }
+  .authorization-text--wrap input, .authorization-text--wrap button{
+    width: 100%;
+    margin: 15px 0;
+  }
+  .authorization-text--wrap input{
+    text-align: center;
+    padding: 12px 10px 8px;
+  }
+  .authorization-text--wrap button{
+    margin: 25px 0 15px;
+    padding: 12px 0 8px 0;
+  }
+}
