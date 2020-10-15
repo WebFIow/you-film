@@ -304,11 +304,8 @@ button.accordion {
 }
 
 @media (max-width: 767px) {
-  .dTabletNone {
-    display: none;
-  }
-  .dTablet {
-    display: block;
+  .tabColReverse {
+    flex-direction: column-reverse;
   }
   .mtH {
     margin-top: 0;
