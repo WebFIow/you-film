@@ -1,4 +1,5 @@
 <template>
+<div>
     <div id="header">
         <div class="container">
             <div class="row">
@@ -7,19 +8,22 @@
                     <path d="M17.4354 28C16.8807 28 16.6034 27.7173 16.6034 27.152V20.032L9.43538 8.704C9.14738 8.24533 9.23804 7.856 9.70738 7.536C10.1874 7.23733 10.5767 7.328 10.8754 7.808L17.4354 18.224L24.1074 7.792C24.2567 7.568 24.4274 7.43467 24.6194 7.392C24.8114 7.34933 25.0247 7.40267 25.2594 7.552C25.7394 7.84 25.8247 8.224 25.5154 8.704L18.2834 20.032V27.152C18.2834 27.7173 18.0007 28 17.4354 28Z" fill="white"/>
                 </svg>
                 <nav class="header-nav">
-                    <li><a href="#" class="header-nav--item">Головна</a></li>
-                    <li><a href="#" class="header-nav--item">Про нас</a></li>
-                    <li><a href="#" class="header-nav--item">Фільми</a>
+                    <li><router-link to="/" class="header-nav--item">Головна</router-link></li>
+                    <li><router-link to="/about" class="header-nav--item">Про нас</router-link></li>
+                    <li><router-link to="/films" class="header-nav--item">Фільми</router-link>
                         <ul class="header-nav--item---animate">
-                            <li><a href="#">Жанри</a></li>
-                            <li><a href="#">Пошук фільмів</a></li>
+                            <li><router-link to="/categories">Жанри</router-link></li>
+                            <li><router-link to="/films">Пошук фільмів</router-link></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="header-nav--item">Актори</a></li>
-                    <li><a href="#" class="header-nav--item">Режисери</a></li>
-                    <li><a href="#" class="header-nav--item header-nav--item---list">Watch-list</a></li>
+                    <li><router-link to="/actors" class="header-nav--item">Актори</router-link></li>
+                    <li><router-link to="/directors" class="header-nav--item">Режисери</router-link></li>
+                    <li><router-link to="/watch-list" class="header-nav--item header-nav--item---list">Watch-list</router-link></li>
                 </nav>
-                <a href="#" class="header-nav--item">Вхід</a>
+                <span  
+                    class="header-nav--item"
+                    @click="showAuthPopup"
+                >Вхід</span>
 
                 <form class="search-mob--wrap">
                     <input type="text" placeholder="Пошук">
@@ -31,22 +35,37 @@
                         <span></span>
                     </label>
                     <ul class="menu-box">
-                        <li><a href="#" class="menu-item">Головна</a></li>
-                        <li><a href="#" class="menu-item">Про нас</a></li>
-                        <li><a href="#" class="menu-item">Фільми</a></li>
-                        <li><a href="#" class="menu-item">Актори</a></li>
-                        <li><a href="#" class="menu-item">Режисери</a></li>
-                        <li><a href="#" class="menu-item--list">Watch-list</a></li>
+                        <li><router-link to="/" class="menu-item">Головна</router-link></li>
+                        <li><router-link to="/about" class="menu-item">Про нас</router-link></li>
+                        <li><router-link to="/films" class="menu-item">Фільми</router-link></li>
+                        <li><router-link to="/actors" class="menu-item">Актори</router-link></li>
+                        <li><router-link to="/directors" class="menu-item">Режисери</router-link></li>
+                        <li><router-link to="/watch-list" class="menu-item--list">Watch-list</router-link></li>
                     </ul>
                 </div>
 
             </div>
         </div>
     </div>
+    <AuthPopup :isVisible="isAuthVisible"/>
+</div>
 </template>
 <script>
+import AuthPopup from './AuthPopup'
+
 export default {
-    name: 'Header'
+    name: 'Header',
+    data: () => ({
+        isAuthVisible: false
+    }),
+    methods: {
+        showAuthPopup() {
+            this.isAuthVisible = !this.isAuthVisible
+        }
+    },
+    components: {
+        AuthPopup
+    }
 }
 
 

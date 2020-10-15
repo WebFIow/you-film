@@ -74,18 +74,6 @@ const routes = [
     meta: { layout: 'main' },
     component: () => import('../views/FilmMain')
   },
-  {
-    path: '/log-in',
-    name: 'LogIn',
-    meta: { layout: 'main' },
-    component: () => import('../views/LogIn')
-  },
-  {
-    path: '/authorization',
-    name: 'Authorization',
-    meta: { layout: 'main' },
-    component: () => import('../views/Authorization')
-  }
 ]
 
 const router = new VueRouter({

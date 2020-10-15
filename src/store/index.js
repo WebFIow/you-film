@@ -39,7 +39,6 @@ export default new Vuex.Store({
       }
       try {
         const actor = await firebase.database().ref(`/actors/`).push(data)
-        //return await firebase.database().ref(`/actors/`).push(data)
         console.log('pushed', actor)
       } catch (e) {
         throw e
@@ -50,9 +49,8 @@ export default new Vuex.Store({
           const uid = await dispatch('getUid')
           const updateData = {...this.getters.info, ...toUpdate}
           await firebase.database().ref(`/users/${uid}/info`).update(updateData)
-          commit('setInfo', updateData)
+
       } catch (e) {
-          commit('setError', e)
           throw e
       }
   },
@@ -61,7 +59,6 @@ export default new Vuex.Store({
         const films = (await firebase.database().ref(`/films`).once('value')).val()
         return films ? Object.keys(films).map(key => ({ ...films[key], id: key })) : []
       } catch (e) {
-        commit('setError', e)
         throw e
       }
     },
@@ -70,26 +67,19 @@ export default new Vuex.Store({
         const actors = (await firebase.database().ref(`/actors`).once('value')).val()
         return actors ? Object.keys(actors).map(key => ({ ...actors[key], id: key })) : []
       } catch (e) {
-        commit('setError', e)
         throw e
       }
     },
     async register({dispatch}, { email, password, name }) {
       try {
-        console.log('store')
-        console.log(name, email, password)
         await firebase.auth().createUserWithEmailAndPassword(email, password)
-        console.log('after createUser....')
-
         const uid = await dispatch('getUid')
-        console.log(uid)
         await firebase.database().ref(`/users/${uid}/info`).set({
           name,
           email,
           playlists: [],
           likedFilms: []
         })
-        console.log('created')
       } catch (e) {
         throw e
       }
