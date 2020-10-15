@@ -6,7 +6,7 @@
                     <h1>Фільми</h1>
                     <p>Миттєвий пошук фільмів та зручний серфінг по сайту.<br>Ви завжди будете в курсі коли і що дивитись.</p>
                     <form action="" class="search">
-                        <input class="search" type="text" placeholder="Пошук" >
+                        <input class="search" type="text" placeholder="Пошук" v-model="searchStr">
                         <button value=""></button>
                     </form>
                 </div>
@@ -306,34 +306,19 @@
                     <div class="col-xl-9 col-md-8">
                         <h3 class="hText">Список фільмів</h3>
                         <div class="fCardsWrap">
-                            <div class="fCard">
+                            <div 
+                                class="fCard"
+                                v-for="film in films"
+                                :key="film.imdbID"
+                            >
                                 <div class="fImgCard">
-                                    <img src="../../public/img/films/fim1.jpeg" alt="film poster">
+                                    <img :src="film.Poster !== 'N/A' ? film.Poster : '/*image of unknown movie*/'" alt="film poster">
                                 </div>
                                 <div class="fTextCard">
-                                    <h5>Alita: Battle Angel</h5>
-                                    <p class="sticker">2019, Action</p>
+                                    <h5>{{film.TitleUA}}</h5>
+                                    <p class="sticker">{{film.Released}}, {{film.Genre}}</p>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Pretium ullamcorper pharetra,
-                                        facilisi at. Congue elementum magnis integer
-                                        tincidunt. Non tristique congue amet, morbi.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="fCard">
-                                <div class="fImgCard">
-                                    <img src="../../public/img/films/fim1.jpeg" alt="film poster">
-                                </div>
-                                <div class="fTextCard">
-                                    <h5>Alita: Battle Angel</h5>
-                                    <p class="sticker">2019, Action</p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Pretium ullamcorper pharetra,
-                                        facilisi at. Congue elementum magnis integer
-                                        tincidunt. Non tristique congue amet, morbi.
+                                        {{film.Plot}}
                                     </p>
                                 </div>
                             </div>
@@ -637,6 +622,21 @@
 <script>
     export default {
         name: 'FilmMain',
+        data: () => ({
+            films: [],
+            allFilms: [],
+            searchStr: ''
+        }),
+        async mounted() {
+            this.allFilms = await this.$store.dispatch('fetchFilms')
+            this.films = this.allFilms
+        },
+        watch: {
+            searchStr: function() {
+                console.log(2)
+                this.films = this.allFilms.filter(film => film.TitleUA.includes(this.searchStr))
+            },
+        },
         methods: {
             showAcc(e) {
                 const el = e.target
