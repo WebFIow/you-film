@@ -31,6 +31,7 @@
   text-transform: uppercase;
   width: 350px;
   padding: 12px 0 8px 0;
+  transition: transform 0.2s linear;
 }
 .login-register{
   background:  rgba(24, 160, 251, 0.5);
@@ -72,9 +73,10 @@
 }
 .login-google:hover, .login-register:hover{
   transform: translate3d(0,-10px,0);
-  transition: transform 0.4s;
+  transition: transform 0.4s linear;
   text-decoration: none;
   color: #ffffff;
+  cursor: pointer;
 }
 .login-account{
   font-style: normal;
@@ -88,6 +90,7 @@
   text-decoration: none;
   color: #FDFDFD;
   transition: color 0.2s linear;
+  cursor: pointer;
 }
 
 // mobile

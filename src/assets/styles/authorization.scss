@@ -33,6 +33,9 @@
   margin: 10px 0;
   padding: 7px 10px 3px;
 }
+.authorization-text--wrap input:hover{
+  cursor: pointer;
+}
 .authorization-text--wrap input:focus{
   outline: none;
 }
@@ -51,6 +54,7 @@
   width: 300px;
   padding: 8px 0 6px 0;
   margin: 40px 0 12px;
+  transition: transform 0.2s;
 }
 .authorization-text--wrap button:focus{
   outline: none;

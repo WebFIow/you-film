@@ -18,7 +18,7 @@
                     </li>
                     <li><router-link to="/actors" class="header-nav--item">Актори</router-link></li>
                     <li><router-link to="/directors" class="header-nav--item">Режисери</router-link></li>
-                    <li><router-link to="/watch-list" class="header-nav--item header-nav--item---list">Watch-list</router-link></li>
+                    <li><router-link to="/watch-list" class="header-nav--item">Фільм-листи</router-link></li>
                 </nav>
                 <span  
                     class="header-nav--item"
@@ -40,7 +40,7 @@
                         <li><router-link to="/films" class="menu-item">Фільми</router-link></li>
                         <li><router-link to="/actors" class="menu-item">Актори</router-link></li>
                         <li><router-link to="/directors" class="menu-item">Режисери</router-link></li>
-                        <li><router-link to="/watch-list" class="menu-item--list">Watch-list</router-link></li>
+                        <li><router-link to="/watch-list" class="menu-item">Фільм-листи</router-link></li>
                     </ul>
                 </div>
 
