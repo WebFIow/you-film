@@ -4,12 +4,14 @@ import router from './router'
 import store from './store'
 import firebase from 'firebase/app'
 import Vuelidate from 'vuelidate'
+import Paginate from 'vuejs-paginate'
 import 'firebase/auth'
 import 'firebase/database'
 import '@/assets/styles/main.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.use(Vuelidate)
+Vue.component('Paginate', Paginate)
 
 Vue.config.productionTip = false
 

@@ -102,24 +102,22 @@ export default {
     async register() {
       if(this.$v.$invalid || !this.agreed) {
         this.$v.$touch()
-        //alert('Дані введені некоректно')
         return
       }
-      
-      alert('Запрос ушел')
-       const formData = {
+    
+      const formData = {
         email: this.email,
         password: this.password,
         name: this.name
       }
-      console.log(formData)
+
       this.email = ''
       this.name = ''
       this.agreed = false
       this.password = ''
       try {
         await this.$store.dispatch('register', formData)
-        console.log('после стора')
+
         this.$router.push('/')
       } catch (e) {}
     }
