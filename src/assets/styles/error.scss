@@ -1,0 +1,46 @@
+#error{
+  height: 100vh;
+  width: 100%;
+  background: url("../../../public/img/error.png") center no-repeat;
+  background-size: cover;
+}
+.error-wrap{
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100vh;
+}
+.error-wrap .container{
+  padding: 50px 0;
+}
+.error-text{
+  padding: 30px 0;
+}
+.error-text h1{
+  font-size: 48px;
+  font-style: normal;
+  font-family: "Playfair Display";
+  color: $gold;
+}
+@media (max-width: 770px) {
+  .error-text h1{
+    font-size: 32px;
+  }
+}
+@media (max-width: 580px) {
+  .error-text {
+    padding: 20px 40px;
+  }
+  .error-text h1{
+    font-size: 28px;
+  }
+}
+@media (max-width: 425px){
+  .error-wrap{
+    display: flex;
+    align-items: center;
+  }
+  .error-text h1{
+    font-size: 25px;
+    text-align: center;
+  }
+}
