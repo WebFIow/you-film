@@ -74,6 +74,12 @@ const routes = [
     meta: { layout: 'main' },
     component: () => import('../views/FilmMain')
   },
+  {
+    path: '/modal',
+    name: 'ModalAddToWatchList',
+    meta: { layout: 'main' },
+    component: () => import('../components/ModalAddToWatchList')
+  },
 ]
 
 const router = new VueRouter({

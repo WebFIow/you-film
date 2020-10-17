@@ -16,6 +16,17 @@
 							v-model="searchStr"
 						/>
 						<button value=""></button>
+						<ul class="searchRes">
+							<li>Фильм</li>
+							<li>Фильм</li>
+							<li>Фильм</li>
+							<li>Фильм</li>
+							<li>Фильм</li>
+							<li>Фильм</li>
+							<li>Фильм</li>
+							<li>Фильм</li>
+							<li>Фильм</li>
+						</ul>
 					</form>
 				</div>
 			</div>

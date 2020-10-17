@@ -10,7 +10,10 @@
 				/>
 			</div>
 			<div class="fTextCard">
-				<h5>{{ film.TitleUA }}</h5>
+				<div class="row mx-0 justify-content-between">
+					<h5>{{ film.TitleUA }}</h5>
+					<p><span class="star"></span><span class="rtNum">8.8</span><span class="heart"></span></p>
+				</div>
 				<p class="sticker">{{ film.Released }}, {{ film.Genre }}</p>
 				<p>
 					{{ film.Plot }}

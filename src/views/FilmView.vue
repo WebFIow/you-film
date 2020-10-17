@@ -54,6 +54,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="fText">
+                            <p><span class="heart"></span>додати в фільм-лист</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 d-tablet-none">
@@ -66,6 +69,7 @@
                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         </div>
                         <p>рейтинг: 7/10</p>
+                        <p><span class="heart"></span>додати в фільм-лист</p>
                     </div>
                 </div>
             </div>
@@ -87,14 +91,24 @@
                                 </div>
                             </div>
                             <div class="col-xl-10 col-sm-9 px-mob-none">
+                                <div class="row mobNotVisible">
+                                    <div class="col-12 d-flex align-items-baseline align-items-sm-center">
+                                        <p class="pr20 gold">Оцінка фільму:</p>
+                                        <div class="rating">
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                        </div>
+                                    </div>
+                                </div>
                                 <form id="cForm">
                                     <textarea id="cArea" rows="3" placeholder="Залишити відгук"></textarea>
                                 </form>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-left">
-                                <button class="btn btn-comment">Надіслати</button>
+
+                                <div class="row">
+                                    <div class="col-12 col-left">
+                                        <button class="btn btn-comment">Надіслати</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

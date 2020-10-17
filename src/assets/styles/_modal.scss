@@ -1,0 +1,63 @@
+#mdlAddToWatch {
+  height: 100vh;
+}
+
+.form-check-input:hover, .form-check-label:hover, span.close:hover {
+  cursor: pointer;
+}
+
+.mdl {
+  font-family: Montserrat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 428px;
+  height: 280px;
+  background: white;
+
+  & .form-label {
+    margin-bottom: 5px;
+  }
+
+  & .form-group {
+    margin-bottom: 8px;
+  }
+}
+
+.mdl-header {
+  font-size: 18px;
+}
+
+.mdl-header, .mdl-content, .mdl-addon {
+  padding: 15px 30px;
+}
+
+.mdl-content {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  font-size: 15px;
+  overflow: auto;
+  max-height:168px;
+
+  & .form-check:last-child {
+    margin-bottom: 0;
+  }
+
+  &.mdl-add-btn {
+    max-height:100px;
+    border-bottom: none;
+  }
+}
+
+.unac {
+  color: $grey;
+}
+
+.btn-mdl {
+  float: right;
+  background-color: $gold!important;
+  color: white!important;
+  padding: 7px 50px!important;
+  border-radius: 0!important;
+}
