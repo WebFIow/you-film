@@ -1,7 +1,9 @@
 #authorization{
+  position: fixed;
+  z-index: 100;
   width: 100%;
   height: 100vh;
-  background: url("../../../public/img/title.jpg") center no-repeat;
+  //background: url("../../../public/img/title.jpg") center no-repeat;
   background-size: cover;
 }
 .authorization-wrap{
@@ -14,6 +16,20 @@
 }
 .authorization-wrap svg{
   margin: 40px 0;
+}
+
+.auth-close {
+  position: absolute;
+  z-index: 101;
+  top: 80px;
+  right: 100px;
+  font-size: 40px;
+  color: #fff;
+  transition: opacity ease 0.4s;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .authorization-text--wrap{

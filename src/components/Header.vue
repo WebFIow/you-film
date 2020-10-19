@@ -51,7 +51,10 @@
             </div>
         </div>
     </div>
-    <AuthPopup :isVisible="isAuthVisible"/>
+    <AuthPopup 
+        v-if="isAuthVisible"
+        @closeAuth="hideAuthPopup"
+    />
 </div>
 </template>
 <script>
@@ -65,6 +68,10 @@ export default {
     methods: {
         showAuthPopup() {
             this.isAuthVisible = !this.isAuthVisible
+        },
+        hideAuthPopup() {
+            console.log('hideauthpopup')
+             this.isAuthVisible = false
         }
     },
     components: {

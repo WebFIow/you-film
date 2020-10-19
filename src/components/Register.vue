@@ -56,7 +56,7 @@
                          v-model="agreed" 
                          class="form-check-input"
                           id="checkRules"
-                          :class="{invalid: !agreed}"
+                          :class="{invalid: ($v.agreed.$dirty && !$v.agreed.required) || ($v.agreed.$dirty && !this.agreed)}"
                           >
                         <label class="form-check-label" for="checkRules">Погоджуюсь з <a class="aLink" href="#">правилами</a></label>
                     </div>
@@ -93,14 +93,15 @@ export default {
     agreed: false
   }),
   validations: {
-    email: {email, required},
-    password: {required, minLength: minLength(8)},
-    name: {required, minLength: minLength(1)},
-    agreed: {required}
+    email: { email, required },
+    password: { required, minLength: minLength(8) },
+    name: { required, minLength: minLength(1) },
+    agreed: { required }
   },
   methods: {
     async register() {
-      if(this.$v.$invalid || !this.agreed) {
+      console.log(this.$v.agreed)
+      if(this.$v.$invalid) {
         this.$v.$touch()
         return
       }
@@ -132,5 +133,6 @@ export default {
 
   input[type=checkbox].invalid {
     outline: 1px solid red;
+    outline-offset: 0px;
   }
 </style>
