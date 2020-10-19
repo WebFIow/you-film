@@ -1,5 +1,12 @@
 #mdlAddToWatch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 
 .form-check-input:hover, .form-check-label:hover, span.close:hover {
@@ -9,7 +16,7 @@
 .mdl {
   font-family: Montserrat;
   position: absolute;
-  top: 50%;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 428px;

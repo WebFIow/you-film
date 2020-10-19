@@ -152,8 +152,10 @@
             film: {}
         }),
         async mounted() {
-            this.films = await this.$store.dispatch('fetchFilms')
-            this.film = this.films[Math.floor(Math.random() * this.films.length)]
+            const id = this.$route.params.id
+            this.film = await this.$store.dispatch('fetchFilmByID', id)
+            //this.films = await this.$store.dispatch('fetchFilms')
+            //this.film = this.films[Math.floor(Math.random() * this.films.length)]
         }
     }
 </script>

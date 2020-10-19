@@ -1,5 +1,11 @@
 <template>
 	<div class="fCardsWrap">
+		<AddToWatchListModal 
+			v-if="modalIsVisible"
+			:title="film.TitleUA"
+			:film-id="film.id"
+			@close="hideAddToWatchListModal"
+		/>
 		<div class="fCard">
 			<div class="fImgCard">
 				<img
@@ -11,8 +17,20 @@
 			</div>
 			<div class="fTextCard">
 				<div class="row mx-0 justify-content-between">
-					<h5>{{ film.TitleUA }}</h5>
-					<p><span class="star"></span><span class="rtNum">8.8</span><span class="heart"></span></p>
+					<h5>
+						<router-link
+							:to="`/film-view/${film.id}`"
+						>
+							{{ film.TitleUA }}
+						</router-link>
+					</h5>
+					<p>
+						<span class="star"></span><span class="rtNum">8.8</span>
+						<span
+						  class="heart"
+							@click="showAddToWatchListModal(film.TitleUA)"
+						></span>
+					</p>
 				</div>
 				<p class="sticker">{{ film.Released }}, {{ film.Genre }}</p>
 				<p>
@@ -24,7 +42,23 @@
 </template>
 
 <script>
+import AddToWatchListModal from './ModalAddToWatchList'
+
 export default {
-  props: ['film']
+	props: ['film'],
+	components: {
+		AddToWatchListModal
+	},
+	data: () => ({
+		modalIsVisible: false
+	}),
+	methods: {
+		showAddToWatchListModal() {
+			this.modalIsVisible = true
+		},
+		hideAddToWatchListModal() {
+			this.modalIsVisible = false
+		}
+	}
 }
 </script>

@@ -63,7 +63,7 @@ const routes = [
     component: () => import('../views/AddActor')
   },
   {
-    path: '/film-view',
+    path: '/film-view/:id',
     name: 'FilmView',
     meta: { layout: 'main' },
     component: () => import('../views/FilmView')

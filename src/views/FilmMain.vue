@@ -8,7 +8,7 @@
 						Миттєвий пошук фільмів та зручний серфінг по сайту.<br />Ви завжди
 						будете в курсі коли і що дивитись.
 					</p>
-					<form action="" class="search">
+					<form @submit.prevent="handleSearchQuery" class="search">
 						<input
 							class="search"
 							type="text"
@@ -17,15 +17,16 @@
 						/>
 						<button value=""></button>
 						<ul class="searchRes">
-							<li>Фильм</li>
-							<li>Фильм</li>
-							<li>Фильм</li>
-							<li>Фильм</li>
-							<li>Фильм</li>
-							<li>Фильм</li>
-							<li>Фильм</li>
-							<li>Фильм</li>
-							<li>Фильм</li>
+							<li
+								v-for="film in searchedTitles"
+								:key="film.id"
+							>
+								<router-link
+									:to="`/film-view/${film.id}`"
+								>
+									{{ film.title }}
+								</router-link>
+							</li>
 						</ul>
 					</form>
 				</div>
@@ -552,7 +553,8 @@ import FilmTable from '@/components/FilmTable'
             FilmTable
         },
         data: () => ({
-            films: [],
+						films: [],
+						searchedTitles: [],
             allFilms: [],
             searchStr: ''
 				}),
@@ -561,14 +563,14 @@ import FilmTable from '@/components/FilmTable'
             this.allFilms = await this.$store.dispatch('fetchFilms')
 						this.films = this.allFilms
 						this.setup(this.films)
-        },
-        watch: {
-            searchStr: function() {
-								this.films = this.allFilms.filter(film => film.TitleUA.includes(this.searchStr))
-								this.setup(this.films)
-						},
-						
-        },
+				},
+				watch: {
+					searchStr() {
+						this.searchedTitles = this.allFilms
+							.filter(film => film.TitleUA.includes(this.searchStr))
+							.map(film => ({ title: film.TitleUA, id: film.id }))
+					}
+				},
         methods: {
             showAcc(e) {
                 const el = e.target
@@ -582,6 +584,14 @@ import FilmTable from '@/components/FilmTable'
 						},
 						setup(films) {
 							this.setupPagination(films)
+						},	
+						handleSearchQuery() {
+							this.films = this.allFilms.filter(film => film.TitleUA.includes(this.searchStr))
+							this.setup(this.films)
+							this.searchStr = ''
+							setTimeout(() => {
+								this.searchedTitles = []
+							}, 0)
 						}
         }
     }

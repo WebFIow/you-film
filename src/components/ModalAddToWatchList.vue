@@ -1,5 +1,9 @@
 <template>
-    <div id="mdlAddToWatch">
+    <div 
+        id="mdlAddToWatch"
+        @click="close" 
+        ref="modalWrapper"
+    >
 <!--        FIRST MODAL-->
 
 <!--        <div class="mdl">-->
@@ -67,7 +71,16 @@
 <!--        THIRD MODAL-->
                 <div class="mdl">
                     <div class="mdl-header">
-                        <p class="mb-0">Додати “Alita: Battle Angel” у <span class="close float-right"><i class="fas fa-times"></i></span></p>
+                        <p class="mb-0">
+                            Додати {{title}} у 
+                            <span class="close float-right">
+                                <i 
+                                    class="fas fa-times"
+                                    @click="close"
+                                    ref="modalClose"
+                                ></i>
+                            </span>
+                        </p>
                     </div>
                     <div class="mdl-content mdl-add-btn">
                         <form>
@@ -109,6 +122,21 @@
                     </div>
                 </div>
         <!--        THIRD MODAL-->
-
     </div>
 </template>
+
+<script>
+export default {
+    props: ['title'],
+    data: () => ({
+
+    }),
+    methods: {
+        close(e) {
+            if (this.$refs.modalWrapper == e.target || this.$refs.modalClose == e.target) {
+                this.$emit('close')
+            }
+        }
+    }
+}
+</script>

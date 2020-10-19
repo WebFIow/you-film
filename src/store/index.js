@@ -62,6 +62,14 @@ export default new Vuex.Store({
         throw e
       }
     },
+    async fetchFilmByID({}, id) {
+      try {
+        const film = (await firebase.database().ref(`/films/${id}`).once('value')).val()
+        return film ? {...film, id} : {}
+      } catch (e) {
+        throw e
+      }
+    },
     async fetchActors() {
       try {
         const actors = (await firebase.database().ref(`/actors`).once('value')).val()
