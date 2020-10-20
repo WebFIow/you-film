@@ -70,7 +70,6 @@ export default {
             this.isAuthVisible = !this.isAuthVisible
         },
         hideAuthPopup() {
-            console.log('hideauthpopup')
              this.isAuthVisible = false
         }
     },

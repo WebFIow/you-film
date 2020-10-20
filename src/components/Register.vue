@@ -16,7 +16,11 @@
               <h4 class="hSubText">Залишайся з нами 24/7.<br>Твої YouFilm ♥️</h4>
 
               <div class="formWrap">
-                <form class="regForm" @submit.prevent="register">
+                <form 
+                  class="regForm" 
+                  @submit.prevent="register" 
+                  autocomplete="off"
+                >
                   <div class="form-group">
                     <!--                <label for="exampleInputEmail1">Email address</label>-->
                     <input 
@@ -100,7 +104,6 @@ export default {
   },
   methods: {
     async register() {
-      console.log(this.$v.agreed)
       if(this.$v.$invalid) {
         this.$v.$touch()
         return
@@ -119,8 +122,14 @@ export default {
       try {
         await this.$store.dispatch('register', formData)
 
-        this.$router.push('/')
-      } catch (e) {}
+        if (this.$route.path === '/') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+          this.$router.push('/')
+        }
+      } catch (e) {
+        alert(e.message)
+      }
     }
   }
 }

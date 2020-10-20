@@ -25,7 +25,7 @@
 						</router-link>
 					</h5>
 					<p>
-						<span class="star"></span><span class="rtNum">8.8</span>
+						<span class="star"></span><span class="rtNum">{{film.imdbRating}}</span>
 						<span
 						  class="heart"
 							@click="showAddToWatchListModal(film.TitleUA)"
