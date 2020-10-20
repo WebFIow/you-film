@@ -13,11 +13,14 @@ export default {
   methods: {
     setupPagination(allItems) {
       this.allItems = _.chunk(allItems, this.pageSize)
-      console.log(this.allItems)
       this.pageCount = _.size(this.allItems)
       this.items = this.allItems[this.page - 1] || this.allItems[0]
     },
     pageChangeHandler(page) {
+      window.scrollTo({
+        top: this.$refs.searchWrap.clientHeight - 80, 
+        behavior: 'smooth'
+      })
       this.$router.push(`${this.$route.path}?page=${page}`)
       this.items = this.allItems[page - 1] || this.allItems[0]
     }

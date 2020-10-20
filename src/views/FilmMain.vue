@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div id="films">
+		<div id="films" ref="searchWrap">
 			<div class="films-wrap container">
 				<div class="films-text">
 					<h1>Фільми</h1>
