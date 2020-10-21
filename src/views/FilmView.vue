@@ -54,7 +54,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="fText">
+                        <div class="fText d-md-none d-sm-block">
                             <p><span class="heart"></span>додати в фільм-лист</p>
                         </div>
                     </div>
