@@ -65,8 +65,8 @@
                     </div>
                     <div class="imgStars">
                         <div class="rating">
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
                         </div>
                         <p>рейтинг: 7/10</p>
                         <p><span class="heart"></span>додати в фільм-лист</p>
@@ -84,8 +84,8 @@
                                     <p>Головна вовчиця</p>
                                     <div class="imgStars imgStarsMob d-md-none d-sm-block">
                                         <div class="rating">
-                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                            <span></span><span></span><span></span><span></span><span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -95,8 +95,8 @@
                                     <div class="col-12 d-flex align-items-baseline align-items-sm-center">
                                         <p class="pr20 gold">Оцінка фільму:</p>
                                         <div class="rating">
-                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                            <span></span><span></span><span></span><span></span><span></span>
+                                            <span></span><span></span><span></span><span></span><span></span>
                                         </div>
                                     </div>
                                 </div>

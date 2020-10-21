@@ -102,12 +102,17 @@
   display: flex;
   justify-content: center;
 
-  &> span {
+  & > span {
     display: inline-block;
     position: relative;
     width: 1.1em;
     color: $gold;
     margin-right: 15px;
+
+    &::before {
+      content: "\f005";
+      font-family: 'Font Awesome 5 Free';
+    }
 
     &:first-child {
       margin-right: 0!important;
@@ -123,17 +128,19 @@
     }
 
     &:hover:before {
-      content: "\2605";
+      content: "\f005";
       position: absolute;
       left: 0;
       color: $gold;
+      font-weight: bold;
     }
 
     &:hover ~ span:before {
-      content: "\2605";
+      content: "\f005";
       position: absolute;
       left: 0;
       color: $gold;
+      font-weight: bold;
     }
   }
 }
