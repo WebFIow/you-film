@@ -80,6 +80,12 @@ const routes = [
     meta: { layout: 'main' },
     component: () => import('../components/ModalAddToWatchList')
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    meta: { layout: 'main' },
+    component: () => import('../views/Profile')
+  }
 ]
 
 const router = new VueRouter({
