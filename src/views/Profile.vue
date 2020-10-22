@@ -16,13 +16,40 @@
                                    role="tab"
                                    aria-selected="true"
                                    aria-controls="panel1"
-                                   tabindex="0">Description</label>
+                                   tabindex="0">фільм-лісти</label>
                             <div id="tab-content1"
                                  class="tab-content"
                                  role="tabpanel"
                                  aria-labelledby="description"
                                  aria-hidden="false">
-                                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                                <p>
+                                    Немає жодного фільм-листа 😢<br>Прямуй на сторінку Фільми, та створи свої власні підбірки фільмів.
+                                </p>
+
+                                <button class="accordion" @click="showAcc">Подвитися пізніше</button>
+                                <div class="panel">
+                                    <ul class="accUL">
+                                        <li>
+                                            <div class="fCard">
+                                                <div class="fImgCard">
+                                                    <img src="../../public/img/films/fim1.jpeg" alt="film poster">
+                                                </div>
+                                                <div class="fTextCard">
+                                                    <div class="row mx-0 justify-content-between">
+                                                        <h5>Форест Гамп</h5>
+                                                        <p>
+                                                            <span class="star"></span><span class="rtNum">8.6</span>
+                                                            <span class="heart"></span>
+                                                        </p>
+                                                    </div>
+                                                    <p class="sticker">2019, Action</p>
+                                                    <p>text</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </div>
                         </li>
 
@@ -32,7 +59,7 @@
                                    role="tab"
                                    aria-selected="false"
                                    aria-controls="panel2"
-                                   tabindex="0">Specification</label>
+                                   tabindex="0">Особисті дані</label>
                             <div id="tab-content2"
                                  class="tab-content"
                                  role="tabpanel"
@@ -44,12 +71,62 @@
                     </ul>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="hText">Рекомендації</h3>
+                    <div class="recommendWrap">
+                        <div class="recommendFilmWrap">
+                            <img src="../../public/img/films/fim1.jpeg">
+                            <p>Форест Гамп</p>
+                        </div>
+                        <div class="recommendFilmWrap">
+                            <img src="../../public/img/films/fim1.jpeg">
+                            <p>Форест Гамп</p>
+                        </div>
+                        <div class="recommendFilmWrap">
+                            <img src="../../public/img/films/fim1.jpeg">
+                            <p>Форест Гамп</p>
+                        </div>
+                        <div class="recommendFilmWrap">
+                            <img src="../../public/img/films/fim1.jpeg">
+                            <p>Форест Гамп</p>
+                        </div>
+                        <div class="recommendFilmWrap">
+                            <img src="../../public/img/films/fim1.jpeg">
+                            <p>Форест Гамп</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Profile'
+        name: 'Profile',
+        methods: {
+            showAcc(e) {
+                const el = e.target
+                el.classList.toggle("active")
+                const panel = el.nextElementSibling
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + 70 + "px"
+                }
+            },
+            setup(films) {
+                this.setupPagination(films)
+            },
+            handleSearchQuery() {
+                this.films = this.allFilms.filter(film => film.TitleUA.includes(this.searchStr))
+                this.setup(this.films)
+                this.searchStr = ''
+                setTimeout(() => {
+                    this.searchedTitles = []
+                }, 0)
+            }
+        }
     }
 </script>

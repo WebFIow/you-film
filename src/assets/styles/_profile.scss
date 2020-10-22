@@ -1,6 +1,13 @@
 #profile {
   padding-top: 85px;
 
+  & .hText {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: left;
+    margin-bottom: 36px;
+  }
+
   & > .container > .row {
     margin-top: 100px;
   }
@@ -26,11 +33,26 @@
 }
 
 .tabs {
-  width: 650px;
-  float: none;
+  height: 100%;
   list-style: none;
   position: relative;
   text-align: left;
+  height: 50px;
+  border-bottom: 1px solid $gold;
+
+  .accUL {
+    list-style: none;
+    background-color: transparent;
+
+    & li {
+      width: 100%;
+
+      & .fCard .fTextCard {
+        width: 100%;
+      }
+    }
+  }
+
   li {
     float: left;
     display: block;
@@ -47,11 +69,15 @@
     font-size: 20px;
     font-weight: normal;
     text-transform: uppercase;
-    //background: $tabs-base-color;
     cursor: pointer;
     position: relative;
     top: 4px;
-
+    color: #605532;
+    padding-left: 0px;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
   }
   .tab-content{
     z-index: 2;
@@ -64,14 +90,45 @@
     position: absolute;
     top: 53px;
     left: 0;
+    padding-left: 0px;
+
+    & p {
+      color: white;
+    }
   }
   //The Magic
   [id^="tab"]:checked + label {
     top: 0;
     padding-top: 17px;
+    color: $gold;
   }
   [id^="tab"]:checked ~ [id^="tab-content"] {
     display: block;
   }
 }
+
+.recommendWrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .recommendFilmWrap {
+    display: flex;
+    flex-direction: column;
+
+    &> img {
+      max-height: 240px;
+      width: auto;
+    }
+
+    &> p {
+      color: white;
+      font-family: Montserrat;
+      font-size: 18px;
+      text-align: center;
+      padding-top: 8px;
+    }
+  }
+}
+
 
