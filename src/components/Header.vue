@@ -45,6 +45,7 @@
                         <li><router-link to="/actors" class="menu-item">Актори</router-link></li>
                         <li><router-link to="/directors" class="menu-item">Режисери</router-link></li>
                         <li><router-link to="/watch-list" class="menu-item">Фільм-листи</router-link></li>
+                        <li><router-link to="/watch-list" class="menu-item">Вхід</router-link></li>
                     </ul>
                 </div>
 
