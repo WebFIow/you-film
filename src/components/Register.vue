@@ -121,12 +121,7 @@ export default {
       this.password = ''
       try {
         await this.$store.dispatch('register', formData)
-
-        if (this.$route.path === '/') {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        } else {
-          this.$router.push('/')
-        }
+        this.$router.push('/profile')
       } catch (e) {
         alert(e.message)
       }

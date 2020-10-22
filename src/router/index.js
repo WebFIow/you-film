@@ -75,17 +75,23 @@ const routes = [
     component: () => import('../views/FilmMain')
   },
   {
-    path: '/modal',
-    name: 'ModalAddToWatchList',
-    meta: { layout: 'main' },
-    component: () => import('../components/ModalAddToWatchList')
-  },
-  {
     path: '/profile',
-    name: 'Profile',
     meta: { layout: 'main' },
-    component: () => import('../views/Profile')
-  }
+    component: () => import('../views/Profile'),
+    children: [
+      {
+        path: '',
+        name: "Profile",
+        meta: { layout: 'main' },
+        component: () => import('../components/ProfileFilmLists'),
+      },
+      {
+        path: 'settings',
+        meta: { layout: 'main' },
+        component: () => import('../components/ProfileSettings'),
+      }
+    ]
+  },
 ]
 
 const router = new VueRouter({
