@@ -96,6 +96,30 @@
     color: white;
     font-size: 18px;
   }
+
+  & label {
+    font-size: 14px;
+    color: $grey;
+    margin-bottom: 0px;
+  }
+
+  & input {
+    background: none!important;
+    font-size: 18px;
+    padding-left: 0px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px;
+    width: 75%;
+    &::placeholder {
+      color: $grey!important;
+    }
+  }
+  .btn-mdl {
+    border-radius: 20px!important;
+    background-color: $golder-btn!important;
+  }
 }
 
 .recommendWrap {
