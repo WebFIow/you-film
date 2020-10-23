@@ -233,7 +233,7 @@ form.search {
     margin-right: 10px;
   }
 
-  & .active:before {
+  &.active:before {
     font-family: "Font Awesome 5 Free";
     content: '\f107';
   }
