@@ -22,12 +22,12 @@
             <div class="fTextCard">
               <div class="row mx-0 justify-content-between">
                 <h5>Форест Гамп</h5>
-                <p>
-                  <span class="star"></span><span class="rtNum">8.6</span>
-                  <span class="heart"></span>
+                <p class="pMob">
+                  <span class="star mobNotVisible"></span><span class="rtNum mobNotVisible">8.6</span>
+                  <span class="close"></span>
                 </p>
               </div>
-              <p class="sticker">2019, Action</p>
+              <div class="mobFlex"><p class="sticker">2019, Action</p> <p class="mobVisible"><span class="star"></span><span class="rtNum ">8.6</span></p></div>
               <p>text</p>
             </div>
           </div>

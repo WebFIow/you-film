@@ -2,13 +2,13 @@
   <div id="profile">
     <div class="container container-fluid">
       <div class="row">
-        <div class="col-4 justify-content-center">
+        <div class="col-md-4 justify-content-center">
           <div class="sideProfile">
             <div class="circle">P</div>
             <p class="name">Петро Петренко</p>
           </div>
         </div>
-        <div class="col-8">
+        <div class="col-md-8">
           <ul class="tabs" role="tablist">
             <li>
               <router-link

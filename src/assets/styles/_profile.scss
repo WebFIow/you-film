@@ -1,5 +1,6 @@
 #profile {
   padding-top: 85px;
+  min-height: calc(100vh - 72px);
 
   & .hText {
     font-size: 32px;
@@ -11,6 +12,29 @@
   & > .container > .row {
     margin-top: 100px;
   }
+
+  .accUL {
+    background-color: transparent;
+
+    & .fTextCard, .fCard {
+      width: 100%;
+
+      & .close {
+        padding-left: 25px;
+        &::before {
+          content: '\f00d';
+          color: $times;
+          font-family: "Font Awesome 5 Free";
+          text-shadow: none;
+        }
+      }
+
+    }
+  }
+}
+
+.mobVisible {
+  display: none;
 }
 
 .circle {
@@ -37,73 +61,40 @@
   list-style: none;
   position: relative;
   text-align: left;
-  height: 50px;
+  height: 40px;
   border-bottom: 1px solid $gold;
 
-  .accUL {
-    list-style: none;
-    background-color: transparent;
+  & li {
+    float: left;
 
-    & li {
-      width: 100%;
+    &:last-child {
+      padding-left: 10px;
+    }
 
-      & .fCard .fTextCard {
-        width: 100%;
+    & a {
+      font-size: 19px;
+      color: $brown-text;
+
+      &.router-link-active.router-link-exact-active {
+        color: #C1AB65!important;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: white;
       }
     }
-  }
 
-  li {
-    float: left;
-    display: block;
-  }
-  input[type="radio"] {
-    position: absolute;
-    top: 0;
-    left: -9999px;
-  }
-  label {
-    display: block;
-    padding: 14px 21px;
-    border-radius: 2px 2px 0 0;
-    font-size: 20px;
-    font-weight: normal;
-    text-transform: uppercase;
-    cursor: pointer;
-    position: relative;
-    top: 4px;
-    color: #605532;
-    padding-left: 0px;
-    &:focus {
-      outline: none;
-      box-shadow: none;
+    & .fCard .fTextCard {
+      width: 100%;
     }
   }
-  .tab-content{
-    z-index: 2;
-    display: none;
-    overflow: hidden;
-    width: 100%;
-    font-size: 17px;
-    line-height: 25px;
-    padding: 25px;
-    position: absolute;
-    top: 53px;
-    left: 0;
-    padding-left: 0px;
+}
 
-    & p {
-      color: white;
-    }
-  }
-  //The Magic
-  [id^="tab"]:checked + label {
-    top: 0;
-    padding-top: 17px;
-    color: $gold;
-  }
-  [id^="tab"]:checked ~ [id^="tab-content"] {
-    display: block;
+.tab-content {
+  & p {
+    color: white;
+    font-size: 18px;
   }
 }
 
@@ -131,4 +122,77 @@
   }
 }
 
+@media (max-width: 991px) {
+  .recommendWrap .recommendFilmWrap > img {
+    max-height: 170px;
+    width: auto;
+  }
+}
 
+@media (max-width: 768px) {
+  #profile {
+    padding-top: 45px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sideProfile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 575px) {
+  .fCard {
+      flex-direction: column;
+      max-height: 510px;
+      width: 230px!important;
+      margin-bottom: 30px!important;
+
+      & .fImgCard img {
+        height: 240px;
+        width: 230px;
+      }
+
+      & .fTextCard {
+        width: 230px!important;
+        height: 270px;
+
+        & .sticker {
+          margin-bottom: 20px;
+        }
+
+        & p:last-child {
+          font-size: 13px;
+        }
+      }
+  }
+  button.accordion {
+    width: 100%;
+  }
+  #profile {
+    & .accUL {
+      padding-left: 0;
+
+      & li {
+        padding-left: 0;
+        justify-content: center;
+      }
+    }
+  }
+  .mobNotVisible {
+    display: none;
+  }
+  .pMob {
+    margin-bottom: 5px;
+  }
+  .mobFlex {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .mobVisible {
+    display: block;
+  }
+}

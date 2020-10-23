@@ -399,7 +399,7 @@ button.accordion {
         font-size: 12px;
         padding: 6px 6px;
         background-color: $sticker;
-        max-width: 85px;
+        max-width: 200px;
         color: $sticker-text;
         margin-bottom: 15px;
       }
@@ -486,7 +486,7 @@ button.accordion {
 
     .fCard {
       flex-direction: column;
-      max-height: 480px;
+      max-height: 510px;
       width: 230px;
       margin-bottom: 30px!important;
 
@@ -497,7 +497,7 @@ button.accordion {
 
       & .fTextCard {
         width: 230px;
-        height: 240px;
+        height: 270px;
 
         & .sticker {
           margin-bottom: 20px;
