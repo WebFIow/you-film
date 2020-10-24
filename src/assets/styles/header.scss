@@ -1,5 +1,5 @@
 #header {
-  background-color: #161616;
+  background-color: #080808;
   width: 100%;
   position: fixed;
   top: 0;
@@ -12,26 +12,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10px;
-  background-color: #161616;
+  padding: 15px 10px;
 }
-#header svg{
-  background-color: #161616;
-}
+
 .header-nav{
   display: flex;
   justify-content: space-around;
-  background-color: #161616;
 }
 .header-nav li{
   list-style: none;
-  background-color: #161616;
 }
 .header-nav--item{
   font-family: "Josefin Sans",sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: 14px;
   color: #ffffff;
   text-transform: uppercase;
   padding: 0 10px;
@@ -50,7 +45,7 @@
   transition: 0.3s ease-out;
   width: 150px;
 
-  background-color:#161616;
+  background-color:#080808;
   color: #fff;
   text-align: center;
 }
@@ -58,10 +53,11 @@
   padding: 8px 10px ;
   text-align: left;
 }
+
 .header-nav--item---animate a{
   text-decoration: none;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
   font-family: "Josefin Sans", sans-serif;
 }

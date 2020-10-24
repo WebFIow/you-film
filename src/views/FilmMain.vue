@@ -16,7 +16,7 @@
 							v-model="searchStr"
 						/>
 						<button value=""></button>
-						<ul class="searchRes">
+						<ul class="searchRes" v-if="searchStr">
 							<li
 								v-for="film in searchedTitles"
 								:key="film.id"
@@ -57,87 +57,13 @@
 						<button class="accordion" @click="showAcc">ЖАНРИ</button>
 						<div class="panel">
 							<ul class="accUL">
-								<li>
-									<input
-										id="comedy"
-										type="checkbox"
-										name="genres"
-										value="comedy"
-									/>
-									<label for="comedy">Комедії</label>
-								</li>
-								<li>
-									<input
-										id="melodrama"
-										type="checkbox"
-										name="genres"
-										value="melodrama"
-									/>
-									<label for="melodrama">Мелодрами</label>
-								</li>
-								<li>
-									<input
-										id="detective"
-										type="checkbox"
-										name="genres"
-										value="detective"
-									/>
-									<label for="detective">Детективи</label>
-								</li>
-								<li>
-									<input
-										id="fight"
-										type="checkbox"
-										name="genres"
-										value="fight"
-									/>
-									<label for="fight">Боєвіки</label>
-								</li>
-								<li>
-									<input
-										id="fantasy"
-										type="checkbox"
-										name="genres"
-										value="fantasy"
-									/>
-									<label for="fantasy">Фєнтезі</label>
-								</li>
-								<li>
-									<input
-										id="drama"
-										type="checkbox"
-										name="genres"
-										value="drama"
-									/>
-									<label for="drama">Драми</label>
-								</li>
-								<li>
-									<input
-										id="family"
-										type="checkbox"
-										name="genres"
-										value="family"
-									/>
-									<label for="family">Сімейні</label>
-								</li>
-								<li>
-									<input
-										id="horror"
-										type="checkbox"
-										name="genres"
-										value="horror"
-									/>
-									<label for="horror">Жахи</label>
-								</li>
-								<li>
-									<input
-										id="documentary"
-										type="checkbox"
-										name="genres"
-										value="documentary"
-									/>
-									<label for="documentary">Документальні</label>
-								</li>
+								<li
+                  v-for="genre in genres"
+                  :key="genre"
+                  @click="e => {filterFilmsByGenre(e, genre)}"
+                >
+								{{genre}}
+                </li>
 							</ul>
 						</div>
 
@@ -150,179 +76,10 @@
 										type="checkbox"
 										name="rewards"
 										value="oscar"
+                    v-model="filterSettings.oscar"
 									/>
 									<label for="oscar">Оскар</label>
-								</li>
-								<li>
-									<input
-										id="gold_globus"
-										type="checkbox"
-										name="rewards"
-										value="gold_globus"
-									/>
-									<label for="gold_globus">Золотий глобус</label>
-								</li>
-								<li>
-									<input
-										id="br_ac"
-										type="checkbox"
-										name="rewards"
-										value="br_ac"
-									/>
-									<label for="br_ac">Британська академія</label>
-								</li>
-								<li>
-									<input
-										id="cannes"
-										type="checkbox"
-										name="rewards"
-										value="cannes"
-									/>
-									<label for="cannes">Каннський кінофестиваль</label>
-								</li>
-								<li>
-									<input
-										id="ceasar"
-										type="checkbox"
-										name="rewards"
-										value="ceasar"
-									/>
-									<label for="ceasar">Сезар</label>
-								</li>
-								<li>
-									<input
-										id="nika"
-										type="checkbox"
-										name="rewards"
-										value="nika"
-									/>
-									<label for="nika">Ніка</label>
-								</li>
-								<li>
-									<input
-										id="gold_orel"
-										type="checkbox"
-										name="rewards"
-										value="gold_orel"
-									/>
-									<label for="gold_orel">Золотий орел</label>
-								</li>
-								<li>
-									<input
-										id="saturn"
-										type="checkbox"
-										name="rewards"
-										value="saturn"
-									/>
-									<label for="saturn">Сатурн</label>
-								</li>
-								<li>
-									<input id="hoa" type="checkbox" name="rewards" value="hoa" />
-									<label for="hoa">Гойя</label>
-								</li>
-								<li>
-									<input
-										id="emmi"
-										type="checkbox"
-										name="rewards"
-										value="emmi"
-									/>
-									<label for="emmi">Єммі</label>
-								</li>
-								<li>
-									<input
-										id="asia_cinema"
-										type="checkbox"
-										name="rewards"
-										value="asia_cinema"
-									/>
-									<label for="asia_cinema">Азиатська кіноакадемія</label>
-								</li>
-								<li>
-									<input
-										id="eu_cinema"
-										type="checkbox"
-										name="rewards"
-										value="eu_cinema"
-									/>
-									<label for="eu_cinema">Європейська кіноакадемія</label>
-								</li>
-								<li>
-									<input id="mtv" type="checkbox" name="rewards" value="mtv" />
-									<label for="mtv">Премія канала “MTV”</label>
-								</li>
-								<li>
-									<input
-										id="gold_berry"
-										type="checkbox"
-										name="rewards"
-										value="gold_berry"
-									/>
-									<label for="gold_berry">Золота малина</label>
-								</li>
-								<li>
-									<input
-										id="george"
-										type="checkbox"
-										name="rewards"
-										value="george"
-									/>
-									<label for="george">Жорж</label>
-								</li>
-								<li>
-									<input
-										id="berlin"
-										type="checkbox"
-										name="rewards"
-										value="berlin"
-									/>
-									<label for="berlin">Берлінський кінофестиваль</label>
-								</li>
-								<li>
-									<input
-										id="vienna"
-										type="checkbox"
-										name="rewards"
-										value="vienna"
-									/>
-									<label for="vienna">Венеціанський кінофестиваль</label>
-								</li>
-								<li>
-									<input
-										id="mmkf"
-										type="checkbox"
-										name="rewards"
-										value="mmkf"
-									/>
-									<label for="mmkf">ММКФ</label>
-								</li>
-								<li>
-									<input
-										id="carlovy_vary"
-										type="checkbox"
-										name="rewards"
-										value="carlovy_vary"
-									/>
-									<label for="carlovy_vary">Карлови Вари</label>
-								</li>
-								<li>
-									<input
-										id="san_sebastian"
-										type="checkbox"
-										name="rewards"
-										value="san_sebastian"
-									/>
-									<label for="san_sebastian">Сан-Себастьян</label>
-								</li>
-								<li>
-									<input
-										id="sandens"
-										type="checkbox"
-										name="rewards"
-										value="sandens"
-									/>
-									<label for="sandens">Санденс</label>
-								</li>
+								</li>  
 							</ul>
 						</div>
 
@@ -330,17 +87,29 @@
 						<div class="panel">
 							<ul class="accUL">
 								<li>
-									<input id="high" type="checkbox" name="rating" value="high" />
+									<input 
+                    id="high" 
+                    type="checkbox" 
+                    name="rating" 
+                    value="high"
+                    v-model="filterSettings.ratingLtoH"
+                  />
 									<label for="high">За зростанням</label>
 								</li>
 								<li>
-									<input id="low" type="checkbox" name="rating" value="low" />
+									<input 
+                    id="low" 
+                    type="checkbox" 
+                    name="rating" 
+                    value="low"
+                    v-model="filterSettings.ratingHtoL" 
+                  />
 									<label for="low">За спаданням</label>
 								</li>
 							</ul>
 						</div>
 
-						<button class="accordion" @click="showAcc">КРАЇНА</button>
+						<button class="accordion" @click="showAcc">КРАЇНА ??????</button>
 						<div class="panel">
 							<ul class="accUL">
 								<li>
@@ -490,11 +259,23 @@
 						<div class="panel">
 							<ul class="accUL">
 								<li>
-									<input id="old" type="checkbox" name="year" value="old" />
+									<input 
+                    id="old" 
+                    type="checkbox" 
+                    name="year" 
+                    value="old" 
+                    v-model="filterSettings.yearLtoH"
+                  />
 									<label for="old">За зростанням</label>
 								</li>
 								<li>
-									<input id="new" type="checkbox" name="year" value="new" />
+									<input 
+                    id="new" 
+                    type="checkbox" 
+                    name="year" 
+                    value="new" 
+                    v-model="filterSettings.yearHtoL"
+                  />
 									<label for="new">За спаданням</label>
 								</li>
 							</ul>
@@ -556,20 +337,65 @@ import FilmTable from '@/components/FilmTable'
 						films: [],
 						searchedTitles: [],
             allFilms: [],
-            searchStr: ''
+            searchStr: '',
+            filteredGenres: [],
+            filterSettings: {
+              comedy: false,
+              detective: false,
+              drama: false,
+              horror: false,
+              documentary: false,
+              family: false,
+              fantasy: false,
+              melodrama: false,
+              fight: false,
+              ratingHtoL: false,
+              ratingLtoH: false,
+              oscar: false,
+              yearHtoL: false,
+              yearLtoH: false
+            }
 				}),
 				mixins: [paginationMixin],
         async mounted() {
             this.allFilms = await this.$store.dispatch('fetchFilms')
 						this.films = this.allFilms
-						this.setup(this.films)
-				},
+            this.setup(this.films)
+        },
+        computed: {
+          genres() {
+            return Array.from(
+              new Set(
+                this.allFilms.map(film => film.Genre)
+                .join(', ')
+                .split(', ')
+              )
+            )
+          }
+        },
 				watch: {
 					searchStr() {
 						this.searchedTitles = this.allFilms
 							.filter(film => film.TitleUA.includes(this.searchStr))
 							.map(film => ({ title: film.TitleUA, id: film.id }))
-					}
+          },
+          filterSettings: {
+            deep: true,
+            handler() {
+              this.films = this.films.filter(film => {
+                let comedy = this.filterSettings.comedy
+                let drama = this.filterSettings.drama
+                let melodrama = this.filterSettings.melodrama
+                let documentary = this.filterSettings.documentary
+                let horror = this.filterSettings.horror
+                let fantasy = this.filterSettings.fantasy
+                let detective = this.filterSettings.detective
+                let fight = this.filterSettings.fight
+                let family = this.filterSettings.family
+                let oscar = this.filterSettings.oscar
+              })
+            }
+          }
 				},
         methods: {
             showAcc(e) {
@@ -592,7 +418,23 @@ import FilmTable from '@/components/FilmTable'
 							setTimeout(() => {
 								this.searchedTitles = []
 							}, 0)
-						}
+            },
+            filterFilmsByGenre(e, genre) {
+              console.log(e)
+              let genreIndex = this.filteredGenres.indexOf(genre)
+
+              if (genreIndex !== -1) {
+                this.filteredGenres.splice(genreIndex, 1)
+              } else {
+                this.filteredGenres.push(genre)
+              }
+
+              this.films = this.allFilms.filter(film => {
+                return film.Genre.includes(genre)
+              })
+              console.log(this.films.length)
+              this.setup(this.films)
+            }
         }
     }
 </script>
