@@ -54,44 +54,8 @@ export default new Vuex.Store({
           throw e
       }
   },
-    async fetchFilms() {
-      try {
-        const films = (await firebase.database().ref(`/films`).once('value')).val()
-        return films ? Object.keys(films).map(key => ({ ...films[key], id: key })) : []
-      } catch (e) {
-        throw e
-      }
-    },
-    async fetchFilmByID({}, id) {
-      try {
-        const film = (await firebase.database().ref(`/films/${id}`).once('value')).val()
-        return film ? {...film, id} : {}
-      } catch (e) {
-        throw e
-      }
-    },
-    async fetchActors() {
-      try {
-        const actors = (await firebase.database().ref(`/actors`).once('value')).val()
-        return actors ? Object.keys(actors).map(key => ({ ...actors[key], id: key })) : []
-      } catch (e) {
-        throw e
-      }
-    },
-    async register({dispatch}, { email, password, name }) {
-      try {
-        await firebase.auth().createUserWithEmailAndPassword(email, password)
-        const uid = await dispatch('getUid')
-        await firebase.database().ref(`/users/${uid}/info`).set({
-          name,
-          email,
-          playlists: [],
-          likedFilms: []
-        })
-      } catch (e) {
-        throw e
-      }
-    }
+    
+    
   },
   modules: {
   }

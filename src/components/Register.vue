@@ -24,7 +24,7 @@
                   <div class="form-group">
                     <!--                <label for="exampleInputEmail1">Email address</label>-->
                     <input 
-                      type="name" 
+                      type= "name" 
                       v-model="name" 
                       class="form-control" 
                       id="name" 

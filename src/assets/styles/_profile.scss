@@ -9,7 +9,7 @@
     margin-bottom: 36px;
   }
 
-  button.accordion {
+  p.accordion {
     padding-left: 0px;
   }
 
@@ -23,7 +23,11 @@
     padding-top: 0px;
 
     & li {
-      padding-left: 0px;
+      padding-left: 0;
+
+      label {
+        padding-left: 0;
+      }
     }
 
     & .fTextCard, .fCard {
@@ -113,7 +117,12 @@
     margin-bottom: 0px;
   }
 
+  .form-group {
+    width: 100%;
+  }
+
   & input {
+    width: 75%;
     background: none!important;
     font-size: 18px;
     padding-left: 0px;
@@ -121,7 +130,7 @@
     border-top: none;
     border-right: none;
     border-radius: 0px;
-    width: 75%;
+
     &::placeholder {
       color: $grey!important;
     }

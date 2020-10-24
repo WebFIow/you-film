@@ -16,13 +16,25 @@
         </div>
       </div>
 
-      <button class="accordion" @click="showAcc">Змінити пароль</button>
+      <p class="accordion" @click="showAcc">Змінити пароль</p>
       <div class="panel">
         <ul class="accUL">
           <li>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <label for="exampleInputPassword1">Старий пароль</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Старий пароль">
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Новий пароль</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Новий пароль">
+            </div>
+          </li>
+          <li>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Повторити новий пароль</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Новий пароль">
             </div>
           </li>
         </ul>
