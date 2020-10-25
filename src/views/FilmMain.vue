@@ -95,8 +95,7 @@
                     id="high" 
                     type="radio" 
                     name="rating" 
-                    value="high"
-                    @change="sortFilmsByRating((a, b) => +a.imdbRating - +b.imdbRating)"
+                    @change="sortFilmsByProp('imdbRating', 1)"
                   />
 									<label for="high">За зростанням</label>
 								</li>
@@ -105,8 +104,7 @@
                     id="low" 
                     type="radio" 
                     name="rating" 
-                    value="low"
-                    @change="sortFilmsByRating((a, b) => +b.imdbRating - +a.imdbRating)"
+                    @change="sortFilmsByProp('imdbRating', -1)"
                   />
 									<label for="low">За спаданням</label>
 								</li>
@@ -132,20 +130,18 @@
 								<li>
 									<input 
                     id="old" 
-                    type="checkbox" 
+                    type="radio" 
                     name="year" 
-                    value="old" 
-                    v-model="filterSettings.yearLtoH"
+                    @change="sortFilmsByProp('Year', 1)"
                   />
 									<label for="old">За зростанням</label>
 								</li>
 								<li>
 									<input 
                     id="new" 
-                    type="checkbox" 
+                    type="radio" 
                     name="year" 
-                    value="new" 
-                    v-model="filterSettings.yearHtoL"
+                    @change="sortFilmsByProp('Year', -1)"
                   />
 									<label for="new">За спаданням</label>
 								</li>
@@ -306,8 +302,8 @@ import FilmTable from '@/components/FilmTable'
               console.log(this.films.length)
               this.setup(this.films)
             },
-            sortFilmsByRating(sortFunc) {
-              this.films.sort(sortFunc)
+            sortFilmsByProp(prop, order) {
+              this.films.sort((a, b) => order * (+a[prop] - +b[prop]))
               this.setup(this.films)
             }
 
