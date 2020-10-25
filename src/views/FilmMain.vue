@@ -65,6 +65,7 @@
 										:id="genre"
 										type="checkbox"
                     @change="filterFilmsByGenre(genre)"
+                    :checked="$route.query.genre == genre"
 									/>
 									<label :for="genre">{{genre}}</label>
                 </li>
@@ -198,7 +199,14 @@ import FilmTable from '@/components/FilmTable'
 				mixins: [paginationMixin],
         async mounted() {
             this.allFilms = await this.$store.dispatch('fetchFilms')
-						this.films = this.allFilms
+            this.films = this.allFilms
+            
+            if (this.$route.query.genre) {
+              this.filterFilmsByGenre(this.$route.query.genre)
+
+              return
+            }
+
             this.setup(this.films)
         },
         computed: {
