@@ -64,26 +64,10 @@
 								<input
 										:id="genre"
 										type="checkbox"
-                    @change="e => {filterFilmsByGenre(e, genre)}"
+                    @change="filterFilmsByGenre(genre)"
 									/>
 									<label :for="genre">{{genre}}</label>
                 </li>
-							</ul>
-						</div>
-
-						<button class="accordion" @click="showAcc">НАГОРОДИ</button>
-						<div class="panel">
-							<ul class="accUL">
-								<li>
-									<input
-										id="oscar"
-										type="checkbox"
-										name="rewards"
-										value="oscar"
-                    v-model="filterSettings.oscar"
-									/>
-									<label for="oscar">Оскар</label>
-								</li>  
 							</ul>
 						</div>
 
@@ -111,19 +95,22 @@
 							</ul>
 						</div>
 
-						<button class="accordion" @click="showAcc">КРАЇНА ??????</button>
+						<button class="accordion" @click="showAcc">КРАЇНА</button>
 						<div class="panel">
 							<ul class="accUL">
-								<li>
-									<input id="ua" type="checkbox" name="country" value="ua" />
-									<label for="ua">Україна</label>
-								</li>
-								<li>
-									<input id="ru" type="checkbox" name="country" value="ru" />
-									<label for="ru">Росія</label>
-								</li>
+								<li
+                  v-for="country in countries"
+                  :key="country"
+                >
+								  <input
+										:id="country"
+										type="checkbox"
+                    @change="filterFilmsByCountry(country)"
+									/>
+									<label :for="country">{{country}}</label>
+                </li>
 							</ul>
-						</div>>
+						</div>
 						<button class="accordion" @click="showAcc">РІК</button>
 						<div class="panel">
 							<ul class="accUL">
@@ -206,22 +193,7 @@ import FilmTable from '@/components/FilmTable'
             allFilms: [],
             searchStr: '',
             filteredGenres: [],
-            filterSettings: {
-              comedy: false,
-              detective: false,
-              drama: false,
-              horror: false,
-              documentary: false,
-              family: false,
-              fantasy: false,
-              melodrama: false,
-              fight: false,
-              ratingHtoL: false,
-              ratingLtoH: false,
-              oscar: false,
-              yearHtoL: false,
-              yearLtoH: false
-            }
+            filteredCountries: []
 				}),
 				mixins: [paginationMixin],
         async mounted() {
@@ -238,6 +210,15 @@ import FilmTable from '@/components/FilmTable'
                 .split(', ')
               )
             )
+          },
+          countries() {
+            return Array.from(
+              new Set(
+                this.allFilms.map(film => film.Country)
+                .join(', ')
+                .split(', ')
+              )
+            )
           }
         },
 				watch: {
@@ -246,23 +227,6 @@ import FilmTable from '@/components/FilmTable'
 							.filter(film => film.TitleUA.includes(this.searchStr))
 							.map(film => ({ title: film.TitleUA, id: film.id }))
           },
-          filterSettings: {
-            deep: true,
-            handler() {
-              this.films = this.films.filter(film => {
-                let comedy = this.filterSettings.comedy
-                let drama = this.filterSettings.drama
-                let melodrama = this.filterSettings.melodrama
-                let documentary = this.filterSettings.documentary
-                let horror = this.filterSettings.horror
-                let fantasy = this.filterSettings.fantasy
-                let detective = this.filterSettings.detective
-                let fight = this.filterSettings.fight
-                let family = this.filterSettings.family
-                let oscar = this.filterSettings.oscar
-              })
-            }
-          }
 				},
         methods: {
             showAcc(e) {
@@ -286,21 +250,49 @@ import FilmTable from '@/components/FilmTable'
 								this.searchedTitles = []
 							}, 0)
             },
-            filterFilmsByGenre(e, genre) {
-              console.log(e)
-              let genreIndex = this.filteredGenres.indexOf(genre)
+            filterFilmsByGenre(genre = '', alreadyFilteredFilms) {
+              if (genre) {  
+                let genreIndex = this.filteredGenres.indexOf(genre)
 
-              if (genreIndex !== -1) {
-                this.filteredGenres.splice(genreIndex, 1)
-              } else {
-                this.filteredGenres.push(genre)
+                if (genreIndex !== -1) {
+                  this.filteredGenres.splice(genreIndex, 1)
+                } else {
+                  this.filteredGenres.push(genre)
+                }
+
+                this.films = this.allFilms.filter(film => {
+                  return this.filteredGenres.every(g => film.Genre.includes(g))
+                })
+
+                this.filterFilmsByCountry('', this.films)
+              } else if (this.filteredGenres.length) {  
+                  this.films = alreadyFilteredFilms.filter(film => {
+                    return this.filteredGenres.every(g => film.Genre.includes(g))
+                  })
               }
+              this.setup(alreadyFilteredFilms ? alreadyFilteredFilms : this.films)
+            },
+            filterFilmsByCountry(country = '', alreadyFilteredFilms) {
+              if (country) {
+                let countryIndex = this.filteredCountries.indexOf(country)
 
-              this.films = this.allFilms.filter(film => {
-                return this.filteredGenres.every(genre => film.Genre.includes(genre))
-              })
-              console.log(this.films.length)
-              this.setup(this.films)
+                if (countryIndex !== -1) {
+                  this.filteredCountries.splice(countryIndex, 1)
+                } else {
+                  this.filteredCountries.push(country)
+                }
+
+                this.films = this.allFilms.filter(film => {
+                  return this.filteredCountries.every(c => film.Country.includes(c))
+                })
+
+                this.filterFilmsByGenre('', this.films)
+              } else if (this.filteredCountries.length) {
+                this.films = alreadyFilteredFilms.filter(film => {
+                  return this.filteredCountries.every(c => film.Country.includes(c))
+                })
+              }
+              this.setup(alreadyFilteredFilms ? alreadyFilteredFilms : this.films)
             },
             sortFilmsByProp(prop, order) {
               this.films.sort((a, b) => order * (+a[prop] - +b[prop]))
