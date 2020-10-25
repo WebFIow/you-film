@@ -60,10 +60,9 @@
 								<li
                   v-for="genre in genres"
                   :key="genre"
-                 
                 >
 								<input
-										:id="gerne"
+										:id="genre"
 										type="checkbox"
                     @change="e => {filterFilmsByGenre(e, genre)}"
 									/>
@@ -94,20 +93,20 @@
 								<li>
 									<input 
                     id="high" 
-                    type="checkbox" 
+                    type="radio" 
                     name="rating" 
                     value="high"
-                    v-model="filterSettings.ratingLtoH"
+                    @change="sortFilmsByRating((a, b) => +a.imdbRating - +b.imdbRating)"
                   />
 									<label for="high">За зростанням</label>
 								</li>
 								<li>
 									<input 
                     id="low" 
-                    type="checkbox" 
+                    type="radio" 
                     name="rating" 
                     value="low"
-                    v-model="filterSettings.ratingHtoL" 
+                    @change="sortFilmsByRating((a, b) => +b.imdbRating - +a.imdbRating)"
                   />
 									<label for="low">За спаданням</label>
 								</li>
@@ -126,140 +125,7 @@
 									<label for="ru">Росія</label>
 								</li>
 							</ul>
-						</div>
-
-						<button class="accordion" @click="showAcc">СТУДІЯ</button>
-						<div class="panel">
-							<ul class="accUL">
-								<li>
-									<input id="walt" type="checkbox" name="studio" value="walt" />
-									<label for="walt">Walt Disney, США</label>
-								</li>
-								<li>
-									<input
-										id="warner"
-										type="checkbox"
-										name="studio"
-										value="warner"
-									/>
-									<label for="warner">Warner Bros., США</label>
-								</li>
-								<li>
-									<input
-										id="lionsgate"
-										type="checkbox"
-										name="studio"
-										value="lionsgate"
-									/>
-									<label for="lionsgate">Lionsgate, Канада-США </label>
-								</li>
-								<li>
-									<input id="uni" type="checkbox" name="studio" value="uni" />
-									<label for="uni"> Universal Pictures, США</label>
-								</li>
-								<li>
-									<input
-										id="columbia"
-										type="checkbox"
-										name="studio"
-										value="columbia"
-									/>
-									<label for="columbia">Columbia Pictures, США</label>
-								</li>
-								<li>
-									<input id="fox" type="checkbox" name="studio" value="fox" />
-									<label for="fox">20th Century Fox, США</label>
-								</li>
-								<li>
-									<input
-										id="paramount"
-										type="checkbox"
-										name="studio"
-										value="paramount"
-									/>
-									<label for="paramount">Paramount Pictures, США </label>
-								</li>
-								<li>
-									<input
-										id="dreamworks"
-										type="checkbox"
-										name="studio"
-										value="dreamworks"
-									/>
-									<label for="dreamworks">DreamWorks Animation</label>
-								</li>
-								<li>
-									<input id="bbc" type="checkbox" name="studio" value="bbc" />
-									<label for="bbc">BBC Television Centre</label>
-								</li>
-								<li>
-									<input
-										id="marvel"
-										type="checkbox"
-										name="studio"
-										value="marvel"
-									/>
-									<label for="marvel">Marvel Studios</label>
-								</li>
-								<li>
-									<input
-										id="pixar"
-										type="checkbox"
-										name="studio"
-										value="pixar"
-									/>
-									<label for="pixar">Pixar Animation Studios</label>
-								</li>
-								<li>
-									<input id="sony" type="checkbox" name="studio" value="sony" />
-									<label for="sony">Sony Pictures Entertainment</label>
-								</li>
-								<li>
-									<input
-										id="summit"
-										type="checkbox"
-										name="studio"
-										value="summit"
-									/>
-									<label for="summit">Summit Entertainment</label>
-								</li>
-								<li>
-									<input id="dc" type="checkbox" name="studio" value="dc" />
-									<label for="dc">DC Comics</label>
-								</li>
-								<li>
-									<input
-										id="bluesky"
-										type="checkbox"
-										name="studio"
-										value="bluesky"
-									/>
-									<label for="bluesky">Blue Sky Studios</label>
-								</li>
-								<li>
-									<input
-										id="mosfilm"
-										type="checkbox"
-										name="studio"
-										value="mosfilm"
-									/>
-									<label for="mosfilm">Мосфильм</label>
-								</li>
-								<li>
-									<input id="ussr" type="checkbox" name="studio" value="ussr" />
-									<label for="ussr">Союзмультфильм</label>
-								</li>
-								<li>
-									<input
-										id="lenfilm"
-										type="checkbox"
-										name="studio"
-										value="lenfilm"
-									/>
-									<label for="lenfilm">Ленфильм</label>
-								</li>
-							</ul>
-						</div>
+						</div>>
 						<button class="accordion" @click="showAcc">РІК</button>
 						<div class="panel">
 							<ul class="accUL">
@@ -439,7 +305,12 @@ import FilmTable from '@/components/FilmTable'
               })
               console.log(this.films.length)
               this.setup(this.films)
+            },
+            sortFilmsByRating(sortFunc) {
+              this.films.sort(sortFunc)
+              this.setup(this.films)
             }
+
         }
     }
 </script>
