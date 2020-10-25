@@ -60,9 +60,14 @@
 								<li
                   v-for="genre in genres"
                   :key="genre"
-                  @click="e => {filterFilmsByGenre(e, genre)}"
+                 
                 >
-								{{genre}}
+								<input
+										:id="gerne"
+										type="checkbox"
+                    @change="e => {filterFilmsByGenre(e, genre)}"
+									/>
+									<label :for="genre">{{genre}}</label>
                 </li>
 							</ul>
 						</div>
@@ -430,7 +435,7 @@ import FilmTable from '@/components/FilmTable'
               }
 
               this.films = this.allFilms.filter(film => {
-                return film.Genre.includes(genre)
+                return this.filteredGenres.every(genre => film.Genre.includes(genre))
               })
               console.log(this.films.length)
               this.setup(this.films)
