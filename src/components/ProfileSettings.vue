@@ -5,36 +5,42 @@
         <label for="name_login">Ім’я в YouFilm</label>
         <div class="d-flex justify-content-between">
           <input type="text" class="form-control" id="name_login" placeholder="Одри Хепбёрн" disabled>
-          <button type="submit" class="btn btn-mdl">Змінити</button>
+          <button type="submit" class="btn btn-mdl mobNotVisible">Змінити</button>
+          <a href="#" class="btn-edit"></a>
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <div class="d-flex justify-content-between">
           <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="moviesaremylife@you-film.ua" disabled>
-          <button type="submit" class="btn btn-mdl">Змінити</button>
+          <button type="submit" class="btn btn-mdl mobNotVisible">Змінити</button>
+          <a href="#" class="btn-edit"></a>
         </div>
       </div>
 
       <p class="accordion" @click="showAcc">Змінити пароль</p>
       <div class="panel">
-        <ul class="accUL">
+        <ul class="accUL mlMobNone">
           <li>
             <div class="form-group">
-              <label for="exampleInputPassword1">Старий пароль</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Старий пароль">
+              <label for="old_pass">Старий пароль</label>
+              <input type="password" class="form-control form-password" id="old_pass" placeholder="*********">
             </div>
           </li>
           <li>
             <div class="form-group">
-              <label for="exampleInputPassword1">Новий пароль</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Новий пароль">
+              <label for="new_pass">Новий пароль</label>
+              <input type="password" class="form-control form-password" id="new_pass" placeholder="*********">
             </div>
           </li>
           <li>
             <div class="form-group">
-              <label for="exampleInputPassword1">Повторити новий пароль</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Новий пароль">
+              <label for="repeat_new">Повторити новий пароль</label>
+              <div class="d-flex justify-content-between">
+                <input type="password" class="form-control form-password" id="repeat_new" placeholder="*********">
+                <button type="submit" class="btn btn-mdl mobNotVisible">Змінити</button>
+                <a href="#" class="btn-edit"></a>
+              </div>
             </div>
           </li>
         </ul>

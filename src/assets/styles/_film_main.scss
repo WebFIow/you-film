@@ -239,7 +239,7 @@ form.search {
   }
 }
 
-button.accordion {
+.accordion {
   font-size: 19px;
   background: none;
   color: white;
@@ -360,10 +360,8 @@ button.accordion {
       }
     }
   }
-  button.accordion {
-    font-size: 17px;
-  }
   .accordion {
+    font-size: 17px;
     padding: 10px;
   }
 }
@@ -409,10 +407,8 @@ button.accordion {
       }
     }
   }
-  button.accordion {
-    font-size: 14px;
-  }
   .accordion {
+    font-size: 14px;
     padding: 8px;
   }
   .accUL li {
@@ -466,7 +462,7 @@ button.accordion {
     }
   }
 
-  button.accordion {
+  .accordion {
     width: 150px;
     margin: 0 auto;
   }
@@ -529,7 +525,7 @@ button.accordion {
       margin-bottom: 20px;
     }
   }
-  button.accordion {
+  .accordion {
     margin: 0;
   }
 }

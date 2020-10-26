@@ -63,13 +63,19 @@
     display: block;
     background: url("../../../public/img/cmob.jpg") center no-repeat;
     background-size: cover;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
+    height: calc(100vh - 72px - 68px);
+    //position: absolute;
+    //top: 64px;
+    //left: 0;
+    //right: 0;
   }
   #categories .categories-mob--bac{
     background: rgba(0, 0, 0, 0.6);
+    height: calc(100vh - 72px - 68px);
+
+    & h3 {
+      padding-top: 40px;
+    }
   }
   .categories-mob h3{
     font-family: "Playfair Display";
@@ -87,12 +93,15 @@
     align-items: center;
     padding: 0 50px;
     background-color: transparent;
+    height: 80%;
+    justify-content: space-evenly;
+    padding-top: 30px;
   }
   .categories-mob--wrap a{
     width: 100%;
     font-family: "Playfair Display";
     font-style: normal;
-    font-size: 15px;
+    font-size: 16px;
     text-transform: uppercase;
     text-align: center;
     color: #ffffff;

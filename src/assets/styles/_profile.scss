@@ -115,6 +115,8 @@
     font-size: 14px;
     color: $grey;
     margin-bottom: 0px;
+    font-family: Montserrat;
+    letter-spacing: 0;
   }
 
   .form-group {
@@ -134,11 +136,21 @@
     &::placeholder {
       color: $grey!important;
     }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
   }
   .btn-mdl {
     border-radius: 20px!important;
     background-color: $golder-btn!important;
+    font-family: Montserrat;
   }
+}
+
+.form-password {
+  letter-spacing: 4px;
 }
 
 .recommendWrap {
@@ -211,7 +223,7 @@
         }
       }
   }
-  button.accordion {
+  .accordion {
     width: 100%;
   }
   #profile {
@@ -225,7 +237,7 @@
     }
   }
   .mobNotVisible {
-    display: none;
+    display: none!important;
   }
   .pMob {
     margin-bottom: 5px;
@@ -237,5 +249,30 @@
   }
   .mobVisible {
     display: block;
+  }
+  .recommendWrap .recommendFilmWrap > img {
+    max-height: 230px;
+  }
+  .btn-edit {
+    background-color: $golder-btn!important;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      color: white;
+      font-family: "Font Awesome 5 Free";
+      content:"\f303";
+      font-weight:bold;
+    }
+  }
+  .mlMobNone {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
