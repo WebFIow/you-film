@@ -24,11 +24,22 @@
                     <li><router-link to="/directors" class="header-nav--item">Режисери</router-link></li>
                     <li><router-link to="/watch-list" class="header-nav--item">Фільм-листи</router-link></li>
                 </nav>
-                <span  
-                    class="header-nav--item"
-                    @click="showAuthPopup"
-                >Вхід</span>
+<!--                <span-->
+<!--                    class="header-nav&#45;&#45;item"-->
+<!--                    @click="showAuthPopup"-->
+<!--                >Вхід</span>-->
 
+                <div class="header-prof--wrap">
+                    <nav class="header-prof">
+                        <span class="profile-img"><span class="profile-img--name">O</span></span>
+                        <li><router-link to="#" class="header-prof--name"><span>Одрі Хепбьорн</span></router-link>
+                            <ul class="header-prof--name---animate">
+                                <li><router-link to="#">Особиста сторінка</router-link></li>
+                                <li><router-link to="#">Вийти з акаунту </router-link></li>
+                            </ul>
+                        </li>
+                    </nav>
+                </div>
                 <form class="search-mob--wrap">
                     <input type="text" placeholder="Пошук">
                     <button type="submit"></button>
@@ -48,7 +59,6 @@
                         <li><router-link to="/watch-list" class="menu-item">Вхід</router-link></li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </div>

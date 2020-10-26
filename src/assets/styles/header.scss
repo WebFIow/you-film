@@ -1,5 +1,5 @@
 #header {
-  background-color: #080808;
+  background-color: #161616;
   width: 100%;
   position: fixed;
   top: 0;
@@ -12,21 +12,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 10px;
+  //padding: 30px 10px;
+  background-color: #161616;
 }
-
+#header svg{
+  background-color: #161616;
+}
 .header-nav{
+  padding: 35px 0;
   display: flex;
   justify-content: space-around;
+  background-color: #161616;
 }
 .header-nav li{
   list-style: none;
+  background-color: #161616;
 }
 .header-nav--item{
   font-family: "Josefin Sans",sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 14px;
+  font-size: 16px;
   color: #ffffff;
   text-transform: uppercase;
   padding: 0 10px;
@@ -45,7 +51,7 @@
   transition: 0.3s ease-out;
   width: 150px;
 
-  background-color:#080808;
+  background-color:#161616;
   color: #fff;
   text-align: center;
 }
@@ -53,11 +59,10 @@
   padding: 8px 10px ;
   text-align: left;
 }
-
 .header-nav--item---animate a{
   text-decoration: none;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   font-family: "Josefin Sans", sans-serif;
 }
@@ -75,7 +80,92 @@
   color: #111;
   transition: color 0.5s linear;
 }
-
+//profile
+.header-prof--wrap{
+  width: 230px;
+  height: 96px;
+  background-color: #161616;
+  display: flex;
+}
+.header-prof{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+.profile-img{
+  background-color: #C1AB65;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.profile-img--name{
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Josefin Sans";
+  position: absolute;
+  top: 2px;
+  right: 7px;
+}
+.header-prof li{
+  list-style: none;
+}
+.header-prof--name {
+  font-style: normal;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+  color: #C1AB65;
+  cursor: pointer;
+  transition: color 0.2s linear;
+}
+.header-prof--name:hover{
+  color: #ffffff;
+  transition: color 0.2s linear;
+  text-decoration: none;
+}
+.header-prof--name---animate{
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 70px;
+  height: 0;
+  overflow: hidden;
+  transition: 0.2s ease-in;
+  width: 230px;
+  background-color:#161616;
+  color: #fff;
+  text-align: center;
+}
+.header-prof--name---animate li{
+  text-align: left;
+  padding: 10px 25px;
+}
+.header-prof--name---animate a{
+  text-decoration: none;
+  color: $gold;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+  transition: color 0.2;
+}
+.header-prof--name---animate a:hover{
+  color: #ffffff;
+  text-decoration-line: none;
+  transition: color 0.2;
+}
+.header-prof > li:hover .header-prof--name---animate{
+  height: 100%;
+  transition: 0.3s ease-in;
+}
+.header-prof > li:hover .header-prof--name---animate >li:hover{
+  color: #ffffff;
+  transition: color 0.4s linear;
+}
 //mobile
 .hamburger-menu{
   display: none;
@@ -85,6 +175,26 @@
 }
 .search-mob--wrap{
   display: none;
+}
+@media (max-width: 1200px) {
+  .header-nav--item{
+    font-size: 14px;
+  }
+  .header-prof--wrap{
+    width: 200px;
+  }
+  .header-prof--name{
+    font-size: 17px;
+  }
+  .header-prof--name---animate{
+    width: 200px;
+  }
+  .header-prof--name---animate a{
+    font-size: 13px;
+  }
+  .header-prof--name---animate li{
+    padding: 10px;
+  }
 }
 @media (max-width: 995px) {
   #header .row{
