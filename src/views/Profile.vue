@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-md-4 justify-content-center">
           <div class="sideProfile">
-            <div class="circle">P</div>
-            <p class="name">Петро Петренко</p>
+            <div class="circle">{{nameFirstLetter}}</div>
+            <p class="name">{{userInfo ? userInfo.name : 'Error'}}</p>
           </div>
         </div>
         <div class="col-md-8">
@@ -66,6 +66,11 @@ import ProfileSettings from '@/components/ProfileSettings'
 
   export default {
     name: "Profile",
+    data: () => ({
+      userInfo: {
+        name: ''
+      }
+    }),
     components: {
       ProfileFilmLists,
       ProfileSettings
@@ -73,5 +78,15 @@ import ProfileSettings from '@/components/ProfileSettings'
     methods: {
       
     },
+    computed: {
+      nameFirstLetter() {
+        return this.userInfo.name[0]
+      }
+    },
+    async mounted() {
+      this.userInfo = await this.$store.dispatch('fetchInfo')
+//      console.log(this.userInfo)
+    },
   };
 </script>
+

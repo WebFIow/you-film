@@ -16,7 +16,13 @@ export default new Vuex.Store({
     getUid() {
       const user = firebase.auth().currentUser
       return user ? user.uid : null
-  },
+    },
+    async fetchInfo({dispatch}) {
+      const uid = await dispatch('getUid')
+      const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
+      // commit('setInfo', info)
+      return info
+    },
     //temporary action
     async createFilm({ }, { json, ua }) {
       try {
