@@ -197,6 +197,10 @@
   }
 }
 @media (max-width: 995px) {
+  .header-prof--wrap {
+    display: none;
+  }
+
   #header .row{
     padding: 13px 0;
     position: relative;
@@ -236,9 +240,10 @@
   }
   .search-mob--wrap input:focus {
     width: 300px;
-    z-index: 1;
+    z-index: 500;
     border-bottom: 2px solid #ffffff;
     color: #ffffff;
+    background-color: $color-dark;
   }
 
   .search-mob--wrap button {
@@ -251,6 +256,11 @@
     top: 0;
     right: 0;
     cursor: pointer;
+    z-index: 500;
+
+    &:focus {
+      outline: none;
+    }
   }
   .search-mob--wrap button:before {
     content: "";
@@ -361,10 +371,19 @@
 }
 @media (max-width: 425px) {
   .search-mob--wrap input:focus{
-    width: 150px;
+    min-width:325px
+  }
+}
+
+@media (max-width: 375px) {
+  .search-mob--wrap input:focus{
+    min-width:280px
   }
 }
 @media (max-width: 320px) {
+  .search-mob--wrap input:focus{
+    min-width:225px
+  }
   .menu-item{
     font-size: 16px;
   }
