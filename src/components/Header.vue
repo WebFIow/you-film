@@ -27,7 +27,7 @@
                <span
                    class="header-nav--item"
                    @click="showAuthPopup"
-                   v-if="!userInfo"
+                   v-if="!name"
                 >Вхід</span>
 
                 <div v-else class="header-prof--wrap">
@@ -39,7 +39,7 @@
                           </router-link>
                             <ul class="header-prof--name---animate">
                                 <li><router-link to="/profile">Особиста сторінка</router-link></li>
-                                <li><router-link to="/" @click.prevent="logoutUser">Вийти з акаунту </router-link></li>
+                                <li><a href="#" @click.prevent="logoutUser">Вийти з акаунту </a></li>
                             </ul>
                         </li>
                     </nav>
@@ -84,14 +84,18 @@ export default {
         }
     }),
     async mounted() {
-      this.userInfo = await this.$store.dispatch('fetchInfo')
+      await this.$store.dispatch('fetchInfo')
     },
     computed: {
       name() {
-        return this.userInfo.name
+        return this.$store.getters.info ? 
+          this.$store.getters.info.name 
+          : false
       },
       nameFirstLetter() {
-        return this.userInfo.name[0]
+        return this.$store.getters.info ? 
+          this.$store.getters.info.name[0]
+          : false
       }
     },
     methods: {

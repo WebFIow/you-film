@@ -17,11 +17,10 @@ export default new Vuex.Store({
       const user = firebase.auth().currentUser
       return user ? user.uid : null
     },
-    async fetchInfo({dispatch}) {
+    async fetchInfo({ dispatch, commit }) {
       const uid = await dispatch('getUid')
       const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
-      // commit('setInfo', info)
-      return info
+      commit('setInfo', info)
     },
     //temporary action
     async createFilm({ }, { json, ua }) {
@@ -42,29 +41,26 @@ export default new Vuex.Store({
         throw e
       }
     },
-    async createActor({}, { name, born, died, url, films_id }) {
+    async createActor({ }, { name, born, died, url, films_id }) {
       const data = {
         name, url, born, died, films_id
       }
       try {
         const actor = await firebase.database().ref(`/actors/`).push(data)
-        console.log('pushed', actor)
       } catch (e) {
         throw e
       }
     },
-    async updateInfo({dispatch, commit}, toUpdate) {
+    async updateInfo({ dispatch, commit }, toUpdate) {
       try {
-          const uid = await dispatch('getUid')
-          const updateData = {...this.getters.info, ...toUpdate}
-          await firebase.database().ref(`/users/${uid}/info`).update(updateData)
+        const uid = await dispatch('getUid')
+        const updateData = { ...this.getters.info, ...toUpdate }
+        await firebase.database().ref(`/users/${uid}/info`).update(updateData)
 
       } catch (e) {
-          throw e
+        throw e
       }
-  },
-    
-    
+    },
   },
   modules: {
     films, actors, auth

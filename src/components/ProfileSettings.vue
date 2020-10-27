@@ -4,7 +4,7 @@
       <div class="form-group">
         <label for="name_login">Ім’я в YouFilm</label>
         <div class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="name_login" placeholder="Одри Хепбёрн" disabled>
+          <input type="text" class="form-control" id="name_login" placeholder="Новий псевдонім" v-model="userName">
           <button type="submit" class="btn btn-mdl mobNotVisible">Змінити</button>
           <a href="#" class="btn-edit"></a>
         </div>
@@ -12,7 +12,7 @@
       <div class="form-group">
         <label for="email">Email</label>
         <div class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="moviesaremylife@you-film.ua" disabled>
+          <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Новий email" v-model="userEmail">
           <button type="submit" class="btn btn-mdl mobNotVisible">Змінити</button>
           <a href="#" class="btn-edit"></a>
         </div>
@@ -52,9 +52,20 @@
 
 <script>
   export default {
-    data: () => ({
-
-    }),
+    props: ['userName', 'userEmail'],
+    data: () => ({}),
+    computed: {
+      oldName() {
+        return this.$store.getters.info ? 
+          this.$store.getters.info.name 
+          : false
+      },
+      oldEmail() {
+        return this.$store.getters.info ? 
+          this.$store.getters.info.email 
+          : false
+      },
+    },
     methods: {
       showAcc(e) {
         const el = e.target;

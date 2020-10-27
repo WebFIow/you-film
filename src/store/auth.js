@@ -26,13 +26,15 @@ export default {
           playlists: [],
           likedFilms: []
         })
+        await dispatch('fetchInfo')
       } catch (e) {
         throw e
       }
     },
-    async login({ commit }, { email, password }) {
+    async login({ commit, dispatch }, { email, password }) {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
+        await dispatch('fetchInfo')
       } catch (e) {
         throw e
       }
