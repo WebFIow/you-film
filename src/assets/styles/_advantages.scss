@@ -1,0 +1,48 @@
+.advantages {
+    background: rgba($color: #2C2724, $alpha: 0.5);
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        max-width: 1130px;
+
+        padding: 60px 0;
+        margin: 0 auto;
+
+        @media screen and (max-width: 600px){
+            flex-direction: column;
+        }
+    }
+
+    &__advantage {
+        padding: 0 20px;
+
+        text-align: center;
+        font-family: "Playfair Display";
+
+        @media screen and (max-width: 700px) {
+            font-size: 14px ;
+        }
+    }
+
+    &__img-wr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 60px;
+
+        margin-bottom: 20px;
+    }
+
+    &__sign {
+        color: white;
+    }
+
+    &__sign-gold {
+        color: $gold;
+        font-size: 24px;
+    }
+}
