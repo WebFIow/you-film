@@ -27,51 +27,14 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+let app
 
-
-function makeRandomizer(numbers) {
-  const start = numbers[0];
-  const finish = numbers[1];
-  const massNumber = [];
-
-  for (let i = start; i <= finish; i++) {
-    massNumber.push(i)
+firebase.auth().onAuthStateChanged(() => {
+  if(!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
   }
-
-  const getRandom = () => {
-    let randomIndex = Math.floor(Math.random() * massNumber.length)
-
-    let randomNumber = massNumber.splice(randomIndex, 1)[0]
-
-    return randomNumber !== undefined ? randomNumber : null
-  }
-
-  return getRandom;
-}
-
-
-function countOccurrences(str, substr) {
-  let count = 0;
-  while (str.contains(substr)) {
-    count++;
-    str = str.replace(substr);
-  }
-
-  return count;
-
-  return array.every((el, i, arr) => {
-    let indexMin = arr.indexOf(el - 1);
-    let indexMax = arr.indexOf(el + 1);
-
-    if(indexMax + indexMin !== -2) {
-      return true
-    } else {
-      return false
-    }
-  })
-}
+})
