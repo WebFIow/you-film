@@ -26,7 +26,9 @@
               </router-link>
             </li>
           </ul>
-          <router-view :userEmail="email" :userName="name" />
+          <keep-alive>
+            <router-view :userEmail="email" :userName="name" />
+          </keep-alive>
         </div>
       </div>
       <div class="row">
@@ -83,7 +85,7 @@ import ProfileSettings from '@/components/ProfileSettings'
       nameFirstLetter() {
         return this.$store.getters.info ? 
           this.$store.getters.info.name ?
-            this.$store.getters.info.name[0]
+            this.$store.getters.info.name[0].toUpperCase()
           : 'U'
         : 'U'
       },

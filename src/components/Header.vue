@@ -94,7 +94,7 @@ export default {
       },
       nameFirstLetter() {
         return this.$store.getters.info ? 
-          this.$store.getters.info.name[0]
+          this.$store.getters.info.name[0].toUpperCase()
           : false
       }
     },

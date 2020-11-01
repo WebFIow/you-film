@@ -2,18 +2,8 @@ import firebase from 'firebase/app'
 
 export default {
   state: {
-    info: {}
   },
   mutations: {
-    setInfo(state, info) {
-      state.info = info
-    },
-    clearInfo(state) {
-      state.info = {}
-    }
-  },
-  getters: {
-    info: s => s.info
   },
   actions: {
     async register({ dispatch }, { email, password, name }) {
@@ -23,8 +13,6 @@ export default {
         await firebase.database().ref(`/users/${uid}/info`).set({
           name,
           email,
-          playlists: [],
-          likedFilms: []
         })
         await dispatch('fetchInfo')
       } catch (e) {

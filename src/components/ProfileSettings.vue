@@ -1,19 +1,19 @@
 <template>
   <div class="tab-content">
-    <form>
+
       <div class="form-group">
         <label for="name_login">Ім’я в YouFilm</label>
         <div class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="name_login" placeholder="Новий псевдонім" v-model="userName">
-          <button type="submit" class="btn btn-mdl mobNotVisible">Змінити</button>
+          <input type="text" class="form-control" id="name_login" placeholder="Новий псевдонім" v-model="name">
+          <button type="button" @click.prevent="changeUserName" @keyup.enter.prevent="changeUserName" class="btn btn-mdl mobNotVisible">Змінити</button>
           <a href="#" class="btn-edit"></a>
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <div class="d-flex justify-content-between">
-          <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Новий email" v-model="userEmail">
-          <button type="submit" class="btn btn-mdl mobNotVisible">Змінити</button>
+          <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Новий email" v-model="email">
+          <button type="button" class="btn btn-mdl mobNotVisible">Змінити</button>
           <a href="#" class="btn-edit"></a>
         </div>
       </div>
@@ -46,25 +46,17 @@
         </ul>
       </div>
 
-    </form>
   </div>
 </template>
 
 <script>
   export default {
     props: ['userName', 'userEmail'],
-    data: () => ({}),
-    computed: {
-      oldName() {
-        return this.$store.getters.info ? 
-          this.$store.getters.info.name 
-          : false
-      },
-      oldEmail() {
-        return this.$store.getters.info ? 
-          this.$store.getters.info.email 
-          : false
-      },
+    data() {
+      return {
+        name: this.userName,
+        email: this.userEmail
+      }
     },
     methods: {
       showAcc(e) {
@@ -77,6 +69,11 @@
           panel.style.maxHeight = panel.scrollHeight + 70 + "px";
         }
       },
+      changeUserName() {
+        if (this.name !== this.$store.getters.info.name) {
+          this.$store.dispatch('updateInfo', {name: this.name})
+        }
+      }
     },
   };
 </script>

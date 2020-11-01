@@ -18,5 +18,14 @@ export default {
         throw e
       }
     },
+    async setFilmLists({dispatch}, filmLists) {
+      try {
+        const uid = await dispatch('getUid')
+        await firebase.database().ref(`/users/${uid}/filmLists`).set(filmLists)
+        await dispatch('fetchFilmLists')
+      } catch (e) {
+        console.log(e)
+      }
+    }
   }
 }

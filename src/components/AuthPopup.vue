@@ -103,6 +103,7 @@ export default {
       try {
         await this.$store.dispatch('login', formData)
         this.$router.push('/profile')
+        this.$emit('closeAuth')
       } catch (e) {}
     },
 		close(e) {
