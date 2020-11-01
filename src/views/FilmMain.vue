@@ -44,81 +44,84 @@
             />
           </div>
           <div class="col-xl-3 col-md-4">
-            <h3 class="hText">ФілЬТРИ</h3>
-            <button class="accordion" @click="showAcc">ЖАНРИ</button>
-            <div class="panel">
-              <ul class="accUL">
-                <li v-for="genre in genres" :key="genre">
-                  <input
-                    :id="genre"
-                    type="checkbox"
-                    @change="filterFilmsByGenre(genre)"
-                    :checked="$route.query.genre == genre"
-                  />
-                  <label :for="genre">{{ genre }}</label>
-                </li>
-              </ul>
-            </div>
+            <h3 class="hText">фільтри</h3>
+            <div class="wMob">
+              <button class="accordion" @click="showAcc">ЖАНРИ</button>
+              <div class="panel">
+                <ul class="accUL">
+                  <li v-for="genre in genres" :key="genre">
+                    <input
+                            :id="genre"
+                            type="checkbox"
+                            @change="filterFilmsByGenre(genre)"
+                            :checked="$route.query.genre == genre"
+                    />
+                    <label :for="genre">{{ genre }}</label>
+                  </li>
+                </ul>
+              </div>
 
-            <button class="accordion" @click="showAcc">РЕЙТИНГ</button>
-            <div class="panel">
-              <ul class="accUL">
-                <li>
-                  <input
-                    id="high"
-                    type="radio"
-                    name="rating"
-                    @change="sortFilmsByProp('imdbRating', 1)"
-                  />
-                  <label for="high">За зростанням</label>
-                </li>
-                <li>
-                  <input
-                    id="low"
-                    type="radio"
-                    name="rating"
-                    @change="sortFilmsByProp('imdbRating', -1)"
-                  />
-                  <label for="low">За спаданням</label>
-                </li>
-              </ul>
-            </div>
+              <button class="accordion" @click="showAcc">РЕЙТИНГ</button>
+              <div class="panel">
+                <ul class="accUL">
+                  <li>
+                    <input
+                            id="high"
+                            type="radio"
+                            name="rating"
+                            @change="sortFilmsByProp('imdbRating', 1)"
+                    />
+                    <label for="high">За зростанням</label>
+                  </li>
+                  <li>
+                    <input
+                            id="low"
+                            type="radio"
+                            name="rating"
+                            @change="sortFilmsByProp('imdbRating', -1)"
+                    />
+                    <label for="low">За спаданням</label>
+                  </li>
+                </ul>
+              </div>
 
-            <button class="accordion" @click="showAcc">КРАЇНА</button>
-            <div class="panel">
-              <ul class="accUL">
-                <li v-for="country in countries" :key="country">
-                  <input
-                    :id="country"
-                    type="checkbox"
-                    @change="filterFilmsByCountry(country)"
-                  />
-                  <label :for="country">{{ country }}</label>
-                </li>
-              </ul>
-            </div>
-            <button class="accordion" @click="showAcc">РІК</button>
-            <div class="panel">
-              <ul class="accUL">
-                <li>
-                  <input
-                    id="old"
-                    type="radio"
-                    name="year"
-                    @change="sortFilmsByProp('Year', 1)"
-                  />
-                  <label for="old">За зростанням</label>
-                </li>
-                <li>
-                  <input
-                    id="new"
-                    type="radio"
-                    name="year"
-                    @change="sortFilmsByProp('Year', -1)"
-                  />
-                  <label for="new">За спаданням</label>
-                </li>
-              </ul>
+              <button class="accordion" @click="showAcc">КРАЇНА</button>
+              <div class="panel">
+                <ul class="accUL">
+                  <li v-for="country in countries" :key="country">
+                    <input
+                            :id="country"
+                            type="checkbox"
+                            @change="filterFilmsByCountry(country)"
+                    />
+                    <label :for="country">{{ country }}</label>
+                  </li>
+                </ul>
+              </div>
+              <button class="accordion" @click="showAcc">РІК</button>
+              <div class="panel">
+                <ul class="accUL">
+                  <li>
+                    <input
+                            id="old"
+                            type="radio"
+                            name="year"
+                            @change="sortFilmsByProp('Year', 1)"
+                    />
+                    <label for="old">За зростанням</label>
+                  </li>
+                  <li>
+                    <input
+                            id="new"
+                            type="radio"
+                            name="year"
+                            @change="sortFilmsByProp('Year', -1)"
+                    />
+                    <label for="new">За спаданням</label>
+                  </li>
+                </ul>
+              </div>
+
             </div>
 
             <h3 class="hText mtH">Підбірка фільмів</h3>

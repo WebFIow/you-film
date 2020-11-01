@@ -202,6 +202,10 @@ form.search {
 
     & p:last-child {
       font-size: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 }
@@ -446,6 +450,11 @@ form.search {
 }
 
 @media (max-width: 575px) {
+  .wMob {
+    width: 80%!important;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
   #film-main {
     & .hText {
       text-align: center;
@@ -501,6 +510,7 @@ form.search {
 
         & p:last-child {
           font-size: 13px;
+          -webkit-line-clamp: 6;
         }
       }
     }
