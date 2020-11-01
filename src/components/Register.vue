@@ -25,14 +25,17 @@
                     <input
                       type= "name" 
                       v-model="name" 
-                      class="form-control errorIn"
+                      class="form-control"
                       id="name" 
                       placeholder="Ім’я в YouFilm"
                       :class="{invalid: ($v.name.$dirty && !$v.name.required) || ($v.name.$dirty && !$v.name.minLength)}"
                     >
-                      <small class="errorIn form-text">
-                          Ім’я має містити лише літери та знаки “_”, “.”
-                      </small>
+                    <small 
+                      class="errorIn form-text"
+                      v-if="$v.name.$dirty && !$v.name.required"
+                    >
+                        Введіть ім'я
+                    </small>
                   </div>
                   <div class="form-group">
                     <input
@@ -43,9 +46,18 @@
                       placeholder="Email"
                       :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
                     >
-                      <small class="errorIn form-text">
-                          Email має містити @...
-                      </small>
+                    <small 
+                      class="errorIn form-text"
+                      v-if="$v.email.$dirty && !$v.email.required"
+                    >
+                        Введіть свій Email
+                    </small>
+                    <small 
+                      class="errorIn form-text"
+                      v-else-if="$v.email.$dirty && !$v.email.email"
+                    >
+                        Приклад: email@gmail.com
+                    </small>
                   </div>
                   <div class="form-group">
                     <input
@@ -56,9 +68,18 @@
                       placeholder="Пароль"
                       :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
                     >
-                      <small class="errorIn form-text">
-                          Пароль має бути більше 8 символів.
-                      </small>
+                    <small 
+                      class="errorIn form-text"
+                      v-if="$v.password.$dirty && !$v.password.required"
+                    >
+                        Введіть пароль
+                    </small>
+                    <small 
+                      class="errorIn form-text"
+                      v-else-if="$v.password.$dirty && !$v.password.minLength"
+                    >
+                        Ваш пароль має бути не менше ніж {{$v.password.$params.minLength.min}} символів
+                    </small>
                   </div>
                     <div class="form-group form-check">
                         <input
