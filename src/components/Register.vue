@@ -22,19 +22,20 @@
                   autocomplete="off"
                 >
                   <div class="form-group">
-                    <!--                <label for="exampleInputEmail1">Email address</label>-->
-                    <input 
+                    <input
                       type= "name" 
                       v-model="name" 
-                      class="form-control" 
+                      class="form-control errorIn"
                       id="name" 
                       placeholder="Ім’я в YouFilm"
                       :class="{invalid: ($v.name.$dirty && !$v.name.required) || ($v.name.$dirty && !$v.name.minLength)}"
                     >
+                      <small class="errorIn form-text">
+                          Ім’я має містити лише літери та знаки “_”, “.”
+                      </small>
                   </div>
                   <div class="form-group">
-    <!--                <label for="exampleInputEmail1">Email address</label>-->
-                    <input 
+                    <input
                       type="email" 
                       v-model="email" 
                       class="form-control" 
@@ -42,10 +43,12 @@
                       placeholder="Email"
                       :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
                     >
+                      <small class="errorIn form-text">
+                          Email має містити @...
+                      </small>
                   </div>
                   <div class="form-group">
-    <!--                <label for="exampleInputPassword1">Password</label>-->
-                    <input 
+                    <input
                       type="password" 
                       v-model="password"
                       class="form-control" 
@@ -53,6 +56,9 @@
                       placeholder="Пароль"
                       :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
                     >
+                      <small class="errorIn form-text">
+                          Пароль має бути більше 8 символів.
+                      </small>
                   </div>
                     <div class="form-group form-check">
                         <input

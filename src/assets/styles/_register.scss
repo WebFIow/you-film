@@ -1,3 +1,12 @@
+// VALIDATION //
+small.errorIn {
+    color: $redheart;
+}
+
+input.errorIn {
+    border-bottom: 2px solid $redheart!important;
+}
+
 // REGISTER //
 #register {
     padding:180px 0px;
