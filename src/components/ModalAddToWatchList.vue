@@ -165,21 +165,23 @@ export default {
       }
     },
     async addFilmToFilmLists() {
-      const filmLists = this.filmLists
-        .filter(filmList => this.checkedFilmLists.indexOf(filmList.name) !== -1)
-        .map(filmList => {
-          const filmsId = filmList.filmsId || []
-          filmsId.push(this.filmId)
+     const filmLists = this.filmLists
+      .filter(filmList => this.checkedFilmLists.indexOf(filmList.name) !== -1)
+      .map(filmList => {
+        const filmsId = filmList.filmsId || []
+        filmsId.push(this.filmId)
 
-          return {
-            ...filmList,
-            filmsId
-          }
-        })
+        return {
+          ...filmList,
+          filmsId
+        }
+      })
 
+      const unAddedFilmLists = this.filmLists.filter(fl => this.checkedFilmLists.indexOf(fl.name) === -1)
+      const rewritedFilmLists = unAddedFilmLists.concat(filmLists)
       this.newFilmLists = []
-      
-      await this.$store.dispatch('setFilmLists', filmLists)
+
+      await this.$store.dispatch('setFilmLists', rewritedFilmLists)
       this.$emit("close")
     },
   },
