@@ -25,9 +25,9 @@
 							/>
 						</svg>
 					</router-link>
-					<form class="authorization-text--wrap" ref="loginForm">
-						<input type="email" placeholder="E-mail" />
-						<input type="password" placeholder="Пароль" />
+					<form class="authorization-text--wrap" ref="loginForm" @submit.prevent="loginUser">
+						<input type="email" v-model="email" placeholder="E-mail" />
+						<input type="password" v-model="password" placeholder="Пароль" />
 						<a href="#">Не пам'ятаю пароль</a>
 						<button>Увійти</button>
 						<span 
@@ -82,7 +82,9 @@
 export default {
 	props: ["isVisible"],
 	data: () => ({
-		state: 'login'
+    state: 'login',
+    email: '',
+    password: ''
 	}),
 	methods: {
 		changeState(state) {
@@ -91,7 +93,19 @@ export default {
 		goToRegister() {
 			this.$emit('closeAuth')
 			this.$router.push('/register')
-		},
+    },
+    async loginUser() {
+      const formData = {
+        email: this.email,
+        password: this.password
+      }
+
+      try {
+        await this.$store.dispatch('login', formData)
+        this.$router.push('/profile')
+        this.$emit('closeAuth')
+      } catch (e) {}
+    },
 		close(e) {
 			if (e.target == this.$refs.haveAccountLink) {
 				this.state = 'auth'

@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-md-4 justify-content-center">
           <div class="sideProfile">
-            <div class="circle">P</div>
-            <p class="name">Петро Петренко</p>
+            <div class="circle">{{nameFirstLetter}}</div>
+            <p class="name">{{name}}</p>
           </div>
         </div>
         <div class="col-md-8">
@@ -26,7 +26,9 @@
               </router-link>
             </li>
           </ul>
-          <router-view />
+          <keep-alive>
+            <router-view :userEmail="email" :userName="name" />
+          </keep-alive>
         </div>
       </div>
       <div class="row">
@@ -66,12 +68,36 @@ import ProfileSettings from '@/components/ProfileSettings'
 
   export default {
     name: "Profile",
+    data: () => ({}),
     components: {
       ProfileFilmLists,
       ProfileSettings
+    },
+    async mounted() {
+      await this.$store.dispatch('fetchInfo')
+    },
+    computed: {
+      name() {
+        return this.$store.getters.info ? 
+          this.$store.getters.info.name
+          : 'User'
+      },
+      nameFirstLetter() {
+        return this.$store.getters.info ? 
+          this.$store.getters.info.name ?
+            this.$store.getters.info.name[0].toUpperCase()
+          : 'U'
+        : 'U'
+      },
+      email() {
+        return this.$store.getters.info ? 
+          this.$store.getters.info.email
+          : ''
+      },
     },
     methods: {
       
     },
   };
 </script>
+

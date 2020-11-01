@@ -1,6 +1,10 @@
 import firebase from 'firebase/app'
 
 export default {
+  state: {
+  },
+  mutations: {
+  },
   actions: {
     async register({ dispatch }, { email, password, name }) {
       try {
@@ -9,23 +13,19 @@ export default {
         await firebase.database().ref(`/users/${uid}/info`).set({
           name,
           email,
-          playlists: [],
-          likedFilms: []
         })
+        await dispatch('fetchInfo')
       } catch (e) {
         throw e
       }
     },
-    async login({ commit }, { email, password }) {
+    async login({ commit, dispatch }, { email, password }) {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
+        await dispatch('fetchInfo')
       } catch (e) {
         throw e
       }
-    },
-    getUid() {
-      const user = firebase.auth().currentUser
-      return user ? user.uid : null
     },
     async logout({ commit }) {
       try {

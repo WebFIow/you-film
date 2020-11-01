@@ -3,7 +3,7 @@
 		<AddToWatchListModal 
 			v-if="modalIsVisible"
 			:title="film.TitleUA"
-			:film-id="film.id"
+			:filmId="film.id"
 			@close="hideAddToWatchListModal"
 		/>
 		<div class="fCard">
@@ -27,9 +27,16 @@
 					<p>
 						<span class="star"></span><span class="rtNum">{{film.imdbRating}}</span>
 						<span
+              v-if="$route.path !== '/profile'"
 						  class="heart"
 							@click="showAddToWatchListModal(film.TitleUA)"
 						></span>
+            <span 
+              v-else
+              @click="removeFilm"
+            >
+              &times;
+            </span>
 					</p>
 				</div>
 				<p class="sticker">{{ film.Released }}, {{ film.Genre }}</p>
@@ -51,14 +58,17 @@ export default {
 	},
 	data: () => ({
 		modalIsVisible: false
-	}),
+  }),
 	methods: {
 		showAddToWatchListModal() {
 			this.modalIsVisible = true
 		},
 		hideAddToWatchListModal() {
 			this.modalIsVisible = false
-		}
+    },
+    removeFilm() {
+      this.$emit('removeHandler', this.film.id)
+    }
 	}
 }
 </script>

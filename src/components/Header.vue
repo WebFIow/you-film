@@ -24,18 +24,22 @@
                     <li><router-link to="/directors" class="header-nav--item">Режисери</router-link></li>
                     <li><router-link to="/watch-list" class="header-nav--item">Фільм-листи</router-link></li>
                 </nav>
-<!--                <span-->
-<!--                    class="header-nav&#45;&#45;item"-->
-<!--                    @click="showAuthPopup"-->
-<!--                >Вхід</span>-->
+               <span
+                   class="header-nav--item"
+                   @click="showAuthPopup"
+                   v-if="!name"
+                >Вхід</span>
 
-                <div class="header-prof--wrap">
+                <div v-else class="header-prof--wrap">
                     <nav class="header-prof">
-                        <span class="profile-img"><span class="profile-img--name">O</span></span>
-                        <li><router-link to="#" class="header-prof--name"><span>Одрі Хепбьорн</span></router-link>
+                        <span class="profile-img"><span class="profile-img--name">{{nameFirstLetter}}</span></span>
+                        <li>
+                          <router-link to="#" class="header-prof--name">
+                          <span>{{name}}</span>
+                          </router-link>
                             <ul class="header-prof--name---animate">
-                                <li><router-link to="#">Особиста сторінка</router-link></li>
-                                <li><router-link to="#">Вийти з акаунту </router-link></li>
+                                <li><router-link to="/profile">Особиста сторінка</router-link></li>
+                                <li><a href="#" @click.prevent="logoutUser">Вийти з акаунту </a></li>
                             </ul>
                         </li>
                     </nav>
@@ -74,9 +78,35 @@ import AuthPopup from './AuthPopup'
 export default {
     name: 'Header',
     data: () => ({
-        isAuthVisible: false
+        isAuthVisible: false,
+        userInfo: {
+          name: ''
+        }
     }),
+    async mounted() {
+      await this.$store.dispatch('fetchInfo')
+    },
+    computed: {
+      name() {
+        return this.$store.getters.info ? 
+          this.$store.getters.info.name 
+          : false
+      },
+      nameFirstLetter() {
+        return this.$store.getters.info ? 
+          this.$store.getters.info.name[0].toUpperCase()
+          : false
+      }
+    },
     methods: {
+      async logoutUser() {
+        try {
+          await this.$store.dispatch('logout')
+          this.$router.push('/')
+        } catch (e) {
+          throw e
+        }
+      },
         showAuthPopup() {
             this.isAuthVisible = !this.isAuthVisible
         },

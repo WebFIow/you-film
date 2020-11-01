@@ -158,7 +158,7 @@
   text-decoration-line: none;
   transition: color 0.2;
 }
-.header-prof > li:hover .header-prof--name---animate{
+.header-prof:hover .header-prof--name---animate{
   height: 100%;
   transition: 0.3s ease-in;
 }

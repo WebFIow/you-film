@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import firebase from 'firebase/app'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -76,18 +77,18 @@ const routes = [
   },
   {
     path: '/profile',
-    meta: { layout: 'main' },
+    meta: { layout: 'main', auth: true },
     component: () => import('../views/Profile'),
     children: [
       {
         path: '',
         name: "Profile",
-        meta: { layout: 'main' },
+        meta: { layout: 'main', auth: true },
         component: () => import('../components/ProfileFilmLists'),
       },
       {
         path: 'settings',
-        meta: { layout: 'main' },
+        meta: { layout: 'main', auth: true },
         component: () => import('../components/ProfileSettings'),
       }
     ]
@@ -98,6 +99,17 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const currentUser = firebase.auth().currentUser
+  const requireAuth = to.matched.some(record => record.meta.auth)
+  
+  if (requireAuth && !currentUser) {
+    next('/')
+  } else {
+    next() 
+  }
 })
 
 export default router
