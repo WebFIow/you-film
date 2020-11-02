@@ -162,11 +162,5 @@
 </template>
 
 <script>
-import About from "@/components/About.vue";
-import Title from "@/components/Title.vue";
-
 export default {};
 </script>
-
-<style scoped>
-</style>
