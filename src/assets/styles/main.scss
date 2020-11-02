@@ -29,4 +29,12 @@
 //Profile
 @import "profile";
 
+//About us
+@import "./introduction";
+@import "./about-us";
+@import "./advantages";
+@import "./team";
 
+.app-content {
+    padding-top: 96px;
+}
