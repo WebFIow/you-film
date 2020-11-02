@@ -169,8 +169,11 @@ export default {
       .filter(filmList => this.checkedFilmLists.indexOf(filmList.name) !== -1)
       .map(filmList => {
         const filmsId = filmList.filmsId || []
-        filmsId.push(this.filmId)
-
+        
+        if (filmsId.indexOf(this.filmId) === -1) {
+          filmsId.push(this.filmId)
+        }
+        
         return {
           ...filmList,
           filmsId

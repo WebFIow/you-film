@@ -108,7 +108,11 @@ router.beforeEach((to, from, next) => {
   if (requireAuth && !currentUser) {
     next('/')
   } else {
-    next() 
+    next()
+    document.body.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    })
   }
 })
 

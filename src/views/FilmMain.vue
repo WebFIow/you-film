@@ -32,6 +32,11 @@
         <div class="row tabColReverse">
           <div class="col-xl-9 col-md-8">
             <h3 class="hText">Список фільмів</h3>
+            <p
+              v-if="!films.length"
+            >
+              Не знайшлося жодного фільму за Вашим запитом
+            </p>
             <FilmTable :page="page" :pageSize="pageSize" :films="items" />
             <Paginate
               v-model="page"
@@ -120,33 +125,6 @@
                 </li>
               </ul>
             </div>
-
-            <h3 class="hText mtH">Підбірка фільмів</h3>
-            <div class="fListWrap">
-              <div class="fEl">
-                <img src="../../public/img/films/fim1.jpeg" alt="film poster" />
-                <div class="fElText">
-                  <p>Top 8 Facts About DC’s Shazam! Movie</p>
-                  <p>May 12, 2020</p>
-                </div>
-              </div>
-
-              <div class="fEl">
-                <img src="../../public/img/films/fim1.jpeg" alt="film poster" />
-                <div class="fElText">
-                  <p>Top 8 Facts About DC’s Shazam! Movie</p>
-                  <p>May 12, 2020</p>
-                </div>
-              </div>
-
-              <div class="fEl">
-                <img src="../../public/img/films/fim1.jpeg" alt="film poster" />
-                <div class="fElText">
-                  <p>Top 8 Facts About DC’s Shazam! Movie</p>
-                  <p>May 12, 2020</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="row mb-3"></div>
@@ -186,7 +164,6 @@ export default {
 
     if (this.$route.query.genre) {
       this.filterFilmsByGenre(this.$route.query.genre);
-
       return;
     }
 
@@ -197,7 +174,7 @@ export default {
       return Array.from(
         new Set(
           this.allFilms
-            .map((film) => film.Genre)
+            .map(film => film.Genre)
             .join(", ")
             .split(", ")
         )
@@ -207,7 +184,7 @@ export default {
       return Array.from(
         new Set(
           this.allFilms
-            .map((film) => film.Country)
+            .map(film => film.Country)
             .join(", ")
             .split(", ")
         )

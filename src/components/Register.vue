@@ -56,7 +56,7 @@
                       class="errorIn form-text"
                       v-else-if="$v.email.$dirty && !$v.email.email"
                     >
-                        Приклад: email@gmail.com
+                      Приклад: email@gmail.com
                     </small>
                   </div>
                   <div class="form-group">
@@ -72,7 +72,7 @@
                       class="errorIn form-text"
                       v-if="$v.password.$dirty && !$v.password.required"
                     >
-                        Введіть пароль
+                      Введіть пароль
                     </small>
                     <small 
                       class="errorIn form-text"
