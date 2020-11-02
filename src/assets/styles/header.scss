@@ -109,8 +109,10 @@
   font-style: normal;
   font-family: "Josefin Sans";
   position: absolute;
-  top: 2px;
-  right: 7px;
+  top: 57%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  line-height: 15px;
 }
 .header-prof li{
   list-style: none;
