@@ -6,8 +6,8 @@
       <div class="introduction__contain">
         <div class="introduction__logo">
           <svg
-            width="134"
-            height="35"
+            width="178"
+            height="46"
             viewBox="0 0 134 35"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@
               >
             </div>
             <p class="advantages__sign">
-              <span class="advantages__sign-gold">01</span>  Made in Ukraine.
+              <span class="advantages__sign-gold">01</span>&emsp;Made in Ukraine.
             </p>
           </div>
           <div class="advantages__advantage advantages__advantage--two">
