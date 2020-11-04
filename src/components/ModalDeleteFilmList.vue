@@ -1,12 +1,11 @@
 <template>
-  <div id="mdlSettings" @click="close" ref="modalWrapper">
+  <div id="mdlDelete" @click="close" ref="modalWrapper">
     <div class="mdl">
       <div class="mdl-content">
         <p>
-          Для підтвердження зміни пошти, ми надіслали лист на
-          mynewmegaemail@gmail.com. Слідуйте інструкції.
+          Ти певен, що хочеш видалити фільм зі свого листу?
         </p>
-        <button type="button" class="btn btn-mdl">Добре</button>
+        <button type="button" class="btn btn-mdl">Так</button>
       </div>
     </div>
   </div>
