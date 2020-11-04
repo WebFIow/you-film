@@ -2,6 +2,10 @@
   padding-top: 85px;
   min-height: calc(100vh - 72px);
 
+  & .rtNum {
+    padding-right: 10px;
+  }
+
   & .hText {
     font-size: 32px;
     line-height: 36px;
@@ -111,6 +115,15 @@
   & p {
     color: white;
     font-size: 18px;
+
+    & a {
+      color:$gold;
+
+      &:hover {
+        text-decoration: none;
+        color: white;
+      }
+    }
   }
 
   & label {

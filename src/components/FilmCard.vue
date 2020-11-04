@@ -35,7 +35,7 @@
               v-else
               @click="removeFilm"
             >
-              &times;
+              <i class="fas fa-times"></i>
             </span>
 					</p>
 				</div>
