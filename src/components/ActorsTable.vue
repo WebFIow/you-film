@@ -5,51 +5,25 @@
                 <div class="actors-table--card col-10">
                 <div class="actors-table--card---line row">
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                              <a href="#">Том Фелтон</a>
                         </div>
                     </div>
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                             <a href="#">Том Фелтон</a>
                         </div>
                     </div>
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                             <a href="#">Том Фелтон</a>
                         </div>
                     </div>
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
-                        <div class="actors-table--name">
-                            <a href="#">Том Фелтон</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="actors-table--card---line row">
-                    <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
-                        <div class="actors-table--name">
-                            <a href="#">Том Фелтон</a>
-                        </div>
-                    </div>
-                    <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
-                        <div class="actors-table--name">
-                            <a href="#">Том Фелтон</a>
-                        </div>
-                    </div>
-                    <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
-                        <div class="actors-table--name">
-                            <a href="#">Том Фелтон</a>
-                        </div>
-                    </div>
-                    <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                             <a href="#">Том Фелтон</a>
                         </div>
@@ -57,25 +31,51 @@
                 </div>
                 <div class="actors-table--card---line row">
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                             <a href="#">Том Фелтон</a>
                         </div>
                     </div>
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                             <a href="#">Том Фелтон</a>
                         </div>
                     </div>
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                             <a href="#">Том Фелтон</a>
                         </div>
                     </div>
                     <div class="actors-table--card---item col-3">
-                        <img src="../../public/img/actors.jpg">
+                        <img src="../../public/img/actors.png">
+                        <div class="actors-table--name">
+                            <a href="#">Том Фелтон</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="actors-table--card---line row">
+                    <div class="actors-table--card---item col-3">
+                        <img src="../../public/img/actors.png">
+                        <div class="actors-table--name">
+                            <a href="#">Том Фелтон</a>
+                        </div>
+                    </div>
+                    <div class="actors-table--card---item col-3">
+                        <img src="../../public/img/actors.png">
+                        <div class="actors-table--name">
+                            <a href="#">Том Фелтон</a>
+                        </div>
+                    </div>
+                    <div class="actors-table--card---item col-3">
+                        <img src="../../public/img/actors.png">
+                        <div class="actors-table--name">
+                            <a href="#">Том Фелтон</a>
+                        </div>
+                    </div>
+                    <div class="actors-table--card---item col-3">
+                        <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
                             <a href="#">Том Фелтон</a>
                         </div>

@@ -24,7 +24,7 @@
                      </div>
                  </div>
                 <div class="actor-info--img col-3">
-                    <img src="../../public/img/actors.jpg">
+                    <img src="../../public/img/actors.png">
                     <div class="actor-rating">
                     </div>
                 </div>
