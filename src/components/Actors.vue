@@ -15,7 +15,7 @@
 </template>
 
 <script>
-export default {
-    name: "Actors",
-};
+    export default {
+        name: 'Actors',
+    };
 </script>
