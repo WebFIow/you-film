@@ -43,7 +43,7 @@ const routes = [
     path: '/actors',
     name: 'Actors',
     meta: { layout: 'main' },
-    component: () => import('../views/Actors')
+    component: () => import('../components/Actors')
   },
   {
     path: '/actors-table',
