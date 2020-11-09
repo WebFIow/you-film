@@ -10,7 +10,15 @@ export default {
         throw e
       }
     },
-    async fetchFilmByID({}, id) {
+    async fetchFilmLists({dispatch, commit}) {
+      const uid = await dispatch('getUid')
+      const filmLists = (await firebase.database().ref(`/users/${uid}/filmLists`).once('value')).val()
+      filmLists.forEach(filmList => {
+        filmList.filmsId = filmList.filmsId || []
+      })
+      commit('setFilmLists', filmLists)
+    },
+    async fetchFilmById({}, id) {
       try {
         const film = (await firebase.database().ref(`/films/${id}`).once('value')).val()
         return film ? {...film, id} : {}

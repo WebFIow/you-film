@@ -52,12 +52,20 @@
 import AddToWatchListModal from './ModalAddToWatchList'
 
 export default {
-	props: ['film'],
+	props: ['filmData', 'filmId'],
 	components: {
 		AddToWatchListModal
-	},
+  },
+  async mounted() {
+    if (!this.filmData && this.filmId) {
+      this.film = await this.$store.dispatch('fetchFilmById', this.filmId)
+    } else {
+      this.film = this.filmData
+    }
+  },
 	data: () => ({
-		modalIsVisible: false
+    modalIsVisible: false,
+    film: {},
   }),
 	methods: {
 		showAddToWatchListModal() {

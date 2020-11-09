@@ -3,7 +3,7 @@
   <FilmCard 
     v-for="film of films"
     :key="film.name"
-    :film="film"
+    :filmData="film"
   />
 </div>
 </template>

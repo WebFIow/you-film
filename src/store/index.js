@@ -37,11 +37,6 @@ export default new Vuex.Store({
       const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
       commit('setInfo', info)
     },
-    async fetchFilmLists({dispatch, commit}) {
-      const uid = await dispatch('getUid')
-      const filmLists = (await firebase.database().ref(`/users/${uid}/filmLists`).once('value')).val()
-      commit('setFilmLists', filmLists)
-    },
     //temporary action
     async createFilm({ }, { json, ua }) {
       try {

@@ -12,17 +12,22 @@
           {{ filmList.name }} ({{ filmList.filmsId.length }})
         </button>
         <div class="panel">
-          <ul class="accUL">
+          <ul class="accUL" v-if="filmList.filmsId.length">
             <li
-              v-for="film of filmList.films"
-              :key="film.imdbId"
+              v-for="filmId of filmList.filmsId"
+              :key="filmId"
             >
               <FilmCard
-                :film="film"
+                :filmId="filmId"
                 @removeHandler="(filmId) => removeFilmFromFilmList(filmId, filmList.name)"
               />
             </li>
           </ul>
+          <div v-else>
+            <p>
+              У цьому філм-листі немає жодного фільму 😢<br />Прямуй на сторінку <router-link to="/film-main">Фільми</router-link>, та додай фільм до цього фільм-листа.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -50,17 +55,8 @@ export default {
     await this.$store.dispatch("fetchFilmLists");
 
     this.filmLists = this.$store.getters.filmLists || [];
-    await this.filmLists.forEach(async (filmList, j) => {
-      for (let i = 0; i < filmList.filmsId.length; i++) {
-        const filmId = filmList.filmsId[i];
-        const film = await this.$store.dispatch("fetchFilmByID", filmId);
-        filmList.films || (filmList.films = []);
-        filmList.films && filmList.films.push(film);
-      }
-      if (j === this.filmLists.length - 1) {
-        this.filmsAreReady = true
-      }
-    });
+
+    this.filmsAreReady = true
   },
   methods: {
     showAcc(e) {
@@ -76,8 +72,8 @@ export default {
     async removeFilmFromFilmList(filmId, filmListName) {
       const filmLists = this.filmLists
       const filmList = filmLists.find(filmList => filmList.name == filmListName)
-      filmList.films = filmList.films.filter(film => film.id !== filmId)
-      filmList.filmsId = filmList.filmsId.filter(id => id !== filmId)
+      filmList.filmsId = filmList.filmsId.filter(id => id !== filmId) || []
+      console.log(filmList.filmsId)
       this.filmLists = filmLists
       this.$forceUpdate()
       this.$store.dispatch('setFilmLists', this.filmLists)
