@@ -136,7 +136,10 @@
                     rows="3"
                     placeholder="Залишити відгук"
                     v-model="comment"
-                  ></textarea>
+                    maxlength="500"
+                  >
+                  </textarea>
+                  <span class="cLen">{{comment.length}}/500</span>
                 </div>
                 <div class="row">
                   <div class="col-12 col-left">
@@ -149,10 +152,11 @@
           <div v-if="film.comments && film.comments.length">
             <Comment 
               v-for="comment in film.comments"
-              :key="comment.user"
+              :key="comment.date"
               :user="comment.user"
               :text="comment.text"
               :rating="comment.rating"
+              :date="comment.date"
             />
           </div>
         </div>
@@ -207,7 +211,8 @@ export default {
         const comment = {
           rating: this.rating,
           text: this.comment,
-          user: this.user.name
+          user: this.user.name,
+          date: Date.now()
         }
 
         this.comment = ''

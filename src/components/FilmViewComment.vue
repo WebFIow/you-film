@@ -5,7 +5,7 @@
         <div class="usWrap">
           <span class="profile-img"><span class="profile-img--name">{{nameFirstLetter}}</span></span>
           <p>{{name}}</p>
-          <div class="dtext d-xl-none d-md-none d-sm-none">tut budet time</div>
+          <p>{{commentTime}}</p>
         </div>
       </div>
       <div class="col-xl-10 col-sm-9">
@@ -22,13 +22,19 @@
 
 <script>
 export default {
-  props: ['user', 'text', 'rating'],
+  props: ['user', 'text', 'rating', 'date'],
+  data: () => ({
+  }),
   computed: {
     name() {
       return this.user
     },
     nameFirstLetter() {
       return this.user[0].toUpperCase()
+    },
+    commentTime() {
+      const date = new Date(this.date)
+      return date.getDate() + '.' + (1 + +date.getMonth()) + '.' + date.getFullYear()
     }
   },
 };

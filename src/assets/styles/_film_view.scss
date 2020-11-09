@@ -211,6 +211,20 @@
   align-items: center;
 }
 
+#cForm {
+  position: relative;
+}
+
+.cLen {
+  position: absolute;
+  bottom: 4px;
+  right: 19px;
+  font-family: Playfair Display!important;
+  font-style: normal;
+  font-weight: normal;
+  color: $gold-placeholder;
+}
+
 textarea {
   font-family: Playfair Display!important;
   font-style: normal;
