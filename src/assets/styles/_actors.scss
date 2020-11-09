@@ -11,25 +11,64 @@
   text-align: center;
   margin: 0 auto;
   letter-spacing: 2px;
-}
-.actors-text h1{
-  font-size: 40px;
-  font-weight: 700;
-  font-style: normal;
-  text-transform: uppercase;
-  color: $gold;
-  padding: 22px 0;
-}
-.actors-text p{
-  font-size: 26px;
-  font-weight: 400;
-  font-style: normal;
-  color: #ffffff;
-  padding: 0 50px;
+
+  & h1{
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    color: $gold;
+    padding: 22px 0;
+  }
+  & p{
+    font-size: 26px;
+    font-weight: 400;
+    font-style: normal;
+    color: #ffffff;
+    padding: 0 50px;
+  }
 }
 .actors-wrap .search .search{
   background-color: rgba(198, 165, 100, 0.5);
 }
 .actors-wrap .search button{
-  background-color: transparent ;
+  background-color: transparent;
+}
+@media (max-width: 996px) {
+  .actors-text{
+    & h1{
+      font-size: 35px;
+    }
+
+    & p{
+      font-size: 22px;
+    }
+  }
+  .search{
+    display: none;
+  }
+}
+@media (max-width: 575px){
+  .actors-text{
+    & h1{
+      font-size: 32px;
+    }
+
+    & p{
+      font-size: 20px;
+    }
+  }
+}
+@media (max-width: 425px){
+  .actors-text{
+    & h1{
+      font-size: 25px;
+      padding: 15px 0;
+    }
+
+    & p{
+      font-size: 18px;
+      padding: 0 15px;
+    }
+  }
 }

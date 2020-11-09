@@ -3,23 +3,17 @@
     <div class="row">
       <div class="col-xl-2 col-sm-3">
         <div class="usWrap">
-          <img
-            class="img-fluid"
-            src="../../public/img/icon_user.svg"
-            alt="user icon"
-          />
-          <p>Головна вовчиця</p>
-          <div class="dtext d-xl-none d-md-none d-sm-none divMob">вчора</div>
+          <span class="profile-img"><span class="profile-img--name">{{nameFirstLetter}}</span></span>
+          <p>{{name}}</p>
+          <div class="dtext d-xl-none d-md-none d-sm-none">tut budet time</div>
         </div>
       </div>
       <div class="col-xl-10 col-sm-9">
         <div class="cTextWrap">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat.
-            Nam ultrices semper felis, at laoreet metus
+            {{text}}
           </p>
-          <p>оцінка: <span class="points">7/10</span></p>
+          <p>оцінка: <span class="points">{{rating}}/10</span></p>
         </div>
       </div>
     </div>
@@ -28,15 +22,14 @@
 
 <script>
 export default {
+  props: ['user', 'text', 'rating'],
   computed: {
     name() {
-      return this.$store.getters.info ? this.$store.getters.info.name : false;
+      return this.user
     },
     nameFirstLetter() {
-      return this.$store.getters.info
-        ? this.$store.getters.info.name[0].toUpperCase()
-        : false;
-    },
+      return this.user[0].toUpperCase()
+    }
   },
 };
 </script>

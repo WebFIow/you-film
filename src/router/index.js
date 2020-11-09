@@ -39,11 +39,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
   },
-  {
+  /*{
     path: '/actors',
     name: 'Actors',
     meta: { layout: 'main' },
-    component: () => import('../components/Actors')
+    component: () => import('../views/Actors')
   },
   {
     path: '/actors-table',
@@ -56,7 +56,7 @@ const routes = [
     name: 'ActorView',
     meta: { layout: 'main' },
     component: () => import('../views/ActorView')
-  },
+  },*/
   {
     path: '/films',
     name: 'Films',

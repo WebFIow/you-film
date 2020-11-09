@@ -1,28 +1,23 @@
 #actor-view{
   background-color: #000000;
+  padding: 0;
 }
+#film-view > .container > .row, #actor-view > .container > .row{
+  margin-top: 30px;
+}
+#actor-view .fTable table{
+  width: 100%;
+}
+
+#actor-view .hText{
+  text-align: left;
+}
+
 .actor-view--info{
   padding: 40px 0px 70px 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-.actor-info--text .actor-name span{
-  font-size: 27px;
-  font-weight: 400;
-  font-style: normal;
-  font-family: "Playfair Display";
-  text-transform: uppercase;
-  color: $gold;
-  cursor: pointer;
-}
-.actor-info--text p{
-  font-size: 15px;
-  font-family: Montserrat, sans-serif;
-  font-style: normal;
-  color: #ffffff;
-  cursor: pointer;
-  letter-spacing: 0.1em;
 }
 .actor-info--films---wrap{
   display: flex;
@@ -30,178 +25,87 @@
   align-items: center;
   justify-content: space-between;
 }
-.actor-info--films img{
-  width: 100%;
-  height: auto;
-  padding: 0;
-}
-.actor-info--films a{
-  padding: 10px 0;
-  color: #ffffff;
-  font-style: normal;
-  font-family: Montserrat;
-  font-size: 14px;
-  transition: color 0.2s linear;
-}
-.actor-info--films a:hover{
-  color: $gold;
-  text-decoration: none;
-  transition: color 0.2s linear;
+.actor-info--films {
+  & img{
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  & a{
+    padding: 10px 0;
+    color: #ffffff;
+    font-style: normal;
+    font-family: Montserrat;
+    font-size: 14px;
+    transition: color 0.2s linear;
+
+    &::hover{
+      color: $gold;
+      text-decoration: none;
+      transition: color 0.2s linear;
+    }
+  }
 }
 .actor-info--img{
+  height: auto;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.actor-info--img img{
-  width: 100%;
+.actor-info--img---wrap, .actor-info--img---wrap img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
   height: auto;
 }
-
-//reviews
-.actor-reviews{
-  width: 80%;
-  margin: 0 auto;
-  padding: 0 0 30px 0;
-}
-.actor-reviews h2{
-  font-size: 27px;
-  font-family: "Playfair Display";
-  font-style: normal;
-  color: $gold;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.actor-rating{
   padding: 30px 0;
 }
-.reviews-card, .reviews{
-  margin: 0 0 30px 0;
-}
-.reviews-card{
-  width: 100%;
-  padding: 20px 20px 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: rgba(85, 85, 85, 0.1);
-  border: 1px solid rgba(198, 165, 100, 0.2);
-  box-sizing: border-box;
-}
-.account-icon{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-.account-icon p{
-  margin: 0;
-}
-.account-icon span{
-  font-family: Playfair Display;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  color: #ffffff;
-  text-align: center;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-.reviews-card--line{
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
-.reviews-card--line textarea{
-  font-style: normal;
-  font-family: "Playfair Display";
-  font-size: 14px;
-  cursor: pointer;
-}
-.reviews-card--line input{
-  margin: 15px 0;
-  padding: 5px 10px;
-  font-family: Playfair Display;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 150%;
-  text-align: center;
-  letter-spacing: 2px;
-  background: rgba(198, 165, 100, 0.1);
-  border: none;
-  border-radius: 50px;
-  color: $gold;
-  transition: color 0.2s linear;
-}
-.reviews-card--line input:hover{
-  color: #ffffff;
-  transition: color 0.2s linear;
-}
-.reviews-card--line input:focus{
-  outline: none;
-}
-.reviews{
-  width: 100%;
-  padding: 20px 20px 10px 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: rgba(85, 85, 85, 0.1);
-  border: 1px solid rgba(198, 165, 100, 0.2);
-  box-sizing: border-box;
-}
-.reviews-line{
-  padding: 0 0 0 10px;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.reviews-line p{
-  cursor: pointer;
-  font-family: Playfair Display;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 20px;
-  color: #FFFFFF;
-}
-.reviews-rating{
-  cursor: pointer;
-  font-family: Playfair Display;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 30px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-}
-.reviews-rating span{
-  padding: 0 0 0 20px;
-}
 
-.reviews-more{
-  font-family: Playfair Display;
+.like, .dislike {
+  margin: 0 15px;
+  font-family: Josefin Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+  text-transform: capitalize;
+  cursor: pointer;
 
-  background: rgba(193, 171, 101, 0.2);
+  background: rgba(198, 165, 100, 0.15);
   border-radius: 20px;
-  border: none;
+  padding: 10px 25px;
+}
 
-  padding: 10px 40px;
+.like i{
+  color: #007700;
+  padding: 0 5px;
+}
+.dislike i{
+  color: #770000;
+  padding: 0 5px;
+}
+.qty1, .qty2 {
+  border: none;
+  width:30px;
+  background: transparent;
+  color: rgba(245, 245, 247, 0.5);
+}
+
+#actor-view .usWrap {
   display: flex;
-  margin: 0 auto;
-  transition: transform 0.3s;
+  padding: 25px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.reviews-more:hover{
-  transform: translate3d(0,-10px, 0);
-  transition: transform 0.3s;
-}
-.reviews-more:focus{
-  outline: none;
+
+#actor-view .btn-comment{
+  margin-top: 20px;
 }

@@ -49,18 +49,20 @@
                     <button type="submit"></button>
                 </form>
                 <div class="hamburger-menu">
-                    <input id="menu-toggle" type="checkbox" />
+                    <input id="menu-toggle" type="checkbox" v-model="checked" />
                     <label class="menu-btn" for="menu-toggle">
                         <span></span>
                     </label>
                     <ul class="menu-box">
-                        <li><router-link to="/" class="menu-item">Головна</router-link></li>
-                        <li><router-link to="/about" class="menu-item">Про нас</router-link></li>
-                        <li><router-link to="/film-main" class="menu-item">Фільми</router-link></li>
-                        <li><router-link to="/actors" class="menu-item">Актори</router-link></li>
-                        <li><router-link to="/directors" class="menu-item">Режисери</router-link></li>
-                        <li><router-link to="/watch-list" class="menu-item">Фільм-листи</router-link></li>
-                        <li><router-link to="/watch-list" class="menu-item">Вхід</router-link></li>
+                        <li @click="() => checked = false"><router-link  to="/" class="menu-item">Головна</router-link></li>
+                        <li @click="() => checked = false"><router-link to="/about" class="menu-item">Про нас</router-link></li>
+                        <li @click="() => checked = false"><router-link to="/film-main" class="menu-item">Фільми</router-link></li>
+                        <li @click="() => checked = false"><router-link to="/actors" class="menu-item">Актори</router-link></li>
+                        <li @click="() => checked = false"><router-link to="/directors" class="menu-item">Режисери</router-link></li>
+                        <li @click="() => checked = false"><router-link to="/watch-list" class="menu-item">Фільм-листи</router-link></li>
+                        <li v-if="!name"><span  @click="showAuthPopup" class="menu-item">Вхід</span></li>
+                        <li @click="() => checked = false" v-if="name"><router-link to="/profile" class="menu-item">Профіль</router-link></li>
+                        <li @click="() => checked = false" v-if="name"><router-link to="/profile/settings" class="menu-item">Налаштування</router-link></li>
                     </ul>
                 </div>
             </div>
@@ -81,7 +83,8 @@ export default {
         isAuthVisible: false,
         userInfo: {
           name: ''
-        }
+        },
+        checked: false
     }),
     async mounted() {
       await this.$store.dispatch('fetchInfo')
@@ -103,15 +106,18 @@ export default {
         try {
           await this.$store.dispatch('logout')
           this.$router.push('/')
+          this.checked = false
         } catch (e) {
           throw e
         }
       },
         showAuthPopup() {
             this.isAuthVisible = !this.isAuthVisible
+            this.checked = false
         },
         hideAuthPopup() {
              this.isAuthVisible = false
+             this.checked = false
         }
     },
     components: {

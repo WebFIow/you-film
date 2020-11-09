@@ -1,5 +1,11 @@
 <template>
   <div id="film-view">
+    <AddToWatchListModal 
+			v-if="modalIsVisible"
+			:title="film.TitleUA"
+			:filmId="film.id"
+			@close="hideAddToWatchListModal"
+		/>
     <div class="container container-fluid">
       <div class="row justify-content-between">
         <div class="col-xl-7 col-md-6 px-mob-none">
@@ -65,11 +71,20 @@
           </div>
           <div class="imgStars">
             <div class="rating">
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
+              <span
+                v-for="i of 10"
+                :key="i"
+                :class="{gold: i <= film.imdbRating}"
+              ></span>
             </div>
-            <p>рейтинг: 7/10</p>
-            <p><span class="heart"></span>додати в фільм-лист</p>
+            <p>рейтинг: {{Math.floor(film.imdbRating)}}/10</p>
+            <p>
+              <span
+                v-if="$route.path !== '/profile'"
+                class="heart"
+                @click="showAddToWatchListModal()"
+              ></span>
+              Додати в фільм-лист</p>
           </div>
         </div>
       </div>
@@ -84,9 +99,12 @@
                   <p>{{name}}</p>
                   <div class="imgStars imgStarsMob d-md-none d-sm-block">
                     <div class="rating">
-                      <span></span><span></span><span></span><span></span
-                      ><span></span> <span></span><span></span><span></span
-                      ><span></span><span></span>
+                      <span
+                        v-for="i of 10"
+                        :key="i"
+                        :class="{gold: i <= film.imdbRating}"
+                        @click="setRating(i)"
+                      ></span>
                     </div>
                   </div>
                 </div>
@@ -101,25 +119,41 @@
                       <span
                         v-for="i of 10"
                         :key="i"
+                        :class="{gold: i <= rating}"
                         @click="setRating(i)"
-                      >{{i}}</span>
+                        @mouseenter="setRating(i)"
+                        @mouseleave="setRating(i)"
+                      ></span>
                     </div>
+                    <span class="pr20 gold" v-show="rating">
+                        {{rating}} / 10
+                      </span>
                   </div>
                 </div>
-                <form id="cForm">
+                <div id="cForm">
                   <textarea
                     id="cArea"
                     rows="3"
                     placeholder="Залишити відгук"
+                    v-model="comment"
                   ></textarea>
-                </form>
+                </div>
                 <div class="row">
                   <div class="col-12 col-left">
-                    <button class="btn btn-comment">Надіслати</button>
+                    <button type="submit" @click.prevent="submitComment" class="btn btn-comment">Надіслати</button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div v-if="film.comments && film.comments.length">
+            <Comment 
+              v-for="comment in film.comments"
+              :key="comment.user"
+              :user="comment.user"
+              :text="comment.text"
+              :rating="comment.rating"
+            />
           </div>
         </div>
       </div>
@@ -128,18 +162,24 @@
 </template>
 
 <script>
+import Comment from '@/components/FilmViewComment';
+import AddToWatchListModal from '@/components/ModalAddToWatchList'
+
 export default {
   name: "FilmView",
   data: () => ({
     film: {},
+    modalIsVisible: false,
     id: "",
-    rating: 0
+    rating: 0,
+    user: {},
+    comment: ''
   }),
   async mounted() {
     this.id = this.$route.params.id
-    this.film = await this.$store.dispatch("fetchFilmByID", this.id)
+    this.film = await this.$store.dispatch("fetchFilmById", this.id)
     await this.$store.dispatch('fetchInfo')
-    this.user = this.$store.info
+    this.user = this.$store.getters.info
     console.log(this.user)
   },
   computed: {
@@ -153,10 +193,39 @@ export default {
     },
   },
   methods: {
+    showAddToWatchListModal() {
+			this.modalIsVisible = true
+		},
+		hideAddToWatchListModal() {
+			this.modalIsVisible = false
+    },
     setRating(rating) {
       this.rating = rating
-      console.log(this.rating)
+    },
+    async submitComment() {
+      if (this.comment.trim() && this.rating) {
+        const comment = {
+          rating: this.rating,
+          text: this.comment,
+          user: this.user.name
+        }
+
+        this.comment = ''
+        this.rating = 0
+
+        const dataToUpdate = {
+          comment,
+          id: this.id,
+        }
+
+        await this.$store.dispatch('addCommentToFilm', dataToUpdate)
+        this.film = await this.$store.dispatch('fetchFilmById', this.id)
+      }
     }
+  },
+  components: {
+    Comment,
+    AddToWatchListModal
   }
 };
 </script>

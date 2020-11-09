@@ -108,35 +108,19 @@
     color: $gold;
     margin-right: 15px;
 
+    &.gold {
+      &::before {
+        font-weight: bold;
+      }
+    }
+
     &::before {
       content: "\f005";
       font-family: 'Font Awesome 5 Free';
     }
 
-    &:first-child {
-      margin-right: 0!important;
-    }
-
-    &:hover {
-      color: transparent;
-      cursor: pointer;
-    }
-
-    &:hover ~ span {
-      color: transparent;
-    }
-
-    &:hover:before {
+    &:hover::before {
       content: "\f005";
-      position: absolute;
-      left: 0;
-      color: $gold;
-      font-weight: bold;
-    }
-
-    &:hover ~ span:before {
-      content: "\f005";
-      position: absolute;
       left: 0;
       color: $gold;
       font-weight: bold;
@@ -173,7 +157,7 @@
     box-sizing: border-box;
     padding: 30px 37px;
 
-    & p.gold {
+    p.gold {
       color: $gold;
     }
   }
@@ -192,7 +176,7 @@
     text-align: center;
     letter-spacing: 2px;
     color: white;
-    margin-top: 10px;
+    margin-top: 1rem;
   }
 }
 
