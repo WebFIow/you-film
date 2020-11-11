@@ -1,5 +1,5 @@
 #film-view {
-  padding-top: 85px;
+  padding-top: 0px;
   & .hText {
     font-size: 32px;
     line-height: 30px;
@@ -291,7 +291,7 @@ textarea {
 
 @media (max-width: 991px) {
   #film-view {
-    padding-top: 68px;
+    //padding-top: 60px;
   }
   .fText p {
     font-size: 15px;
@@ -311,7 +311,7 @@ textarea {
 
 @media (max-width: 768px) {
   #film-view {
-    padding-top: 68px;
+    //padding-top: 55px;
 
     & > .container > .row {
       margin-top: 70px;
@@ -371,7 +371,7 @@ textarea {
     width: 50%;
   }
   #film-view {
-    padding-top: 20px;
+    //padding-top: 20px;
   }
 }
 
