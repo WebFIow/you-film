@@ -44,3 +44,8 @@
 .app-content {
     padding-top: 96px;
 }
+@media (max-width: 996px) {
+    .app-content {
+        padding-top: 68px;
+    }
+}

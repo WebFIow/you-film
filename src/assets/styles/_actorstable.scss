@@ -1,9 +1,9 @@
-#actors-table{
+#actors-table, #producer-table{
   padding: 30px 0;
   background-color: #000000;
 }
 
-#actors-table  .hText{
+#actors-table, #producer-table  .hText{
   margin-bottom: 40px;
 }
 
@@ -95,7 +95,7 @@
 }
 
 @media (max-width: 1200px) {
-  #actors-table .hText{
+  #actors-table, #producer-table .hText{
     font-size: 40px;
   }
 
@@ -129,7 +129,7 @@
 
 @media (max-width: 992px) {
 
-  #actors-table .accordion{
+  #actors-table, #producer-table .accordion{
     font-size: 15px;
   }
 }
@@ -151,18 +151,18 @@
     }
   }
 
-  #actors-table .hText{
+  #actors-table, #producer-table .hText{
     text-align: left;
     margin-bottom: 20px;
   }
 
-  #actors-table .accordion{
+  #actors-table, #producer-table .accordion{
     font-size: 18px;
   }
 }
 
 @media (max-width: 575px){
-  #actors-table .hText{
+  #actors-table, #producer-table .hText{
     padding-left: 45px;
   }
 }

@@ -39,7 +39,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
   },
-  /*{
+  {
     path: '/actors',
     name: 'Actors',
     meta: { layout: 'main' },
@@ -55,8 +55,26 @@ const routes = [
     path: '/actor-view',
     name: 'ActorView',
     meta: { layout: 'main' },
-    component: () => import('../views/ActorView')
-  },*/
+    component: () => import('../components/ActorView')
+  },
+  {
+    path: '/producer',
+    name: 'Producer',
+    meta: { layout: 'main' },
+    component: () => import('../views/Producer')
+  },
+  {
+    path: '/producer-table',
+    name: 'ProducerTable',
+    meta: { layout: 'main' },
+    component: () => import('../components/ProducerTable')
+  },
+  {
+    path: '/producer-view',
+    name: 'ProducerView',
+    meta: { layout: 'main' },
+    component: () => import('../components/ProducerView')
+  },
   {
     path: '/films',
     name: 'Films',

@@ -1,31 +1,17 @@
-#actor-view{
-  background-color: #000000;
-  padding: 0;
-}
-#film-view > .container > .row, #actor-view > .container > .row{
-  margin-top: 30px;
-}
-#actor-view .fTable table{
-  width: 100%;
-}
-
-#actor-view .hText{
-  text-align: left;
-}
-
-.actor-view--info{
-  padding: 40px 0px 70px 0;
+.actor-info--films{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-top: 45px;
 }
 .actor-info--films---wrap{
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-.actor-info--films {
+.actor-info--films---wrap {
   & img{
     width: 100%;
     height: auto;
@@ -35,12 +21,13 @@
   & a{
     padding: 10px 0;
     color: #ffffff;
+    text-align: center;
     font-style: normal;
     font-family: Montserrat;
     font-size: 14px;
     transition: color 0.2s linear;
 
-    &::hover{
+    &:hover{
       color: $gold;
       text-decoration: none;
       transition: color 0.2s linear;
@@ -64,14 +51,15 @@
 }
 .actor-rating{
   padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 .like, .dislike {
   margin: 0 15px;
   font-family: Josefin Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.06em;
   text-transform: capitalize;
@@ -91,13 +79,14 @@
   padding: 0 5px;
 }
 .qty1, .qty2 {
+  font-size: 18px;
   border: none;
   width:30px;
   background: transparent;
   color: rgba(245, 245, 247, 0.5);
 }
 
-#actor-view .usWrap {
+#actor-view, #producer-view .usWrap {
   display: flex;
   padding: 25px;
   height: 100%;
@@ -106,6 +95,79 @@
   align-items: center;
 }
 
-#actor-view .btn-comment{
+#actor-view, #producer-view .btn-comment{
   margin-top: 20px;
+}
+
+@media (max-width: 991px) {
+  #actor-view, #producer-view .hText{
+    margin-bottom: 40px;
+  }
+  .actor-rating{
+    padding: 15px 0;
+  }
+  .like, .dislike{
+    padding: 9px 19px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .actor-description .imgWrap{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #actor-view, #producer-view .imgWrap img{
+    width: 60%;
+  }
+
+  #actor-view, #producer-view .hText{
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .actor-info--img---wrap{
+
+    & img{
+      width: 60%;
+    }
+  }
+
+  .fTable table td{
+    font-size: 16px;
+  }
+
+  .actor-info--films{
+    & img{
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .actor-info--films {
+    flex-direction: column;
+  }
+
+  .actor-info--films---wrap {
+    width: 80%;
+  }
+
+  .mob {
+    display: none;
+  }
+
+  #actor-view, #producer-view .usWrap{
+    padding: 0;
+  }
+
+  .usWrap .profile-img{
+    display: none;
+  }
+
+  #actor-view, #producer-view .comment p{
+    font-size: 18px;
+    width: 100%;
+  }
 }

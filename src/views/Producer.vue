@@ -1,8 +1,8 @@
 <template>
-    <div id="actors">
+    <div id="producer">
         <div class="actors-wrap container">
             <div class="actors-text">
-                <h1>АКТОРИ</h1>
+                <h1>Режисери</h1>
                 <p>Миттєвий пошук фільмів та зручний серфінг по сайту.<br>Ви завжди будете в курсі коли і що дивитись.</p>
             </div>
             <form  class="search">
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-export default {
-    name: "Actors",
-};
+    export default {
+        name: "Producer",
+    };
 </script>
