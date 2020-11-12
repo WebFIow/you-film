@@ -70,7 +70,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h3 class="hText">Відгуки</h3>
+                    <h3 class="hText margin">Відгуки</h3>
                     <div class="comment crComment container">
                         <div class="row">
                             <div class="col-xl-2 col-sm-3">
