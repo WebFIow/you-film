@@ -10,10 +10,14 @@ export default {
         throw e
       }
     },
-    async addCommentToFilm({dispatch}, { id, comment }) {
-      const film = await dispatch('fetchFilmById', id)
-      film.comments.unshift(comment)
-      const clg = await firebase.database().ref(`/films/${id}`).update(film)
+    async addCommentToFilm({dispatch}, { id, comment, comments }) {
+      const uid = await dispatch('getUid')
+      const existedComment = comments.find(comment => comment.userId === uid);
+      if (!existedComment) {
+        comment.userId = uid
+        comments.unshift(comment)
+        await firebase.database().ref(`/films/${id}/comments`).set(comments)
+      }
     },
     async fetchFilmLists({dispatch, commit}) {
       const uid = await dispatch('getUid')

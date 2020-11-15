@@ -91,59 +91,61 @@
       <div class="row">
         <div class="col-12">
           <h3 class="hText">Відгуки</h3>
-          <div class="comment crComment container">
-            <div class="row">
-              <div class="col-xl-2 col-sm-3">
-                <div class="usWrap">
-                  <span class="profile-img"><span class="profile-img--name">{{nameFirstLetter}}</span></span>
-                  <p>{{name}}</p>
-                  <div class="imgStars imgStarsMob d-md-none d-sm-block">
-                    <div class="rating">
-                      <span
-                        v-for="i of 10"
-                        :key="i"
-                        :class="{gold: i <= film.imdbRating}"
-                        @click="setRating(i)"
-                      ></span>
+          <div v-if="user.name">
+            <div class="comment crComment container">
+              <div class="row">
+                <div class="col-xl-2 col-sm-3">
+                  <div class="usWrap">
+                    <span class="profile-img"><span class="profile-img--name">{{nameFirstLetter}}</span></span>
+                    <p>{{name}}</p>
+                    <div class="imgStars imgStarsMob d-md-none d-sm-block">
+                      <div class="rating">
+                        <span
+                          v-for="i of 10"
+                          :key="i"
+                          :class="{gold: i <= film.imdbRating}"
+                          @click="setRating(i)"
+                        ></span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-10 col-sm-9 px-mob-none">
-                <div class="row mobNotVisible">
-                  <div
-                    class="col-12 d-flex align-items-baseline align-items-sm-center"
-                  >
-                    <p class="pr20 gold">Оцінка фільму:</p>
-                    <div class="rating">
-                      <span
-                        v-for="i of 10"
-                        :key="i"
-                        :class="{gold: i <= rating}"
-                        @click="setRating(i)"
-                        @mouseenter="setRating(i)"
-                        @mouseleave="setRating(i)"
-                      ></span>
+                <div class="col-xl-10 col-sm-9 px-mob-none">
+                  <div class="row mobNotVisible">
+                    <div
+                      class="col-12 d-flex align-items-baseline align-items-sm-center"
+                    >
+                      <p class="pr20 gold">Оцінка фільму:</p>
+                      <div class="rating">
+                        <span
+                          v-for="i of 10"
+                          :key="i"
+                          :class="{gold: i <= rating}"
+                          @click="setRating(i)"
+                          @mouseenter="setRating(i)"
+                          @mouseleave="setRating(i)"
+                        ></span>
+                      </div>
+                      <span class="pr20 gold" v-show="rating">
+                          {{rating}} / 10
+                        </span>
                     </div>
-                    <span class="pr20 gold" v-show="rating">
-                        {{rating}} / 10
-                      </span>
                   </div>
-                </div>
-                <div id="cForm">
-                  <textarea
-                    id="cArea"
-                    rows="3"
-                    placeholder="Залишити відгук"
-                    v-model="comment"
-                    maxlength="500"
-                  >
-                  </textarea>
-                  <span class="cLen">{{comment.length}}/500</span>
-                </div>
-                <div class="row">
-                  <div class="col-12 col-left">
-                    <button type="submit" @click.prevent="submitComment" class="btn btn-comment">Надіслати</button>
+                  <div id="cForm">
+                    <textarea
+                      id="cArea"
+                      rows="3"
+                      placeholder="Залишити відгук"
+                      v-model="comment"
+                      maxlength="500"
+                    >
+                    </textarea>
+                    <span class="cLen">{{comment.length}}/500</span>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-left">
+                      <button type="submit" @click.prevent="submitComment" class="btn btn-comment">Надіслати</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -184,7 +186,6 @@ export default {
     this.film = await this.$store.dispatch("fetchFilmById", this.id)
     await this.$store.dispatch('fetchInfo')
     this.user = this.$store.getters.info
-    console.log(this.user)
   },
   computed: {
     name() {
@@ -219,6 +220,7 @@ export default {
         this.rating = 0
 
         const dataToUpdate = {
+          comments: this.film.comments,
           comment,
           id: this.id,
         }

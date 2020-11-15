@@ -61,6 +61,12 @@ export default {
       this.film = await this.$store.dispatch('fetchFilmById', this.filmId)
     } else {
       this.film = this.filmData
+      console.log(this.film)
+    }
+  },
+  watch: {
+    filmData() {
+      this.film = this.filmData
     }
   },
 	data: () => ({

@@ -32,6 +32,17 @@
         <div class="row tabColReverse">
           <div class="col-xl-9 col-md-8">
             <h3 class="hText">Список фільмів</h3>
+            <p 
+              class="sticker"
+              v-for="filterName in Genres.concat(Countries)"
+              :key="filterName"
+            >
+              {{filterName}}
+              <i 
+                class="fas fa-times"
+                @click="removeFilter(filterName)"
+              ></i>
+            </p>
             <p
               v-if="!films.length"
             >
@@ -58,8 +69,8 @@
                     <input
                             :id="genre"
                             type="checkbox"
-                            @change="filterFilmsByGenre(genre)"
-                            :checked="$route.query.genre == genre"
+                            v-model="Genres"
+                            :value="genre"
                     />
                     <label :for="genre">{{ genre }}</label>
                   </li>
@@ -97,7 +108,8 @@
                     <input
                             :id="country"
                             type="checkbox"
-                            @change="filterFilmsByCountry(country)"
+                            v-model="Countries"
+                            :value="country"
                     />
                     <label :for="country">{{ country }}</label>
                   </li>
@@ -159,6 +171,8 @@ export default {
     searchStr: "",
     filteredGenres: [],
     filteredCountries: [],
+    Countries: [],
+    Genres: [],
   }),
   mixins: [paginationMixin],
   async mounted() {
@@ -200,8 +214,41 @@ export default {
         .filter((film) => film.TitleUA.includes(this.searchStr))
         .map((film) => ({ title: film.TitleUA, id: film.id }));
     },
+    Countries: {
+      deep: true,
+      handler() {
+        this.films = this.allFilms
+          .filter(this.filmContainGenres)
+          .filter(this.filmContainCountries)
+  
+        this.setup(this.films)
+      }
+    },
+    Genres: {
+      deep: true,
+      handler() {
+        this.films = this.allFilms
+          .filter(this.filmContainGenres)
+          .filter(this.filmContainCountries)
+  
+        this.setup(this.films)
+      }
+    }
   },
   methods: {
+    removeFilter(filter) {
+      if (this.Genres.indexOf(filter) !== -1) {
+        this.Genres = this.Genres.filter(genre => genre !== filter)
+      } else if (this.Countries.indexOf(filter) !== -1) {
+        this.Countries = this.Countries.filter(counrty => counrty !== filter)
+      }
+    },
+    filmContainGenres(film) {
+      return !this.Genres.length || this.Genres.every(g => film.Genre.includes(g))
+    },
+    filmContainCountries(film) {
+      return !this.Countries.length || this.Countries.every(c => film.Country.includes(c))
+    },
     showAcc(e) {
       const el = e.target;
       el.classList.toggle("active");
@@ -224,50 +271,6 @@ export default {
       setTimeout(() => {
         this.searchedTitles = [];
       }, 0);
-    },
-    filterFilmsByGenre(genre = "", alreadyFilteredFilms) {
-      if (genre) {
-        let genreIndex = this.filteredGenres.indexOf(genre);
-
-        if (genreIndex !== -1) {
-          this.filteredGenres.splice(genreIndex, 1);
-        } else {
-          this.filteredGenres.push(genre);
-        }
-
-        this.films = this.allFilms.filter((film) => {
-          return this.filteredGenres.every((g) => film.Genre.includes(g));
-        });
-
-        this.filterFilmsByCountry("", this.films);
-      } else if (this.filteredGenres.length) {
-        this.films = alreadyFilteredFilms.filter((film) => {
-          return this.filteredGenres.every((g) => film.Genre.includes(g));
-        });
-      }
-      this.setup(alreadyFilteredFilms ? alreadyFilteredFilms : this.films);
-    },
-    filterFilmsByCountry(country = "", alreadyFilteredFilms) {
-      if (country) {
-        let countryIndex = this.filteredCountries.indexOf(country);
-
-        if (countryIndex !== -1) {
-          this.filteredCountries.splice(countryIndex, 1);
-        } else {
-          this.filteredCountries.push(country);
-        }
-
-        this.films = this.allFilms.filter((film) => {
-          return this.filteredCountries.every((c) => film.Country.includes(c));
-        });
-
-        this.filterFilmsByGenre("", this.films);
-      } else if (this.filteredCountries.length) {
-        this.films = alreadyFilteredFilms.filter((film) => {
-          return this.filteredCountries.every((c) => film.Country.includes(c));
-        });
-      }
-      this.setup(alreadyFilteredFilms ? alreadyFilteredFilms : this.films);
     },
     sortFilmsByProp(prop, order) {
       this.films.sort((a, b) => order * (+a[prop] - +b[prop]));

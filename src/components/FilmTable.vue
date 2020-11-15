@@ -1,10 +1,13 @@
 <template>
 <div>
+
+<div v-for="film of films" :key="film.name">
   <FilmCard 
-    v-for="film of films"
-    :key="film.name"
+    
+    
     :filmData="film"
   />
+</div>
 </div>
 </template>
 
@@ -12,7 +15,7 @@
 import FilmCard from './FilmCard'
 
 export default {
-  props: ['films', 'page', 'pageSize'],
+  props: ['films'],
   components: {
     FilmCard
   }
