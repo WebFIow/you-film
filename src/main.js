@@ -5,13 +5,22 @@ import store from './store'
 import firebase from 'firebase/app'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
+import messagePlugin from './utils/message.plugin'
+import titlePlugin from './utils/title.plugin'
+import tooltipDirective from './directives/tooltip.directive'
 import 'firebase/auth'
 import 'firebase/database'
 import '@/assets/styles/main.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'materialize-css/dist/js/materialize.min.js'
 
 Vue.use(Vuelidate)
+Vue.use(titlePlugin)
+Vue.use(messagePlugin)
+
 Vue.component('Paginate', Paginate)
+
+Vue.directive('tooltip', tooltipDirective)
 
 Vue.config.productionTip = false
 

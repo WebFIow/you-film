@@ -180,8 +180,9 @@ export default {
     this.films = this.allFilms;
 
     if (this.$route.query.genre) {
-      this.filterFilmsByGenre(this.$route.query.genre);
-      return;
+      this.Genres.push(this.$route.query.genre)
+      this.films = this.allFilms
+        .filter(this.filmContainGenres)
     }
 
     this.setup(this.films);
