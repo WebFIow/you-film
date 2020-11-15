@@ -5,6 +5,7 @@ import store from './store'
 import firebase from 'firebase/app'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
+import Loader from './components/Loader'
 import messagePlugin from './utils/message.plugin'
 import titlePlugin from './utils/title.plugin'
 import tooltipDirective from './directives/tooltip.directive'
@@ -19,6 +20,7 @@ Vue.use(titlePlugin)
 Vue.use(messagePlugin)
 
 Vue.component('Paginate', Paginate)
+Vue.component('Loader', Loader)
 
 Vue.directive('tooltip', tooltipDirective)
 

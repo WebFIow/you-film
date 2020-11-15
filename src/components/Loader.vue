@@ -1,0 +1,19 @@
+<template>
+<div class="app-loader">
+        <div class="preloader-wrapper m-active">
+            <div class="spinner-layer spinner-gold-only">
+            <div class="circle-clipper left">
+                <div class="m-circle"></div>
+            </div><div class="gap-patch">
+                <div class="m-circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="m-circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {}
+</script>

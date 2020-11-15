@@ -73,7 +73,6 @@ export default {
       const filmLists = this.filmLists
       const filmList = filmLists.find(filmList => filmList.name == filmListName)
       filmList.filmsId = filmList.filmsId.filter(id => id !== filmId) || []
-      console.log(filmList.filmsId)
       this.filmLists = filmLists
       this.$forceUpdate()
       this.$store.dispatch('setFilmLists', this.filmLists)

@@ -16,7 +16,9 @@
               <h4 class="hSubText">Залишайся з нами 24/7.<br>Твої YouFilm ♥️</h4>
 
               <div class="formWrap">
+                <Loader v-if="loading"/>
                 <form 
+                  v-else
                   class="regForm" 
                   @submit.prevent="register" 
                   autocomplete="off"
@@ -115,13 +117,15 @@
 
 <script>
 import {email, required, minLength} from 'vuelidate/lib/validators'
+import messages from '@/utils/messages'
 
 export default {
   data: () => ({
     name: '',
     email: '',
     password: '',
-    agreed: false
+    agreed: false,
+    loading: false,
   }),
   validations: {
     email: { email, required },
@@ -142,15 +146,20 @@ export default {
         name: this.name
       }
 
-      this.email = ''
-      this.name = ''
-      this.agreed = false
-      this.password = ''
+      this.loading = true
+
       try {
         await this.$store.dispatch('register', formData)
         this.$router.push('/profile')
+        this.email = ''
+        this.name = ''
+        this.agreed = false
+        this.password = ''
+        this.loading = false
       } catch (e) {
-        alert(e.message)
+        this.$v.$reset()
+        this.loading = false
+        this.$message(messages[e.code])
       }
     }
   }
