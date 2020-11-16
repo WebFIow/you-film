@@ -52,7 +52,7 @@
             >
               Введіть пароль
             </small>
-            <p class="forgetPass" @click.prevent=forgetPassword>Не пам'ятаю пароль</p>
+            <p class="forgetPass" @click="forgetPassword">Не пам'ятаю пароль</p>
             <button>Увійти</button>
             <span class="login-account" @click="goToRegister"
               >Немає аккаунту? Зареєструйся!</span
@@ -111,6 +111,10 @@ export default {
     password: { required },
   },
   methods: {
+    forgetPassword() {
+      this.$emit("closeAuth")
+      this.$message(`Мы отправили инструкцию по сбросу пароля на вашу почту`)
+    },
     changeState(state) {
       this.state = state;
     },
@@ -151,7 +155,7 @@ export default {
       ) {
         return;
       } else {
-        this.$emit("closeAuth");
+        this.$emit("closeAuth")
       }
     },
   },
