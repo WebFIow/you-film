@@ -52,7 +52,7 @@
             >
               Введіть пароль
             </small>
-            <a href="#">Не пам'ятаю пароль</a>
+            <p class="forgetPass" @click.prevent=forgetPassword>Не пам'ятаю пароль</p>
             <button>Увійти</button>
             <span class="login-account" @click="goToRegister"
               >Немає аккаунту? Зареєструйся!</span
@@ -103,8 +103,8 @@ export default {
   props: ["isVisible"],
   data: () => ({
     state: "auth",
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   }),
   validations: {
     email: { email, required },

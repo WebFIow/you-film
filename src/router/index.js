@@ -106,6 +106,12 @@ const routes = [
     component: () => import('../views/FilmMain')
   },
   {
+    path: '/reset-password',
+    name: 'Reset Password',
+    meta: { layout: 'main' },
+    component: () => import('../views/ResetPassword')
+  },
+  {
     path: '/profile',
     meta: { layout: 'main', auth: true },
     component: () => import('../views/Profile'),
