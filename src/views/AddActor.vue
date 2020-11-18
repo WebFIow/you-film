@@ -45,7 +45,7 @@
  input, button {
      height: 40px;
      margin-bottom: 20px;
-     color: #fff !important;
+     color: #000 !important;
  }
 
 form {
@@ -101,15 +101,15 @@ export default {
     async mounted() {
         this.films = await this.$store.dispatch('fetchFilms')
         const actors = []
-        console.log(this.films.length)
+
         this.films.forEach(film => {
             const namesArray = film.Director.split(', ')
             namesArray.forEach(name => {
                 if(actors.indexOf(name) == -1) {
                     actors.push(name)
                     this.actors.push({
-                        name,
-                        films_id: [film.id]
+                      name,
+                      films_id: [film.id]
                     })
                 } else {
                     this.actors[actors.indexOf(name)].films_id.push(film.id)
@@ -117,7 +117,7 @@ export default {
             })
         })
 
-        this.alreadyActors = await this.$store.dispatch('fetchActors')
+        this.alreadyActors = await this.$store.dispatch('fetchDirectors')
         this.A = this.actors.map(el => {
                 const common = this.alreadyActors.find(a => a.name === el.name)
 

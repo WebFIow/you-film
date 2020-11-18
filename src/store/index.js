@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import firebase, { registerVersion } from 'firebase/app'
 import films from './films'
 import actors from './actors'
+import directors from './directors'
 import auth from './auth'
 
 Vue.use(Vuex)
@@ -88,6 +89,6 @@ export default new Vuex.Store({
     },
   },
   modules: {
-    films, actors, auth
+    films, actors, auth, directors
   }
 })
