@@ -71,7 +71,7 @@ export default {
         async postActor() {
             const actor = this.actors.find(el => el.name === this.name)
             console.log(actor)
-            this.$store.dispatch('createActor', {
+            this.$store.dispatch('createDirector', {
               name: this.name,
               born: this.born,
               died: this.died,
@@ -79,7 +79,7 @@ export default {
               films_id: actor.films_id
             })
 
-            this.alreadyActors = await this.$store.dispatch('fetchActors')
+            this.alreadyActors = await this.$store.dispatch('fetchDirectors')
            this.A = this.actors.map(el => {
                 const common = this.alreadyActors.find(a => a.name === el.name)
 
@@ -103,7 +103,7 @@ export default {
         const actors = []
         console.log(this.films.length)
         this.films.forEach(film => {
-            const namesArray = film.Actors.split(', ')
+            const namesArray = film.Director.split(', ')
             namesArray.forEach(name => {
                 if(actors.indexOf(name) == -1) {
                     actors.push(name)

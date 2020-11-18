@@ -66,6 +66,16 @@ export default new Vuex.Store({
         throw e
       }
     },
+    async createDirector({ }, { name, born, died, url, films_id }) {
+      const data = {
+        name, url, born, died, films_id
+      }
+      try {
+        const actor = await firebase.database().ref(`/directors/`).push(data)
+      } catch (e) {
+        throw e
+      }
+    },
     async updateInfo({ dispatch, commit }, toUpdate) {
       try {
         const uid = await dispatch('getUid')

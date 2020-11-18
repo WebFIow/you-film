@@ -17,6 +17,9 @@ export default {
         comment.userId = uid
         comments.unshift(comment)
         await firebase.database().ref(`/films/${id}/comments`).set(comments)
+      } else {
+        const error = new Error()
+        throw error
       }
     },
     async fetchFilmLists({dispatch, commit}) {

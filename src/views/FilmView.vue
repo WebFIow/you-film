@@ -168,7 +168,7 @@
 </template>
 
 <script>
-import Comment from '@/components/FilmViewComment';
+import Comment from '@/components/FilmViewComment'
 import AddToWatchListModal from '@/components/ModalAddToWatchList'
 
 export default {
@@ -225,8 +225,13 @@ export default {
           id: this.id,
         }
 
-        await this.$store.dispatch('addCommentToFilm', dataToUpdate)
-        this.film = await this.$store.dispatch('fetchFilmById', this.id)
+        try {
+          await this.$store.dispatch('addCommentToFilm', dataToUpdate)
+          this.film = await this.$store.dispatch('fetchFilmById', this.id)
+        } catch (e) {
+          this.$message('На жаль, можна залишити лише один коментар з одного акаунту')
+        }
+
       }
     }
   },
