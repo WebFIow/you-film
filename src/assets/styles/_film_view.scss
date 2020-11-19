@@ -380,9 +380,6 @@ textarea {
   .imgWrap img {
     width: 50%;
   }
-  #film-view {
-    //padding-top: 20px;
-  }
 }
 
 @media (max-width: 425px) {
@@ -431,7 +428,11 @@ textarea {
     margin-bottom: 1rem;
   }
   .btn-comment {
-    margin-top: 1rem;
+    margin-top: 8px;
+    float: none;
+  }
+  .col-left {
+    text-align: center;
   }
   .rComment p {
     color: white;
