@@ -84,41 +84,42 @@
             </nav>
           </div>
           <form class="search-mob--wrap" @submit.prevent>
-            <input type="text" placeholder="Пошук" />
-            <button type="submit"></button>
-            <ul class="searchRes">
-              <li>
-                <router-link :to="`/film-view/`">
-                  123
-                </router-link>
-              </li>
-              <li>
-                <router-link :to="`/film-view/`">
-                  123
-                </router-link>
-              </li>
-              <li>
-                <router-link :to="`/film-view/`">
-                  123
-                </router-link>
-              </li>
-              <li>
-                <router-link :to="`/film-view/`">
-                  123
-                </router-link>
-              </li>
-              <li>
-                <router-link :to="`/film-view/`">
-                  123
-                </router-link>
-              </li>
-              <li>
-                <router-link :to="`/film-view/`">
-                  123
-                </router-link>
-              </li>
-            </ul>
+               <input type="text" placeholder="Пошук" />
+               <button type="submit"></button>
           </form>
+          <ul class="searchRes">
+            <li>
+              <router-link :to="`/film-view/`">
+                123
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="`/film-view/`">
+                123
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="`/film-view/`">
+                123
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="`/film-view/`">
+                123
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="`/film-view/`">
+                123
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="`/film-view/`">
+                123
+              </router-link>
+            </li>
+          </ul>
+
           <div class="hamburger-menu">
             <input id="menu-toggle" type="checkbox" v-model="checked" />
             <label class="menu-btn" for="menu-toggle">

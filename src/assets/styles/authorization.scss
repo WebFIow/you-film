@@ -13,9 +13,10 @@
   display: flex;
   align-items: center;
   text-align: center;
-}
-.authorization-wrap svg{
-  margin: 40px 0;
+
+  & svg{
+    margin: 40px 0;
+  }
 }
 
 .auth-close {
@@ -39,61 +40,82 @@
   align-items: center;
   margin: 0 auto;
   width: fit-content;
+
+  & input{
+    background-color: #ffffff;
+    border-radius: 0;
+    border: none;
+    color: #707070;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: "Josefin Sans", sans-serif;
+    width: 300px;
+    margin: 10px 0;
+    padding: 7px 10px 3px;
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    &:focus{
+      outline: none;
+    }
+
+    &:first-child{
+      font-weight: 900;
+    }
+  }
+
+  & button{
+    background-color: $gold;
+    border-radius: 50px;
+    border: none;
+    color: #111111;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: "Josefin Sans", sans-serif;
+    width: 300px;
+    padding: 8px 0 6px 0;
+    margin: 40px 0 12px;
+    transition: transform 0.2s;
+
+    &:focus{
+      outline: none;
+    }
+
+    &:hover{
+      transform: translate3d(0,-10px,0);
+      transition: transform 0.4s;
+    }
+  }
+
+  & a{
+    color: $gold;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Josefin Sans",sans-serif;
+
+    &:hover{
+      text-decoration: none;
+      color: #ffffff;
+      transition: color 0.2s linear;
+    }
+  }
+
+  .forgetPass{
+    color: #FDFDFD;
+    cursor: pointer;
+    transition: color 0.2s linear ;
+
+    &:hover{
+      color: $gold;
+      transition: color 0.2s linear ;
+    }
+  }
 }
-.authorization-text--wrap input{
-  background-color: #ffffff;
-  border-radius: 0;
-  border: none;
-  color: #707070;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  font-family: "Josefin Sans", sans-serif;
-  width: 300px;
-  margin: 10px 0;
-  padding: 7px 10px 3px;
-}
-.authorization-text--wrap input:hover{
-  cursor: pointer;
-}
-.authorization-text--wrap input:focus{
-  outline: none;
-}
-.authorization-text--wrap input:first-child{
-  font-weight: 900;
-}
-.authorization-text--wrap button{
-  background-color: $gold;
-  border-radius: 50px;
-  border: none;
-  color: #111111;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  font-family: "Josefin Sans", sans-serif;
-  width: 300px;
-  padding: 8px 0 6px 0;
-  margin: 40px 0 12px;
-  transition: transform 0.2s;
-}
-.authorization-text--wrap button:focus{
-  outline: none;
-}
-.authorization-text--wrap button:hover{
-  transform: translate3d(0,-10px,0);
-  transition: transform 0.4s;
-}
-.authorization-text--wrap a{
-  color: $gold;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Josefin Sans",sans-serif;
-}
-.authorization-text--wrap a:hover{
-  text-decoration: none;
-  color: #ffffff;
-  transition: color 0.2s linear;
-}
+
 
 //mobile
 @media (max-width: 425px) {

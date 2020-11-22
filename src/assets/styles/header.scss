@@ -7,26 +7,33 @@
   right: 0;
   z-index: 3;
   letter-spacing: 1px;
-}
-#header .row{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  //padding: 30px 10px;
-  background-color: #161616;
-}
-#header svg{
-  background-color: #161616;
+
+  & .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //padding: 30px 10px;
+    background-color: #161616;
+  }
+
+  & svg{
+    background-color: #161616;
+  }
+
+  & .searchRes{
+    display: none;
+  }
 }
 .header-nav{
   padding: 35px 0;
   display: flex;
   justify-content: space-around;
   background-color: #161616;
-}
-.header-nav li{
-  list-style: none;
-  background-color: #161616;
+
+  & li{
+    list-style: none;
+    background-color: #161616;
+  }
 }
 .header-nav--item{
   font-family: "Josefin Sans",sans-serif;
@@ -36,12 +43,13 @@
   color: #ffffff;
   text-transform: uppercase;
   padding: 0 10px;
-}
-.header-nav--item:hover{
-  text-decoration: none;
-  color: $gold;
-  transition: color 0.2s linear;
-  cursor: pointer;
+
+  &:hover{
+    text-decoration: none;
+    color: $gold;
+    transition: color 0.2s linear;
+    cursor: pointer;
+  }
 }
 .header-nav--item---animate{
   position: absolute;
@@ -54,22 +62,25 @@
   background-color:#161616;
   color: #fff;
   text-align: center;
-}
-.header-nav--item---animate li{
-  padding: 8px 10px ;
-  text-align: left;
-}
-.header-nav--item---animate a{
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: "Josefin Sans", sans-serif;
-}
-.header-nav--item---animate a:hover{
-  color: $gold;
-  text-decoration-line: none;
-  transition: color 0.3;
+
+  & li{
+    padding: 8px 10px ;
+    text-align: left;
+  }
+
+  & a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", sans-serif;
+
+    &:hover{
+      color: $gold;
+      text-decoration-line: none;
+      transition: color 0.3;
+    }
+  }
 }
 .header-nav > li:hover .header-nav--item---animate{
   height: auto;
@@ -93,6 +104,10 @@
   align-items: center;
   justify-content: space-evenly;
   position: relative;
+
+  & li{
+    list-style: none;
+  }
 }
 .profile-img{
   background-color: #C1AB65;
@@ -114,9 +129,6 @@
   transform: translate(-50%, -50%);
   line-height: 15px;
 }
-.header-prof li{
-  list-style: none;
-}
 .header-prof--name {
   font-style: normal;
   font-size: 18px;
@@ -124,11 +136,12 @@
   color: #C1AB65;
   cursor: pointer;
   transition: color 0.2s linear;
-}
-.header-prof--name:hover{
-  color: #ffffff;
-  transition: color 0.2s linear;
-  text-decoration: none;
+
+  &:hover{
+    color: #ffffff;
+    transition: color 0.2s linear;
+    text-decoration: none;
+  }
 }
 .header-prof--name---animate{
   position: absolute;
@@ -142,23 +155,26 @@
   background-color:#161616;
   color: #fff;
   text-align: center;
-}
-.header-prof--name---animate li{
-  text-align: left;
-  padding: 10px 25px;
-}
-.header-prof--name---animate a{
-  text-decoration: none;
-  color: $gold;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: "Josefin Sans", sans-serif;
-  transition: color 0.2;
-}
-.header-prof--name---animate a:hover{
-  color: #ffffff;
-  text-decoration-line: none;
-  transition: color 0.2;
+
+  & li{
+    text-align: left;
+    padding: 10px 25px;
+  }
+
+  & a{
+    text-decoration: none;
+    color: $gold;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", sans-serif;
+    transition: color 0.2;
+
+    &:hover{
+      color: #ffffff;
+      text-decoration-line: none;
+      transition: color 0.2;
+    }
+  }
 }
 .header-prof:hover .header-prof--name---animate{
   height: 100%;
@@ -168,6 +184,7 @@
   color: #ffffff;
   transition: color 0.4s linear;
 }
+
 //mobile
 .hamburger-menu{
   display: none;
@@ -190,12 +207,14 @@
   }
   .header-prof--name---animate{
     width: 200px;
-  }
-  .header-prof--name---animate a{
-    font-size: 13px;
-  }
-  .header-prof--name---animate li{
-    padding: 10px;
+
+    & a{
+      font-size: 13px;
+    }
+
+    & li{
+      padding: 10px;
+    }
   }
 }
 @media (max-width: 995px) {
@@ -216,60 +235,101 @@
   .header-nav--item{
     display: none;
   }
+
   //search//
   .search-mob--wrap {
     display: block;
     position: relative;
-    width: 50px;
     height: 42px;
     background-color: transparent;
-    right: 75px;
+    right: 85px;
     top: -8px;
-  }
-  .search-mob--wrap input {
-    height: 42px;
-    width: 0;
-    padding: 0 40px 0 15px;
-    border: none;
-    border-bottom: 2px solid transparent;
-    outline: none;
-    background: transparent;
-    transition: .4s cubic-bezier(0, 0.8, 0, 1);
-    position: absolute;
-    top: 7px;
-    right: 0;
-    z-index: 2;
-  }
-  .search-mob--wrap input:focus {
-    width: 300px;
-    z-index: 500;
-    border-bottom: 2px solid #ffffff;
-    color: #ffffff;
-    background-color: $color-dark;
-  }
 
-  .search-mob--wrap button {
-    background-color: transparent;
-    background: url(../../../public/img/sea.jpg) center no-repeat;
-    border: none;
-    height: 58px;
-    width: 42px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    z-index: 500;
-
-    &:focus {
+    & input{
+      height: 42px;
+      width: 0;
+      padding: 0 30px 0 15px;
+      border: none;
       outline: none;
+      background: transparent;
+      transition: .2s cubic-bezier(0, 0, 0, 1);
+      position: absolute;
+      top: 7px;
+      right: 0;
+      z-index: 2;
+
+      &:focus{
+        width: 100%;
+        z-index: 500;
+        border-bottom: 2px solid #ffffff;
+        color: #ffffff;
+        background-color: $color-dark;
+        min-width: 625px;
+
+        @media  screen and (max-width: 768px) {
+          min-width: 630px;
+        }
+        @media screen and (max-width: 575px){
+          min-width: 475px;
+        }
+        @media screen and (max-width: 540px){
+          min-width: 440px;
+        }
+        @media screen and (max-width: 425px){
+          min-width: 325px;
+        }
+        @media screen and (max-width: 375px){
+          min-width: 275px;
+        }
+        @media screen and (max-width: 360px){
+          min-width: 260px;
+        }
+        @media screen and (max-width: 320px){
+          min-width:220px
+        }
+        @media screen and (max-width: 280px){
+          min-width:200px
+        }
+      }
+    }
+
+    & button{
+      background-color: transparent;
+      background: url(../../../public/img/sea.jpg) center no-repeat;
+      border: none;
+      height: 58px;
+      width: 21px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      z-index: 500;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
-  .search-mob--wrap button:before {
-    content: "";
-    font-family: "Josefin Sans",sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-    padding: 10px 0;
+  #header .searchRes{
+    top: 96px;
+    background-color: #161616;
+    max-height: 172px;
+    display: block;
+    width: 100%;
+
+    & li{
+      border-bottom: 1px solid #111111;
+      padding: 10px 25px;
+      text-align: left;
+
+      &:first-child{
+        border-top: none;
+      }
+    }
+
+    & a{
+      color: #FDFDFD;
+    }
   }
 //  menu
   .hamburger-menu{
@@ -366,26 +426,7 @@
     transition: color 0.1s linear;
   }
 }
-@media (max-width: 770px) {
-  .search-mob--wrap input:focus{
-    width: 220px;
-  }
-}
-@media (max-width: 425px) {
-  .search-mob--wrap input:focus{
-    min-width:325px
-  }
-}
-
-@media (max-width: 375px) {
-  .search-mob--wrap input:focus{
-    min-width:280px
-  }
-}
 @media (max-width: 320px) {
-  .search-mob--wrap input:focus{
-    min-width:225px
-  }
   .menu-item{
     font-size: 16px;
   }

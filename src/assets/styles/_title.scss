@@ -12,63 +12,71 @@
   display: flex;
   align-items: center;
   text-align: center;
+
+  & .container{
+    background-color: transparent;
+  }
+
+  & h2{
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    color: #ffffff;
+    background-color: transparent;
+    margin: 0 auto;
+    text-transform: uppercase;
+  }
+
+  & p{
+    color: $gold;
+    font-size: 26px;
+    font-style: normal;
+    font-family: "Playfair Display";
+    padding: 10px 0;
+    background-color: transparent;
+    letter-spacing: 2px;
+  }
 }
-.title-wrap .container{
-  background-color: transparent;
-}
-.title-wrap h2{
-  font-family: "Playfair Display";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 70px;
-  color: #ffffff;
-  background-color: transparent;
-  margin: 0 auto;
-  text-transform: uppercase;
-}
-.title-wrap p{
-  color: $gold;
-  font-size: 26px;
-  font-style: normal;
-  font-family: "Playfair Display";
-  padding: 10px 0;
-  background-color: transparent;
-  letter-spacing: 2px;
-}
+
 .search{
   margin: 0 auto;
   display: flex;
   align-items: center;
   width: 60%;
   background-color: transparent;
-  position: relative;
+
+  & input{
+    width: 100%;
+    background-color: #FDFDFD;
+    padding: 6px 20px;
+    border: none;
+    font-size: 20px;
+    font-family: Montserrat;
+    font-style: normal;
+    color: #161616;
+    margin: 40px 0;
+    position: relative;
+  }
+
+  & button{
+    background: url(../../../public/img/sea.jpg) center no-repeat;
+    border: none;
+    outline: none;
+    width: 65px;
+    height: 20px;
+    background-color: #FDFDFD;
+    position: absolute;
+    right: 0;
+
+    &:focus{
+      outline: none;
+    }
+  }
 }
-.search input{
-  width: 100%;
-  background-color: #FDFDFD;
-  padding: 6px 20px;
-  border: none;
-  font-size: 20px;
-  font-family: Montserrat;
-  font-style: normal;
-  color: #161616;
-  margin: 40px 0;
-}
+
 .search:focus,.search:active:focus,.search.active:focus,
 .search.focus,.search:active.focus,.search.active.focus {
-  outline: none;
-}
-.search button{
-  background: url(../../../public/img/sea.jpg) center no-repeat;
-  border: none;
-  outline: none;
-  width: 65px;
-  height: 20px;
-  background-color: #FDFDFD;
-  position: absolute;
-  right: 0;
-}
-.search button:focus{
   outline: none;
 }
 
@@ -90,31 +98,39 @@
   }
 }
 @media (max-width: 770px) {
-  .title-wrap h2{
-    font-size: 35px;
-    width: 75%;
+  .title-wrap {
+    & h2{
+      font-size: 35px;
+      width: 75%;
+    }
+
+    & p{
+      font-size: 20px;
+    }
   }
-  .title-wrap p{
-    font-size: 20px;
-  }
-  .search input{
-    margin: 15px 0;
-    font-size: 15px;
-    padding: 4px 10px 0;
-  }
-  .search button{
-    width: 34px;
+  .search {
+    & input{
+      margin: 15px 0;
+      font-size: 15px;
+      padding: 4px 10px 0;
+    }
+
+    & button{
+      width: 34px;
+    }
   }
 }
 @media (max-width: 510px) {
   .title-wrap h2{
     font-size: 30px;
   }
-  .search input{
-    margin: 10px 0;
-  }
-  .search button{
-    width: 34px;
+  .search {
+    & input{
+      margin: 10px 0;
+    }
+    & button{
+      width: 34px;
+    }
   }
 }
 @media (max-width: 450px) {
@@ -132,17 +148,19 @@
   }
 }
 @media (max-width: 425px) {
-  .title-wrap h2{
-    font-size: 24px;
-    width: 70%;
-  }
-  .title-wrap p{
-    font-size: 18px;
-    margin: 0;
-    padding: 18px 0;
-  }
-  .title-wrap form{
-    display: none;
+  .title-wrap {
+    &h2{
+      font-size: 24px;
+      width: 70%;
+    }
+    p{
+      font-size: 18px;
+      margin: 0;
+      padding: 18px 0;
+    }
+    form{
+      display: none;
+    }
   }
   .button-mob{
     display: block;
@@ -152,26 +170,32 @@
     border-radius: 50px;
     outline: none;
     padding: 8px 33px;
+
+    &:focus{
+      outline: none;
+    }
+
+    &:hover{
+      transform: translate3d(0,-5px,0);
+      transition: transform 0.3s;
+    }
+
+    & a{
+      color: #ffffff;
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: 1px;
+
+      &:hover{
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+
   }
-  .button-mob:focus{
-    outline: none;
-  }
-  .button-mob:hover{
-    transform: translate3d(0,-5px,0);
-    transition: transform 0.3s;
-  }
-  .button-mob a{
-    color: #ffffff;
-    font-size: 16px;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    letter-spacing: 1px;
-  }
-  .button-mob a:hover{
-    color: #ffffff;
-    text-decoration: none;
-  }
+
 }
 @media (max-width: 370px) {
   .title-wrap h2{
