@@ -42,12 +42,12 @@
               </ul>
             </li>
             <li>
-              <router-link to="/actors" class="header-nav--item"
+              <router-link to="/actors-main" class="header-nav--item"
                 >Актори</router-link
               >
             </li>
             <li>
-              <router-link to="/directors" class="header-nav--item"
+              <router-link to="/directors-main" class="header-nav--item"
                 >Режисери</router-link
               >
             </li>

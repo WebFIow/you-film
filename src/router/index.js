@@ -106,6 +106,18 @@ const routes = [
     component: () => import('../views/FilmMain')
   },
   {
+    path: '/actors-main/',
+    name: 'ActorsMain',
+    meta: { layout: 'main' },
+    component: () => import('../views/FilmMain')
+  },
+  {
+    path: '/directors-main/',
+    name: 'DirectorsMain',
+    meta: { layout: 'main' },
+    component: () => import('../views/FilmMain')
+  },
+  {
     path: '/reset-password',
     name: 'Reset Password',
     meta: { layout: 'main' },
