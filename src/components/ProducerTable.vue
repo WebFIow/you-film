@@ -3,7 +3,6 @@
         <div class="container container-fluid">
             <div class="row tabColReverse">
             <div class="actors-table--card col-xl-9 col-md-8">
-                <div class="actors-table--card---line row">
                     <div class="actors-table--card---item col-xl-3 col-md-6">
                         <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
@@ -28,8 +27,6 @@
                             <a href="#">Режисер</a>
                         </div>
                     </div>
-                </div>
-                <div class="actors-table--card---line mob row">
                     <div class="actors-table--card---item col-xl-3 col-md-6">
                         <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
@@ -54,8 +51,6 @@
                             <a href="#">Режисер</a>
                         </div>
                     </div>
-                </div>
-                <div class="actors-table--card---line mob row">
                     <div class="actors-table--card---item col-xl-3 col-md-6">
                         <img src="../../public/img/actors.png">
                         <div class="actors-table--name">
@@ -80,7 +75,6 @@
                             <a href="#">Режисер</a>
                         </div>
                     </div>
-                </div>
             </div>
 
             <div class="col-xl-3 col-md-4">

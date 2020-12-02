@@ -10,13 +10,12 @@
 .actors-table--wrap{
   padding: 20px 0;
 }
-
-.actors-table--card---line{
-  padding: 0 0 50px 0;
+.actors-table--card{
+  display: flex;
+  flex-wrap: wrap;
 }
-
 .actors-table--card---item{
-  padding: 0 20px;
+  padding: 15px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -24,10 +24,10 @@
 
 <script>
     import paginationMixin from "@/mixins/pagination.mixin";
-    import ActorsTable from "@/components/ActorsTable";
+    import ActorsTable from "@/components/ProducerTable";
 
     export default {
-        name: "ActorsMain",
+        name: "ProducersMain",
         components: {
             FilmTable,
         },
@@ -39,4 +39,5 @@
             Countries: [],
             Genres: [],
         })
+    }
 </script>

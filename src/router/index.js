@@ -109,13 +109,13 @@ const routes = [
     path: '/actors-main/',
     name: 'ActorsMain',
     meta: { layout: 'main' },
-    component: () => import('../views/FilmMain')
+    component: () => import('../views/ActorsMain')
   },
   {
-    path: '/directors-main/',
-    name: 'DirectorsMain',
+    path: '/producers-main/',
+    name: 'ProducersMain',
     meta: { layout: 'main' },
-    component: () => import('../views/FilmMain')
+    component: () => import('../views/ProducersMain')
   },
   {
     path: '/reset-password',

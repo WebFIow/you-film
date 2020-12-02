@@ -47,7 +47,7 @@
               >
             </li>
             <li>
-              <router-link to="/directors-main" class="header-nav--item"
+              <router-link to="/producers-main" class="header-nav--item"
                 >Режисери</router-link
               >
             </li>
