@@ -296,6 +296,23 @@ form.search {
   margin-top: 55px;
 }
 
+p.sticker {
+  font-size: 13px;
+  padding: 8px 10px;
+  background-color: $sticker;
+  width: fit-content;
+  color: $sticker-text;
+  margin-bottom: 25px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+
+  & i {
+    padding-left: 10px;
+    cursor: pointer;
+  }
+}
+
 .fListWrap {
   display: flex;
   flex-direction: column;
