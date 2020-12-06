@@ -32,17 +32,19 @@
         <div class="row tabColReverse">
           <div class="col-xl-9 col-md-8">
             <h3 class="hText">Список фільмів</h3>
-            <p 
-              class="sticker"
-              v-for="filterName in Genres.concat(Countries)"
-              :key="filterName"
-            >
-              {{filterName}}
-              <i 
-                class="fas fa-times"
-                @click="removeFilter(filterName)"
-              ></i>
-            </p>
+            <div class="row">
+              <p
+                      class="sticker mr-2"
+                      v-for="filterName in Genres.concat(Countries)"
+                      :key="filterName"
+              >
+                {{filterName}}
+                <i
+                        class="fas fa-times"
+                        @click="removeFilter(filterName)"
+                ></i>
+              </p>
+            </div>
             <p
               v-if="!films.length"
             >
