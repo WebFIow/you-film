@@ -126,9 +126,9 @@
                           @mouseleave="setRating(i)"
                         ></span>
                       </div>
-                      <span class="pr20 gold" v-show="rating">
+                      <span class="pr20 gold mobNotVisible" v-show="rating">
                           {{rating}} / 10
-                        </span>
+                      </span>
                     </div>
                   </div>
                   <div id="cForm">
