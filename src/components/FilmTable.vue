@@ -1,13 +1,10 @@
 <template>
 <div>
-
-<div v-for="film of films" :key="film.name">
-  <FilmCard 
-    
-    
-    :filmData="film"
-  />
-</div>
+  <div v-for="film of films" :key="film.name">
+    <FilmCard  
+      :filmData="film"
+    />
+  </div>
 </div>
 </template>
 

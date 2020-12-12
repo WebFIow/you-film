@@ -15,86 +15,25 @@
         <div id="actors-table">
             <div class="container container-fluid">
                 <div class="row tabColReverse">
-                    <div class="actors-table--card col-xl-9 col-md-8">
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                        <div class="actors-table--card---item col-xl-3 col-md-6">
-                            <img src="../../public/img/actors.png">
-                            <div class="actors-table--name">
-                                <a href="#">Том Фелтон</a>
-                            </div>
-                        </div>
-                    </div>
-
+                  <ActorsTable 
+                    :page="page"
+                    :pageSize="pageSize"
+                    :actors="items"
+                  />
+                  <Paginate
+                    v-model="page"
+                    :page-count="pageCount"
+                    :click-handler="pageChangeHandler"
+                    :prev-text="''"
+                    :next-text="''"
+                    :container-class="'pagination'"
+                    :page-class="'pageCube'"
+                  />
                     <div class="col-xl-3 col-md-4">
                         <h3 class="hText">фільтри</h3>
                         <div class="wMob">
 
-                            <button class="accordion" @click="showAcc">ДАТА НАРОДЖЕННЯ</button>
+                            <button class="accordion">ДАТА НАРОДЖЕННЯ</button>
                             <div class="panel">
                                 <ul class="accUL">
                                     <li>
@@ -119,14 +58,7 @@
                             <button class="accordion" @click="showAcc">КРАЇНА</button>
                             <div class="panel">
                                 <ul class="accUL">
-                                    <li v-for="country in countries" :key="country">
-                                        <input
-                                                :id="country"
-                                                type="checkbox"
-                                                @change="filterFilmsByCountry(country)"
-                                        />
-                                        <label :for="country">{{ country }}</label>
-                                    </li>
+                                    
                                 </ul>
                             </div>
 
@@ -138,8 +70,7 @@
                                                 id="high"
                                                 type="radio"
                                                 name="rating"
-                                                @change="sortFilmsByProp('imdbRating', 1)"
-                                        />
+                                           />
                                         <label for="high">За зростанням</label>
                                     </li>
                                     <li>
@@ -147,22 +78,15 @@
                                                 id="low"
                                                 type="radio"
                                                 name="rating"
-                                                @change="sortFilmsByProp('imdbRating', -1)"
+                                               
                                         />
                                         <label for="low">За спаданням</label>
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-                <ul class="actors-more">
-                    <li class="more-active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                </ul>
             </div>
         </div>
     </div>
@@ -176,21 +100,42 @@
 </style>
 
 <script>
-    import paginationMixin from "@/mixins/pagination.mixin";
-    import ActorsTable from "@/components/ActorsTable";
+import paginationMixin from "@/mixins/pagination.mixin";
+import ActorsTable from "@/components/ActorsTable";
 
-    export default {
-        name: "ActorsMain",
-        components: {
-            ActorsTable,
-        },
-        data: () => ({
-            films: [],
-            searchedTitles: [],
-            allFilms: [],
-            searchStr: '',
-            Countries: [],
-            Genres: [],
-        })
+export default {
+    name: "ActorsMain",
+    components: {
+        ActorsTable,
+    },
+    mixins: [paginationMixin],
+    data: () => ({
+        actors: [],
+        searchedTitles: [],
+        allActors: [],
+        searchStr: '',
+    }),
+    async mounted() {
+      this.allActors = await this.$store.dispatch('fetchActors')
+      this.actors = this.allActors;
+
+      this.setup(this.actors);
+    },
+    methods: {
+      setup(actors) {
+        this.pageSize = 12
+        this.setupPagination(actors);
+      },
+      showAcc(e) {
+      const el = e.target;
+      el.classList.toggle("active");
+      const panel = el.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 70 + "px";
+      }
+    },
     }
+}
 </script>
