@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 
 export default {
   actions: {
-    async fetchFilms() {
+    async fetchFilms({dispatch}) {
       try {
         const films = (await firebase.database().ref(`/films`).once('value')).val()
         return films ? Object.keys(films).map(key => ({ ...films[key], id: key })) : []
@@ -24,7 +24,8 @@ export default {
     },
     async fetchFilmLists({dispatch, commit}) {
       const uid = await dispatch('getUid')
-      const filmLists = (await firebase.database().ref(`/users/${uid}/filmLists`).once('value')).val()
+      let filmLists = (await firebase.database().ref(`/users/${uid}/filmLists`).once('value')).val()
+      filmLists = filmLists || []
       filmLists.forEach(filmList => {
         filmList.filmsId = filmList.filmsId || []
       })

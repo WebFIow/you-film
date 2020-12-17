@@ -52,10 +52,10 @@ const routes = [
     component: () => import('../components/ActorsTable')
   },
   {
-    path: '/actor-view',
+    path: '/actor-view/:id',
     name: 'ActorView',
     meta: { layout: 'main' },
-    component: () => import('../components/ActorView')
+    component: () => import('../views/ActorView')
   },
   {
     path: '/producer',

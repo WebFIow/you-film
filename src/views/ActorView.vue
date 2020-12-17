@@ -1,98 +1,93 @@
 <template>
-  <div id="film-view">
-    <AddToWatchListModal 
-			v-if="modalIsVisible"
-			:title="film.TitleUA"
-			:filmId="film.id"
-			@close="hideAddToWatchListModal"
-		/>
+  <div id="actor-view">
     <div class="container container-fluid">
       <div class="row justify-content-between">
         <div class="col-xl-7 col-md-6 px-mob-none">
-          <div class="film-description">
+          <div class="actor-description">
             <div class="imgWrap d-md-none d-sm-flex text-center">
-              <img class="img-fluid" :src="film.Poster" alt="film_poster" />
-            </div>
-            <div class="imgStars d-md-none d-sm-block">
-              <div class="rating">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span
-                ><span>☆</span> <span>☆</span><span>☆</span><span>☆</span
-                ><span>☆</span><span>☆</span>
+              <img class="img-fluid" :src="actor.url" />
+              <div class="actor-rating">
+                <a class="like">
+                  <i class="fa fa-thumbs-o-up"></i>
+                  <input
+                    class="qty1"
+                    name="qty1"
+                    readonly="readonly"
+                    type="text"
+                    value="130"
+                  />
+                </a>
+                <a class="dislike">
+                  <i class="fa fa-thumbs-o-down"></i>
+                  <input
+                    class="qty1"
+                    name="qty1"
+                    readonly="readonly"
+                    type="text"
+                    value="30"
+                  />
+                </a>
               </div>
-              <p>рейтинг: 7/10</p>
             </div>
-            <h3 class="hText">{{ film.TitleUA }}</h3>
-            <div class="fBox">
-              <p>{{ film.Released }}</p>
-              <p>YouFilm: {{ film.imdbRating }}</p>
-              <p>{{ film.Country }}</p>
-            </div>
-            <div class="fText">
-              <p>{{ film.Plot }}</p>
-            </div>
+            <h3 class="hText">{{ actor.name }}</h3>
             <div class="fTable">
               <table class="table">
                 <tbody>
                   <tr>
+                    <td>Дата народження</td>
+                    <td>{{ actor.born }}</td>
+                  </tr>
+                  <tr>
+                    <td>Вік</td>
+                    <td>{{ age }}</td>
+                  </tr>
+                  <tr>
                     <td>Країна</td>
-                    <td>{{ film.Country }}</td>
+                    <td>{{ actor.country }}</td>
                   </tr>
                   <tr>
-                    <td>Актори</td>
-                    <td>
-                      <router-link
-                        v-for="actor in filmActors"
-                        :key="actor.id"
-                        :to="`/actor-view/${actor.id}`"
-                      >
-                      {{ actor.name }}
-                      </router-link>
-                    </td>
+                    <td class="no-bb">Фільми:</td>
                   </tr>
-                  <tr>
-                    <td>Тривалість</td>
-                    <td>{{ film.Runtime }}</td>
-                  </tr>
-                  <tr>
-                    <td>Жанр</td>
-                    <td>{{ film.Genre }}</td>
-                  </tr>
-                  <tr>
-                    <td>Режисер</td>
-                    <td>{{ film.Director }}</td>
-                  </tr>
-                  <tr>
-                    <td>Нагороди</td>
-                    <td>{{ film.Awards }}</td>
-                  </tr>
+                  <div class="actor-info--actors">
+                    <div
+                      class="actor-info--actors---wrap"
+                      v-for="film in actorFilms"
+                      :key="film.id"
+                    >
+                      <img :src="film.Poster" />
+                      <router-link :to="`/film-view/${film.id}`">{{ film.TitleUA }}</router-link>
+                    </div>
+                  </div>
                 </tbody>
               </table>
-            </div>
-            <div class="fText d-md-none d-sm-block">
-              <p><span class="heart"></span>додати в фільм-лист</p>
             </div>
           </div>
         </div>
         <div class="col-xl-4 col-md-6 d-tablet-none">
           <div class="imgWrap">
-            <img class="img-fluid" :src="film.Poster" alt="film_poster" />
+            <img class="img-fluid" :src="actor.url" />
           </div>
-          <div class="imgStars">
-            <div class="rating">
-              <span
-                v-for="i of 10"
-                :key="i"
-                :class="{gold: i <= film.imdbRating}"
-              ></span>
-            </div>
-            <p>рейтинг: {{Math.floor(film.imdbRating)}}/10</p>
-            <p>
-              <span
-                v-if="$route.path !== '/profile'"
-                class="heart"
-                @click="showAddToWatchListModal()"
-              ></span>
-              Додати в фільм-лист</p>
+          <div class="actor-rating">
+            <a class="like">
+              <i class="fa fa-thumbs-o-up"></i>
+              <input
+                class="qty1"
+                name="qty1"
+                readonly="readonly"
+                type="text"
+                v-model="likes"
+              />
+            </a>
+            <a class="dislike">
+              <i class="fa fa-thumbs-o-down"></i>
+              <input
+                class="qty1"
+                name="qty1"
+                readonly="readonly"
+                type="text"
+                v-model="dislikes"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -111,7 +106,7 @@
                         <span
                           v-for="i of 10"
                           :key="i"
-                          :class="{gold: i <= film.imdbRating}"
+                          :class="{gold: i <= actor.imdbRating}"
                           @click="setRating(i)"
                         ></span>
                       </div>
@@ -159,9 +154,9 @@
               </div>
             </div>
           </div>
-          <div v-if="film.comments && film.comments.length">
+          <div v-if="actor.comments && actor.comments.length">
             <Comment 
-              v-for="comment in film.comments"
+              v-for="comment in actor.comments"
               :key="comment.date"
               :user="comment.user"
               :text="comment.text"
@@ -177,37 +172,35 @@
 
 <script>
 import Comment from '@/components/FilmViewComment'
-import AddToWatchListModal from '@/components/ModalAddToWatchList'
 
 export default {
-  name: "FilmView",
+  name: "ActorView",
   data: () => ({
-    film: {},
+    actor: '',
     modalIsVisible: false,
     id: "",
     rating: 0,
     user: {},
     comment: '',
-    filmActors: []
+    actorFilms: []
   }),
   async mounted() {
     this.id = this.$route.params.id
-    this.film = await this.$store.dispatch("fetchFilmById", this.id)
-    for(let i = 0; i < this.film.actor_ids.length; i++) {
-      let actor = await this.$store.dispatch('fetchActorById', this.film.actor_ids[i])
-      this.filmActors.push(actor)
-    }
-
-    const visitedNumber = +localStorage.getItem(`youfilm.${this.id}`)
-
-    if (visitedNumber) {
-      localStorage.setItem(`youfilm.${this.id}`, visitedNumber + 1)
-    }
-
+    this.actor = await this.$store.dispatch("fetchActorById", this.id)
     await this.$store.dispatch('fetchInfo')
+    for(let i = 0; i < this.actor.films_id.length; i++) {
+      let film = await this.$store.dispatch('fetchFilmById', this.actor.films_id[i])
+      this.actorFilms.push(film)
+    }
     this.user = this.$store.getters.info
   },
   computed: {
+    likes() {
+      return Math.floor(Math.random() * 300 )
+    },
+    dislikes() {
+      return Math.floor(Math.random() * 100)
+    },
     name() {
       return this.$store.getters.info ? this.$store.getters.info.name : false;
     },
@@ -216,16 +209,23 @@ export default {
         ? this.$store.getters.info.name[0].toUpperCase()
         : false;
     },
+    age() {
+      if (this.actor) {
+        const dob = new Date(...this.actor.born.split(' ').reverse())
+        const now = new Date()
+        return now.getYear() - dob.getYear()
+      } else return ''
+    }
   },
   methods: {
     showAddToWatchListModal() {
-			this.modalIsVisible = true
-		},
-		hideAddToWatchListModal() {
-			this.modalIsVisible = false
+      this.modalIsVisible = true;
+    },
+    hideAddToWatchListModal() {
+      this.modalIsVisible = false;
     },
     setRating(rating) {
-      this.rating = rating
+      this.rating = rating;
     },
     async submitComment() {
       if (this.comment.trim() && this.rating) {
@@ -233,31 +233,64 @@ export default {
           rating: this.rating,
           text: this.comment,
           user: this.user.name,
-          date: Date.now()
-        }
+          date: Date.now(),
+        };
 
-        this.comment = ''
-        this.rating = 0
+        this.comment = "";
+        this.rating = 0;
 
         const dataToUpdate = {
-          comments: this.film.comments,
+          comments: this.actor.comments,
           comment,
           id: this.id,
-        }
+        };
 
         try {
-          await this.$store.dispatch('addCommentToFilm', dataToUpdate)
-          this.film = await this.$store.dispatch('fetchFilmById', this.id)
+          await this.$store.dispatch("addCommentToActor", dataToUpdate);
+          this.actor = await this.$store.dispatch("fetchActorById", this.id);
         } catch (e) {
-          this.$message('На жаль, можна залишити лише один коментар з одного акаунту')
+          this.$message(
+            "На жаль, можна залишити лише один коментар з одного акаунту"
+          );
         }
-
       }
-    }
+    },
   },
   components: {
     Comment,
-    AddToWatchListModal
-  }
+  },
 };
 </script>
+
+<style lang="scss">
+.no-bb {
+  border-bottom: none !important;
+}
+.hText {
+  line-height: 1.2 !important;
+}
+  .actor-info--actors---wrap {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+
+    a {
+      font-size: 14px;
+      text-align: center;
+      font-family: "Playfair Display";
+      color: #ffffff;
+      text-transform: uppercase;
+      padding: 20px 0;
+      transition: color 0.3s linear;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  td {
+    border-bottom: 1px solid #C4C4C4 !important;
+  }
+ 
+</style>

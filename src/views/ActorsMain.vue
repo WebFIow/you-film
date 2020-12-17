@@ -1,33 +1,6 @@
 <template>
 <div>
-<div id="films" ref="searchWrap">
-      <div class="films-wrap container">
-        <div class="films-text">
-          <h1>Фільми</h1>
-          <p>
-            Миттєвий пошук фільмів та зручний серфінг по сайту.<br />Ви завжди
-            будете в курсі коли і що дивитись.
-          </p>
-          <form @submit.prevent="handleSearchQuery" class="search">
-            <input
-              class="search"
-              type="text"
-              placeholder="Пошук"
-              v-model="searchStr"
-            />
-            <button value=""></button>
-            <ul class="searchRes" v-if="searchStr">
-              <li v-for="film in searchedTitles" :key="film.id">
-                <router-link :to="`/film-view/${film.id}`">
-                  {{ film.title }}
-                </router-link>
-              </li>
-            </ul>
-          </form>
-        </div>
-      </div>
-    </div>
-  <div id="actors-table">
+  <div id="actors-table" ref="searchWrap">
     <div class="container container-fluid">
       <div class="row tabColReverse">
         <div class="col-xl-9 col-md-8">
@@ -145,7 +118,6 @@ export default {
   components: {
     ActorsTable,
   },
-  mixins: [paginationMixin],
   data: () => ({
     actors: [],
     searchedTitles: [],
@@ -153,6 +125,7 @@ export default {
     searchStr: "",
     Countries: []
   }),
+  mixins: [paginationMixin],
   async mounted() {
     this.allActors = await this.$store.dispatch("fetchActors");
     this.actors = this.allActors;

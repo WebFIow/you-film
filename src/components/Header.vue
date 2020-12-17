@@ -83,7 +83,7 @@
               </li>
             </nav>
           </div>
-          <form class="search-mob--wrap" @submit.prevent>
+          <!-- <form class="search-mob--wrap" @submit.prevent>
                <input type="text" placeholder="Пошук" />
                <button type="submit"></button>
           </form>
@@ -118,7 +118,7 @@
                 123
               </router-link>
             </li>
-          </ul>
+          </ul> -->
 
           <div class="hamburger-menu">
             <input id="menu-toggle" type="checkbox" v-model="checked" />

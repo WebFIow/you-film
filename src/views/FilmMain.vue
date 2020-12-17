@@ -1,5 +1,34 @@
 <template>
   <div>
+    <div id="films" ref="searchWrap">
+      <div class="films-wrap container">
+        <div class="films-text">
+          <h1>Фільми</h1>
+          <p>
+            Миттєвий пошук фільмів та зручний серфінг по сайту.<br />Ви завжди
+            будете в курсі коли і що дивитись.
+          </p>
+          <form @submit.prevent="handleSearchQuery" class="search">
+            <input
+              class="search"
+              type="text"
+              placeholder="Пошук"
+              v-model="searchStr"
+            />
+            <button value=""></button>
+            <ul class="searchRes" v-if="searchStr">
+              <li v-for="film in searchedTitles" :key="film.id">
+                <span
+                  @click="addToStorage(film.id)"
+                >
+                  {{ film.title }}
+                </span>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+    </div>
     <div id="film-main">
       <div class="container container-fluid">
         <div class="row tabColReverse">
@@ -7,14 +36,14 @@
             <h3 class="hText">Список фільмів</h3>
             <div class="row">
               <p
-                      class="sticker mr-2"
-                      v-for="filterName in Genres.concat(Countries)"
-                      :key="filterName"
+                class="sticker mr-2"
+                v-for="filterName in Genres.concat(Countries)"
+                :key="filterName"
               >
                 {{filterName}}
                 <i
-                        class="fas fa-times"
-                        @click="removeFilter(filterName)"
+                  class="fas fa-times"
+                  @click="removeFilter(filterName)"
                 ></i>
               </p>
             </div>
@@ -210,6 +239,23 @@ export default {
     }
   },
   methods: {
+    addToStorage(id) {
+      let films = JSON.parse(localStorage.getItem('youfilm.films'))
+      if (films) {
+        const idx = films.indexOf(id)
+
+        if (idx === -1) {
+          films = films || []
+          films.push(id)
+          localStorage.setItem('youfilm.films', JSON.stringify(films))
+        }
+      } else {
+        films = []
+        films.push(id)
+        localStorage.setItem('youfilm.films', JSON.stringify(films))
+      }
+      this.$router.push(`/film-view/${id}`)
+    },
     removeFilter(filter) {
       if (this.Genres.indexOf(filter) !== -1) {
         this.Genres = this.Genres.filter(genre => genre !== filter)

@@ -35,26 +35,15 @@
         <div class="col-12">
           <h3 class="hText">Рекомендації</h3>
           <div class="recommendWrap">
-            <div class="recommendFilmWrap">
-              <img src="../../public/img/films/fim1.jpeg" />
-              <p>Форест Гамп</p>
-            </div>
-            <div class="recommendFilmWrap">
-              <img src="../../public/img/films/fim1.jpeg" />
-              <p>Форест Гамп</p>
-            </div>
-            <div class="recommendFilmWrap">
-              <img src="../../public/img/films/fim1.jpeg" />
-              <p>Форест Гамп</p>
-            </div>
-            <div class="recommendFilmWrap">
-              <img src="../../public/img/films/fim1.jpeg" />
-              <p>Форест Гамп</p>
-            </div>
-            <div class="recommendFilmWrap">
-              <img src="../../public/img/films/fim1.jpeg" />
-              <p>Форест Гамп</p>
-            </div>
+            <router-link
+              class="recommendFilmWrap"
+              v-for="film in films"
+              :key="film.id"
+              :to="`/film-view/${film.id}`"
+            >
+              <img :src="film.Poster" />
+              <p>{{ film.TitleUA }}</p>
+            </router-link>
           </div>
         </div>
       </div>
@@ -68,13 +57,18 @@ import ProfileSettings from '@/components/ProfileSettings'
 
   export default {
     name: "Profile",
-    data: () => ({}),
+    data: () => ({
+      allFilms: [],
+      films: []
+    }),
     components: {
       ProfileFilmLists,
       ProfileSettings
     },
     async mounted() {
       await this.$store.dispatch('fetchInfo')
+      this.allFilms = await this.$store.dispatch('fetchFilms')
+      await this.displayRecommendations()
     },
     computed: {
       name() {
@@ -96,8 +90,48 @@ import ProfileSettings from '@/components/ProfileSettings'
       },
     },
     methods: {
-      
-    },
+      async displayRecommendations() {
+        
+        const LS_FILMS = localStorage.getItem('youfilm.films')
+        const selectedFilms = JSON.parse(LS_FILMS)
+        if (selectedFilms) {
+          let genres = []
+
+          for(let i = 0; i < selectedFilms.length; i++) {
+            let film = await this.$store.dispatch('fetchFilmById', selectedFilms[i])
+            genres.push(film.Genre.split(', '))
+          }
+          genres = genres.flat(2)
+
+          let recFilms = this.allFilms.filter(film => {
+            const genrs = film.Genre.split(', ')
+            return genrs.some(g => genres.indexOf(g) !== -1)
+          })
+
+          if (recFilms.length > 5) {
+            recFilms = recFilms.splice(0, 5)
+          } else if (recFilms.length < 5) {
+            recFilms = recFilms.concat(this.allFilms).splice(0, 5)
+          }
+
+          this.films = recFilms
+        }
+      }
+    }
   };
 </script>
 
+<style lang="scss" scoped>
+  .recommendFilmWrap {
+    max-width: 17%;
+    overflow: hidden;
+
+    img {
+      width: 100%
+    }
+  }
+
+  .circle {
+    padding-left: 0;
+  }
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="actors-table--card col-xl-9 col-md-8">
+  <div class="actors-table--card col-xl-12 col-md-8">
     <ActorCard v-for="actor in actors" :key="actor.name" :actor="actor" />
   </div>
 </template>
@@ -15,3 +15,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  .actors-table--card {
+    margin-bottom: 50px;
+  }
+</style>

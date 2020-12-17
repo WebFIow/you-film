@@ -19,6 +19,10 @@ export default {
   components: {
     MainLayout, 
     ErrorLayout
+  },
+  async mounted() {
+    await this.$store.dispatch('fetchFilms')
+    await this.$store.dispatch('fetchActors')
   }
 }
 </script>
